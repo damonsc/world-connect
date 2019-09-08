@@ -1,5 +1,7 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /updates
   # GET /updates.json
@@ -50,6 +52,12 @@ class UpdatesController < ApplicationController
       end
     end
   end
+  
+  def correct_user
+  @updates = current_user.pins.find_by(id: params[:id])
+  redirect_to updates_path, notice: "Not the correct client to edit this update" if @updates.nil?
+  end
+  
 
   # DELETE /updates/1
   # DELETE /updates/1.json
