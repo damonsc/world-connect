@@ -5,7 +5,7 @@
 
 		<h1>Status Updates</h1>
 	<ul class="list-inline">
-  <li class="list-inline-item"><%= link_to 'Create new update', new_client_path, class:'btn btn-light' %></li>
+  <li class="list-inline-item"><%= link_to 'Create new update', new_update_path, class:'btn btn-light' %></li>
   <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
 </ul>
 <p id="notice"><%= notice %></p>
@@ -18,8 +18,11 @@
 	  
 	  <ul class="list-inline">
   <li class="list-inline-item"><%= link_to 'Show', update %></li>
+		  <% if update.user == current_user %>
   <li class="list-inline-item"><%= link_to 'Edit', edit_update_path(update) %></li>
-  <li class="list-inline-item"><%= link_to 'Delete', update, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <li class="list-inline-item"><%= link_to 'Delete', update, method: :delete, data: { confirm: 'Are you sure?' } %>
+		  <% end %>
+		  </li>
 </ul>
     
 	

@@ -1,7 +1,7 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   # GET /updates
   # GET /updates.json
@@ -16,7 +16,7 @@ class UpdatesController < ApplicationController
 
   # GET /updates/new
   def new
-    @update = Update.new
+    @update = current_user.updates.build
   end
 
   # GET /updates/1/edit
@@ -26,8 +26,8 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    @update = Update.new(update_params)
-
+    @update = current_user.updates.build(update_params)
+	@update.user = current_user
     respond_to do |format|
       if @update.save
         format.html { redirect_to @update, notice: 'Update was successfully created.' }
@@ -53,11 +53,6 @@ class UpdatesController < ApplicationController
     end
   end
   
-  def correct_user
-  @updates = current_user.pins.find_by(id: params[:id])
-  redirect_to updates_path, notice: "Not the correct client to edit this update" if @updates.nil?
-  end
-  
 
   # DELETE /updates/1
   # DELETE /updates/1.json
@@ -74,9 +69,15 @@ class UpdatesController < ApplicationController
     def set_update
       @update = Update.find(params[:id])
     end
+	
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
       params.require(:update).permit(:title, :status, :creater, :time)
     end
+	
+	def correct_user
+  @update = current_user.updates.find_by(id: params[:id])
+  redirect_to updates_path, notice: "Not the correct client to edit this update" if @updates.nil?
+  end
 end

@@ -19,7 +19,7 @@
   <strong>Time:</strong>
   <%= @update.time %>
 </p>
-<% if @pin.user == current_user %>
+<% if @update.user == current_user %>
 <%= link_to 'Edit', edit_update_path(@update) %> |
 <% end %>
 
