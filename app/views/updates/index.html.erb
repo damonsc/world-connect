@@ -4,7 +4,10 @@
 	
 
 		<h1>Status Updates</h1>
-
+	<ul class="list-inline">
+  <li class="list-inline-item"><%= link_to 'Create new update', new_client_path, class:'btn btn-light' %></li>
+  <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
+</ul>
 <p id="notice"><%= notice %></p>
 <% @updates.each do |update| %>
 <div class="card">
@@ -24,8 +27,6 @@
 	
 </div>
 <% end %>
-<%= link_to 'Create New Update', new_update_path, class: 'btn btn-light' %>
-	<%= link_to 'Home', root_path, class: 'btn btn-light' %>
 
 
  
