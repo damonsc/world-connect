@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+
+<%= form_with(model: update, local: true) do |form| %>
+  <% if update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(update.errors.count, "error") %> prohibited this update from being saved:</h2>
+
+      <ul>
+        <% update.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div></div>
+  <% end %>
+	
+<div class="panel-body">
+	<div class:'form-control'>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:'form-control' %>
+  </div>
+	</div>
+
+	<div class:'form-control'>
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_area :status, class:'form-control' %>
+  </div>
+	</div>
+
+	<div class:'form-control'>
+  <div class="field">
+    <%= form.label :creater %>
+    <%= form.text_area :creater, class: 'form-control' %>
+  </div>
+	</div>
+
+	<div class:'form-control'>
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.datetime_select :time, class:'form-control' %>
+  </div>
+	</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+		
+<%= link_to 'Home', root_path %>
+	</div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clients
+  resources :updates
   devise_for :users
   root 'home#index'
   get 'home/documents'
