@@ -1,8 +1,15 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <p id="notice"><%= notice %></p>
 
+<div class="panel panel-default">
 <h1>Clients</h1>
+	<ul class="list-inline">
+  <li class="list-inline-item"><%= link_to 'Add New Client', new_client_path, class:'btn btn-light' %></li>
+  <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
+</ul>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -20,14 +27,14 @@
         <td><%= client.name %></td>
         <td><%= client.email %></td>
         <td><%= client.phone %></td>
-        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'View', client %></td>
         <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+  
 
-<%= link_to 'New Client', new_client_path %>
