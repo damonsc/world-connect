@@ -22,6 +22,10 @@ class UpdatesController < ApplicationController
   # GET /updates/1/edit
   def edit
   end
+  
+  def userPost
+  @updates = update.where(:user_id => current_user.id)
+  end
 
   # POST /updates
   # POST /updates.json

@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def clients
   end
+  
+   def statuscheck
+  end
 end
