@@ -22,23 +22,59 @@
   
    <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
+		 <div class="col-lg-12 text-center">
         <h1 class="mt-5">World Connect</h1>
         <p class="lead">This is the base for all communicative needs</p>
-        <ul class="list-unstyled">
-          <li><%= link_to 'create a client', new_user_registration_path %> </li>
-			<li><%= link_to 'edit a client', edit_user_registration_path %> </li>
-          <li><%= link_to 'log in a client', new_user_session_path %> </li>
+		</div>
+	   </div>
+	    <div class="row">
+		<div class="col-lg-3">
+			<div class="jumbotron">
+			<ul class="list-unstyled">
+    <li><%= link_to 'create a user', new_user_registration_path %> </li>
+			</ul>
+			</div>
+    </div>
+    <div class="col-lg-3">
+		<div class="jumbotron">
+     <ul class="list-unstyled">
+			 
+			<% if user_signed_in? && current_user.admin%>
+          
+			<li><%= link_to 'edit profile', edit_user_registration_path %> </li>
+          
 			<li><%= link_to 'status bank', updates_path %> </li>
-			<li><a href=https://purecodewebdesign.com/php/status_input.php> create a status report</li>
+			<li><a href=https://purecodewebdesign.com/php/status_input.php> create status </li>
 				
-			<li><%= link_to 'clients bank', clients_path %> </li>
+			<li><%= link_to 'clients bank', clients_path %></li>
 			
-			<% if user_signed_in? %>
-			<li><%= link_to 'sign out', destroy_user_session_path, method: :delete %> </li>
-			<p><% current_user.display %></p>
+				<p><% current_user.display %></p>
 			<% end %>
 			</ul>
+		</div>
+    </div>
+    <div class="col-lg-3">
+		<div class="jumbotron">
+      <ul class="list-unstyled">
+		  <% if user_signed_in? && current_user.admin%>
+          
+			<li><%= link_to 'Upload Document', uploads_path %> </li>
+          
+			
+			
+				<p><% current_user.display %></p>
+			<% end %>
+		</ul>
+    </div>
+		</div>
+			<div class="col-lg-3">
+      <ul class="list-unstyled">
+		  
+		  
+				</ul>
+    </div>
+      
+        
         
 		 </div>
     </div>

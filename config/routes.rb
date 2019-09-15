@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'uploads/index'
+  get 'uploads/new'
+  get 'uploads/create'
+  get 'uploads/destroy'
   get 'status/damon'
+  resources :uploads, only: [:index, :new, :create, :destroy]
   resources :clients
   resources :updates
   devise_for :users
