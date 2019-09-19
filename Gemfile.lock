@@ -101,6 +101,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_roles (0.1.8)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1-x64-mingw32)
@@ -256,6 +257,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  devise_roles
   jbuilder (~> 2.7)
   pg
   puma (~> 3.11)

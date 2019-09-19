@@ -37,11 +37,17 @@
 <li class="nav-item">
             <a class="nav-link"><%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %></a>
 </li>	
-			<% if user_signed_in? %>
+			<% if admin_signed_in? %>
 			<li class="nav-item">
-            <a class="nav-link"><%= link_to 'End client', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
+            <a class="nav-link"><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %></a>
           </li>
 			<% end %>
+			<% if user_signed_in? %>
+			<li class="nav-item">
+            <a class="nav-link"><%= link_to 'End session', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
+          </li>
+			<% end %>
+			
         </ul>
       </div>
     </div>

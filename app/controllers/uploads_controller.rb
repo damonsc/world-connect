@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+require 'devise_roles'
   def index
   
  @upload = Upload.all

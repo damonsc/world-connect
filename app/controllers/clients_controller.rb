@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-
+require 'devise_roles'
   # GET /clients
   # GET /clients.json
   def index

@@ -29,17 +29,23 @@
 	   </div>
 	    <div class="row">
 		<div class="col-lg-3">
+				<% if admin_signed_in? %>
 			<div class="jumbotron">
 			<ul class="list-unstyled">
-    <li><%= link_to 'create a user', new_user_registration_path %> </li>
+				
+    <li><%= link_to 'create a new client ', new_user_registration_path %> </li>
+				
+	<li><%= link_to 'create a new Admin ', new_admin_registration_path %> </li>
+				
 			</ul>
 			</div>
+			<% end %>
     </div>
     <div class="col-lg-3">
+		<% if admin_signed_in?%>
 		<div class="jumbotron">
      <ul class="list-unstyled">
 			 
-			<% if user_signed_in? && current_user.admin%>
           
 			<li><%= link_to 'edit profile', edit_user_registration_path %> </li>
           
@@ -49,23 +55,26 @@
 			<li><%= link_to 'clients bank', clients_path %></li>
 			
 				<p><% current_user.display %></p>
-			<% end %>
+			
 			</ul>
 		</div>
+		<% end %>
     </div>
     <div class="col-lg-3">
+		<% if admin_signed_in? %>
 		<div class="jumbotron">
       <ul class="list-unstyled">
-		  <% if user_signed_in? && current_user.admin%>
+		  
           
 			<li><%= link_to 'Upload Document', uploads_path %> </li>
           
 			
 			
-				<p><% current_user.display %></p>
-			<% end %>
+				<p><% current_admin.display %></p>
+			
 		</ul>
     </div>
+		<% end %>
 		</div>
 			<div class="col-lg-3">
       <ul class="list-unstyled">
