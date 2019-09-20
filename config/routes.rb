@@ -3,7 +3,7 @@ Rails.application.routes.draw do
                    sessions: 'admins/sessions', 
                    registrations: 'admins/registrations'}
 	  
-   devise_for :users, path: 'users' controllers: {
+   devise_for :users, path: 'users', controllers: {
                    sessions: 'users/sessions', 
                    registrations: 'users/registrations'}
 	
