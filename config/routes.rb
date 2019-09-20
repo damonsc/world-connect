@@ -26,7 +26,7 @@ resources  :users do
  resources :posts, only: [:index]
  end
  resources  :admins do
- 
+ resources :posts, only: [:index]
  
 end
 
