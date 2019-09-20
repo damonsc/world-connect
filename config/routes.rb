@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
-devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions"}
+devise_for :users, path: 'users', controllers: { sessions: "users/sessions",
+registrations: "users/registrations" }
+devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", 
+registrations: "admins/registrations"}
 	
   get 'uploads/index'
   get 'uploads/new'
