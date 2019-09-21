@@ -1,22 +1,28 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
 
   # GET /updates
   # GET /updates.json
   def index
-    @updates = Update.all
+   # @updates = Update.all
+   if admin_signed_in?
+   @updates = Update.all
+   end
+    if user_signed_in?
+    @updates = Update.where(:user_id => current_user.id)
+	end
   end
 
   # GET /updates/1
   # GET /updates/1.json
   def show
+  
   end
 
   # GET /updates/new
   def new
-    @update = current_user.updates.build
+    @updates = current_user.updates.build
   end
 
   # GET /updates/1/edit
@@ -30,15 +36,15 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    @update = current_user.updates.build(update_params)
-	@update.user = current_user
+    @updates = current_user.updates.build(update_params)
+	@updates.user = current_user
     respond_to do |format|
-      if @update.save
-        format.html { redirect_to @update, notice: 'Update was successfully created.' }
-        format.json { render :show, status: :created, location: @update }
+      if @updates.save
+        format.html { redirect_to @updates, notice: 'Update was successfully created.' }
+        format.json { render :show, status: :created, location: @updates }
       else
         format.html { render :new }
-        format.json { render json: @update.errors, status: :unprocessable_entity }
+        format.json { render json: @updates.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -77,7 +83,7 @@ class UpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
-      params.require(:update).permit(:title, :status, :creater, :time)
+      params.require(:update).permit(:title, :status, :creater, :time, :user_id)
     end
 	
 	def correct_user

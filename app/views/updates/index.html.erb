@@ -9,7 +9,7 @@
   <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
 </ul>
 <p id="notice"><%= notice %></p>
-<% @update.each do |update| %>
+<% @updates.each do |update| %>
 <div class="card">
   <h3 class="card-header"><%= update.title %></h3>
   <div class="card-body">
@@ -17,12 +17,12 @@
 	   <h5 class="card-title">submitted by: <%= update.creater %> &nbsp; <%= update.time.in_time_zone('EST') %> -EST</h5>
 	  
 	  <ul class="list-inline">
+		  <% if update.user == current_user or admin_signed_in? %>
   <li class="list-inline-item"><%= link_to 'Show', update %></li>
-		  <% if update.user == current_user %>
   <li class="list-inline-item"><%= link_to 'Edit', edit_update_path(update) %></li>
-  <li class="list-inline-item"><%= link_to 'Delete', update, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <li class="list-inline-item"><%= link_to 'Delete', update, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		  <% end %>
-		  </li>
+		  
 </ul>
     
 	

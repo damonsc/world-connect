@@ -69,6 +69,6 @@ require 'devise_roles'
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:title, :name, :email, :phone)
+      params.require(:client).permit(:title, :name, :email, :phone, :uname, :password)
     end
 end
