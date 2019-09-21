@@ -49,13 +49,14 @@
 			<% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
-    User Manager
+    User Manager(admin only)
   </div>
 			<ul class="list-group list-group-flush">
 				
 							
   				
 				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
+				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
 				
 				
 				
