@@ -5,9 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 		 has_many :updates
 		 has_many :uploads
-		
-
-
-  
-   
+		 has_many :videos
 end
