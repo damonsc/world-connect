@@ -16,19 +16,9 @@
       <%= f.text_field :name %>
       <%= f.label :attachment %>
       <%= f.file_field :attachment %>
+	<%= f.label :intended_user %>
+      <%= f.text_field :intended_user %>
       <%= f.submit "Save", class: "btn btn-primary" %>
    <% end %>
 </div>
 <!--html: { multipart: true }-->
-<script>
-	var code = prompt("Please enter the access code");
-
-if (code == '8181') {
-  alert('thanks');
-	
-} else {
-  alert('wrong code');
-	window.location.replace("https://worldconnect.app");
-
-}
-		</script>

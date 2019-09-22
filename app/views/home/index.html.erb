@@ -85,22 +85,56 @@
 			</ul>
 		</div>
 		<% end %>
+		<% if user_signed_in? %>
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+    Content Manager
+  </div>
+			<ul class="list-group list-group-flush">
+				
+							
+  				<% if current_user.email= "damon@forfamu.com" %>
+				<li class="list-group-item"><%= link_to "Boss lady manager", "http://bossladyforever.com" %> </li>
+				<%end%>
+				
+				<li class="list-group-item"><%= link_to 'Request an update', "https://purecodewebdesign.com/update.html"%> </li>
+				<li class="list-group-item"><%= link_to 'make a payment', "https://purecodewebdesign.com/payment.html"%> </li>
+	
+
+				
+				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
+				
+				
+				
+				
+				</ul>
+			</div>
+			<% end %>
     </div>
+			
     <div class="col-lg-3">
-		<% if admin_signed_in? %>
-		<div class="jumbotron">
-      <ul class="list-unstyled">
-		  
-          
-			<li><%= link_to 'Upload Document', uploads_path %> </li>
-          
-			
-			
-				<p><% current_admin.display %></p>
-			
-		</ul>
-    </div>
-		<% end %>
+		<% if user_signed_in? %>
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+    Document Manager
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
+							
+  			
+				
+				
+	
+
+				
+				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
+				
+				
+				
+				
+				</ul>
+			</div>
+			<% end %>
 		</div>
 			<div class="col-lg-3">
       <ul class="list-unstyled">

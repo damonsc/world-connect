@@ -15,7 +15,8 @@
       <tr>
          <th>Name</th>
          <th>Download Link</th>
-         <th> </th>
+         <th>Intended User</th>
+		  <th> </th>
       </tr>
    </thead>
    
@@ -25,7 +26,10 @@
          <tr>
             <td><%= upload.name %></td>
             <td><%= link_to "Download file", upload.attachment_url %></td>
+			 <td><%= upload.intended_user %></td>
+			 <% if admin_signed_in? %>
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
+			 <%end%>
          </tr>
          
       <% end %>

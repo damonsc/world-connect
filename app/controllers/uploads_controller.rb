@@ -44,6 +44,6 @@ require 'devise_roles'
   
    private
       def upload_params
-      params.require(:upload).permit(:name, :attachment, :user_id)
+      params.require(:upload).permit(:name, :attachment, :user_id, :intended_user)
    end
 end
