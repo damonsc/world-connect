@@ -5,13 +5,14 @@ class UpdatesController < ApplicationController
   # GET /updates
   # GET /updates.json
   def index
-   # @updates = Update.all
+  @updates =null
    if admin_signed_in?
    @updates = Update.all
    end
     if user_signed_in?
     @updates = Update.where(:user_id => current_user.id)
 	end
+	
   end
 
   # GET /updates/1
