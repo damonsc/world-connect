@@ -5,7 +5,7 @@ class UpdatesController < ApplicationController
   # GET /updates
   # GET /updates.json
   def index
-  @updates =null
+  #@updates =null
    if admin_signed_in?
    @updates = Update.all
    end

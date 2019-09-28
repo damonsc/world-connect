@@ -56,8 +56,6 @@
 							
   				
 				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
-				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
-				
 				
 				
 				
@@ -93,16 +91,16 @@
 			<ul class="list-group list-group-flush">
 				
 							
-  				<% if current_user.email= "damon@forfamu.com" %>
+  				<% if current_user.email = 'damon@forfamu.com' %>
 				<li class="list-group-item"><%= link_to "Boss lady manager", "http://bossladyforever.com" %> </li>
-				<%end%>
+				<% end %>
 				
 				<li class="list-group-item"><%= link_to 'Request an update', "https://purecodewebdesign.com/update.html"%> </li>
 				<li class="list-group-item"><%= link_to 'make a payment', "https://purecodewebdesign.com/payment.html"%> </li>
 	
 
 				
-				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
+				
 				
 				
 				
@@ -127,7 +125,7 @@
 	
 
 				
-				<li class="list-group-item"><%= link_to 'Document Manager', uploads_new_path %> </li>
+				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
 				
 				
 				
@@ -137,10 +135,20 @@
 			<% end %>
 		</div>
 			<div class="col-lg-3">
-      <ul class="list-unstyled">
-		  
-		  
+      <% if user_signed_in? %>
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+    Communications
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><%= link_to 'Meeting Room', 'https://damonsc.my.webex.com/meet/damonsc' %> </li>
+										
+				
+				
+				
 				</ul>
+			</div>
+			<% end %>
     </div>
       
         
