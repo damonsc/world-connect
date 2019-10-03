@@ -16,7 +16,7 @@
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">World Connect</a>
+     <a class="navbar-brand" href="#"><h1>World Connect</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,14 +46,17 @@
 			<% if admin_signed_in? %>
 			      <li class="nav-item">
             <a class="nav-link"><%= link_to 'Clients', home_clients_path, class: 'navbar-brand' %></a>
-</li>
+			</li>
+			
 			<li class="nav-item">
             <a class="nav-link"><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %></a>
           </li>
 			<% end %>
+			
+			
 			<% if user_signed_in? %>
 			<li class="nav-item">
-            <a class="nav-link"><%= link_to 'End session', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
+            <a class="nav-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
           </li>
 			<% end %>
 			
