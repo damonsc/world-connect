@@ -10,23 +10,38 @@
       </ul>
     </div>
   <% end %>
-
+<div class="form">
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.text_field :url,class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description,class:'form-control' %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+
+
+<script>
+	var code = prompt("Please enter the access code");
+
+if (code == '8181') {
+  alert('thanks');
+	
+} else {
+  alert('wrong code');
+	window.location.replace("https://worldconnect.app");
+
+}
+		</script>

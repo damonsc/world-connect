@@ -21,7 +21,7 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
    # @video = Video.new
-   @video = current_user.video.build
+   @video = current_user.videos.build
   end
 
   # GET /videos/1/edit
@@ -32,7 +32,7 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-@upload.user = current_user
+@video.user = current_user
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }

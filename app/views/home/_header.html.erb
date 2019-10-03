@@ -28,7 +28,7 @@
           </li>
 		  
 			<li class="nav-item">
-            <a class="nav-link"><%= link_to 'Updates', updates_path, class: 'navbar-brand' %></a>
+            <a class="nav-link"><%= link_to 'Create A Note', updates_path, class: 'navbar-brand' %></a>
           </li>
           <li class="nav-item">
             <a class="nav-link"><%= link_to 'Documents', home_documents_path, class: 'navbar-brand' %></a>
@@ -36,15 +36,17 @@
           <li class="nav-item">
             <a class="nav-link" ><%= link_to 'Videos', home_videos_path, class: 'navbar-brand' %></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to 'Client', home_clients_path, class: 'navbar-brand' %></a>
-</li>	
+			<li class="nav-item">
+            <a class="nav-link" ><%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %></a>
+          </li>
+    	
 
 <% end %>	
-<li class="nav-item">
-            <a class="nav-link"><%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %></a>
-</li>	
+			
 			<% if admin_signed_in? %>
+			      <li class="nav-item">
+            <a class="nav-link"><%= link_to 'Clients', home_clients_path, class: 'navbar-brand' %></a>
+</li>
 			<li class="nav-item">
             <a class="nav-link"><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %></a>
           </li>
@@ -54,6 +56,13 @@
             <a class="nav-link"><%= link_to 'End session', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
           </li>
 			<% end %>
+			
+			<% unless user_signed_in? || admin_signed_in?%>
+<li class="nav-item">
+            <a class="nav-link"><%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %></a>
+</li>	
+			<% end %>
+			
 			
         </ul>
       </div>

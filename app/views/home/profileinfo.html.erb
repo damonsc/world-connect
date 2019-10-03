@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <%= render 'home/header' %>
+
+<h4>Profile Information</h4>
+<div class="card">
+  <div class="card-header">
+   hello <%= current_user.first_name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Here is the most current information that we have on file</h5>
+    <p class="card-text">First Name: <%= current_user.first_name %> </p>
+	  <p class="card-text">Last Name: <%= current_user.last_name %> </p>
+	   <p class="card-text">Email: <%= current_user.email %> </p>
+	  	   <p class="card-text">Phone number: <%= current_user.phone_number %> </p>
+	  <% if current_user.ssla_client == true %>
+	  <p class="card-text">SSLA client </p>
+	  <% end %>
+ <% if current_user.pc_client == true %>
+  <p class="card-text">PureCode Web Design Client </p>
+	  <% end %>
+	  
+  </div>
+</div>

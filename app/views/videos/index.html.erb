@@ -24,6 +24,9 @@ src=<%= video.url %>>
 <%= link_to 'Edit', edit_video_path(video) %>
 <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
+				<% if user_signed_in? %>
+				<%= link_to 'Home', root_path %>
+				<% end %>
 	</div>
 		<% end %>
 		

@@ -19,6 +19,7 @@ registrations: "admin/registrations"}
   get 'home/videos'
   get 'home/clients'
   get 'home/statuscheck'
+  get 'home/profileinfo'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 resources  :users do
  resources :posts, only: [:index]

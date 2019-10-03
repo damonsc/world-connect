@@ -14,4 +14,7 @@ require 'devise_roles'
   
    def statuscheck
   end
+  
+  def profileinfo
+  end
 end

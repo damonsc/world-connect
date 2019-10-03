@@ -49,14 +49,16 @@
 			<% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
-    User Manager(admin only)
+    User Manager(admin only area)
   </div>
 			<ul class="list-group list-group-flush">
 				
 							
   				
 				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
-				
+				<% if current_user.ssla_client %>
+				<li class="list-group-item"><%= link_to 'Video manager', new_video_path %> </li>
+				<% end %>
 				
 				
 				</ul>
@@ -78,7 +80,7 @@
 				
 			<li><%= link_to 'clients bank', clients_path %></li>
 			
-				<p><% current_user.display %></p>
+			
 			
 			</ul>
 		</div>
@@ -98,6 +100,7 @@
 				
 				<% if current_user.ssla_client %>
 				<li class="list-group-item"><%= link_to 'Schedule a session', "https://form.jotform.com/72344436584158"%> </li>
+				<li class="list-group-item"><%= link_to 'Videos', videos_path%> </li>
 				
 				<% end %>
 				
