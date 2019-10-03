@@ -17,4 +17,10 @@ require 'devise_roles'
   
   def profileinfo
   end
+  
+  def sslaclients
+  end
+  
+  def pcclients
+  end
 end

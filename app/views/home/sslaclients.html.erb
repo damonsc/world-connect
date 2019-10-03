@@ -6,9 +6,9 @@
   <%= render 'home/header' %>
 <nav class="nav nav-pills nav-fill">
 <%= link_to 'CLIENTS HOME', home_clients_path, class: 'nav-item nav-link active' %>
-<%= link_to 'SSLA CLIENTS', home_sslaclients_path, class: 'nav-item nav-link active' %> 
+  <%= link_to 'SSLA CLIENTS', home_sslaclients_path, class: 'nav-item nav-link active' %>
 <%= link_to 'PURECODE CLIENTS', home_pcclients_path, class: 'nav-item nav-link active' %>
-
+	
 </nav>
 
 <h2>clients</h2>
@@ -22,7 +22,7 @@
 <table class="table">
 <% @users = User.all %>
 <% @users.each do |user| %>
-
+<% if user.ssla_client %>
   <thead>
     <tr>
     
@@ -47,9 +47,10 @@
 		<td><%= user.pword %></td>
     </tr>
    <% end %>
-
+<% end %>
   </tbody>
 </table>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
