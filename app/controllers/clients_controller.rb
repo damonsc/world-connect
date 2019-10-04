@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-
+require 'devise_roles'
   # GET /clients
   # GET /clients.json
   def index
@@ -69,6 +69,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:title, :name, :email, :phone)
+      params.require(:client).permit(:title, :name, :email, :phone, :uname, :password)
     end
 end

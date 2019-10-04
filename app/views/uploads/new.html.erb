@@ -1,0 +1,54 @@
+<% if !@upload.errors.empty? %>
+   <div class = "alert alert-error">
+      
+      <ul>
+         <% @upload.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+      
+   </div>
+<% end %>
+
+
+<!--html: { multipart: true }-->
+<% if admin_signed_in? %>
+<%= form_for @upload, html: { multipart: true } do |f| %>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col"><%= f.label :File_Name %></th>
+      <th scope="col"><%= f.label :file %></th>
+	  <th scope="col"><%= f.label :Intended_user %></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= f.text_field :name %></td>
+      <td><%= f.file_field :attachment %></td>
+      <td><%= f.text_field :intended_user %></td>
+    </tr>
+   
+   
+  </tbody>
+</table>
+<%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+<%= form_for @upload, html: { multipart: true } do |f| %>
+<div class="well">
+<%= f.label :Name %>
+<%= f.text_field :intended_user %><br>
+	
+<%= f.label :File_Description %>
+<%= f.text_field :name %><br>
+<%= f.label :file %>
+<%= f.file_field :attachment %>
+	
+</div>
+
+<% end %>
+<% end %>

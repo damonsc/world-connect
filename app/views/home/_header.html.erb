@@ -16,29 +16,64 @@
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">World Connect</a>
+     <a class="navbar-brand" href="#"><h1>World Connect</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-          <a class="nav-link"> <%= link_to 'Home', root_path, class: 'navbar-brand' %></a>
-          </li>
+		<% if user_signed_in? || admin_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link"><%= link_to 'Documents', home_documents_path, class: 'navbar-brand' %></a>
+           <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" ><%= link_to 'Videos', home_videos_path, class: 'navbar-brand' %></a>
+		  
+			 <li class="nav-item">
+            <%= link_to 'Create A Note', updates_path, class: ' navbar-brand ' %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to 'Client', home_clients_path, class: 'navbar-brand' %></a>
-			  <% if user_signed_in? %>
+          <li class="nav-item"> 
+            <%= link_to 'Documents', home_documents_path, class: ' navbar-brand' %>
           </li>
+           <li class="nav-item">
+            <%= link_to 'Videos', home_videos_path, class: 'navbar-brand ' %>
+           </li>
+		 <li class="nav-item">
+            <%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %>
+           </li>
+    	
+
+<% end %>	
+			
+			<% if admin_signed_in? %>
+			    <li class="nav-item">
+            <%= link_to 'Clients', home_clients_path, class: 'navbar-brand' %>
+					</li>
+			
 			<li class="nav-item">
-            <a class="nav-link"><%= link_to 'End client', destroy_user_session_path, method: :delete, class: 'navbar-brand' %></a>
-          </li>
+            <%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %>
+				</li>
 			<% end %>
+			
+			
+			<% if user_signed_in? %>
+			<li class="nav-item">
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
+				</li>
+			<% end %>
+			
+			<% unless user_signed_in? || admin_signed_in?%>
+			
+			<li class="nav-item">
+            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
+            </li>
+			
+			<li class="nav-item active">
+            <%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %>
+			</li>
+			
+		    
+			<% end %>
+			
+			
         </ul>
       </div>
     </div>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Check Status</title>
+</head>
+	
+	
+	<%= bootstrap_form_with(model: @user, local: true) do |f| %>
+  <%= f.text_field :text, label: "Domain Name"  %>
+  <%= f.text_field :text, label: "last 4 digits of phone number" %>
+<%= f.submit "Check status" %>
+<% end %>
+
+<body>
+</body>
+</html>
