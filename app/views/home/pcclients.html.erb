@@ -16,9 +16,7 @@
 
 
 <table class="table">
-<% @users = User.all %>
-<% @users.each do |user| %>
-<% if user.pc_client %>
+
   <thead>
     <tr>
     
@@ -31,6 +29,9 @@
 	<th scope="col">Password</th>
     </tr>
   </thead>
+	<% @users = User.all %>
+	<% @users.each do |user| %>
+<% if user.pc_client %>
   <tbody>
     <tr>
 		

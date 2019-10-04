@@ -20,9 +20,8 @@
 
 <div class="container">
 <table class="table">
-<% @users = User.all %>
-<% @users.each do |user| %>
-<% if user.ssla_client %>
+
+
   <thead>
     <tr>
     
@@ -35,6 +34,9 @@
 	<th scope="col">Password</th>
     </tr>
   </thead>
+	<% @users = User.all %>
+	<% @users.each do |user| %>
+<% if user.ssla_client %>
   <tbody>
     <tr>
 		
