@@ -11,14 +11,14 @@
 	
 </nav>
 
-<h2>clients</h2>
+<h2>SSLA Clients</h2>
 
 
 
 
 
 
-
+<div class="container">
 <table class="table">
 <% @users = User.all %>
 <% @users.each do |user| %>
@@ -39,7 +39,7 @@
     <tr>
 		
       
-     <td><%= user.first_name %></td>
+    <td> <%= user.first_name %></td>
      <td><%= user.last_name %></td>
 	<td><%= user.email %></td>
 	<td><%= user.phone_number %></td>
@@ -50,7 +50,7 @@
 <% end %>
   </tbody>
 </table>
-
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
