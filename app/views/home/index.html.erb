@@ -32,6 +32,7 @@
 		</div>
 	   </div>
 	    <div class="row">
+			<!---------------User Manager-------------------------------------->
 		<div class="col-lg-3">
 			<% if admin_signed_in? %>
 			<div class="card" style="width: 18rem;">
@@ -44,7 +45,9 @@
 							
     <li class="list-group-item"><%= link_to 'create a new client ', new_user_registration_path %> </li>			
 	<li class="list-group-item"><%= link_to 'create a new Admin ', new_admin_registration_path %> </li>
-	<li class="list-group-item"><%= link_to 'edit admin profile', edit_admin_registration_path %> </li>				
+	<li class="list-group-item"><%= link_to 'edit admin profile', edit_admin_registration_path %> </li>	
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
 				</ul>
 			</div>
 			<% end %>
@@ -57,7 +60,6 @@
   </div>
 			<ul class="list-group list-group-flush">
 				
-							
   				
 				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
 				<% if current_user.ssla_client %>
@@ -65,12 +67,13 @@
 				<% end %>
 				
 				
+				
 				</ul>
 			</div>
 			<% end %>
 			
 			</div>
-			
+			<!---------------Content Manager-------------------------------------->
     <div class="col-lg-3">
 		<% if admin_signed_in?%>
 	<div class="card" style="width: 18rem;">
@@ -89,6 +92,8 @@
 				
 			</div>
 		<% end %>
+		
+		
 		<% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
@@ -105,6 +110,7 @@
 				<% if current_user.ssla_client %>
 				<li class="list-group-item"><%= link_to 'Schedule a session', "https://form.jotform.com/72344436584158"%> </li>
 				<li class="list-group-item"><%= link_to 'Videos', videos_path%> </li>
+				<li class="list-group-item"><%= link_to 'Donate', "#"%> </li>
 				
 				<% end %>
 				
@@ -118,6 +124,7 @@
 			<% end %>
     </div>
 			
+		<!---------------Document Manager-------------------------------------->
     <div class="col-lg-3">
 		<% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
@@ -142,6 +149,8 @@
 			</div>
 			<% end %>
 		</div>
+		
+		<!---------------Communications-------------------------------------->
 			<div class="col-lg-3">
       <% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
@@ -158,7 +167,94 @@
 			</div>
 			<% end %>
     </div>
-      
+		
+		
+		<!--------------------------------------------------
+		<div class="col-lg-3">
+     
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+   
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+										<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				
+				
+				
+				</ul>
+			</div>
+			
+    </div>
+--->
+		
+				<!-----------------------------------------------------
+		<div class="col-lg-3">
+     
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+   
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+										<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				
+				
+				
+				</ul>
+			</div>
+			
+    </div>
+		--->
+		
+				<!----------------------------------------------------
+		<div class="col-lg-3">
+     
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+   
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+										<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				
+				
+				
+				</ul>
+			</div>
+			
+    </div>
+		--->
+				<!----------------------------------------------------
+		<div class="col-lg-3">
+     
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+   
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+										<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				<li class="list-group-item"> </li>
+				
+				
+				
+				</ul>
+			</div>
+			
+    </div>
+      --->
         
         
 		 </div>
