@@ -28,6 +28,7 @@
       <td><%= f.text_field :name %></td>
       <td><%= f.file_field :attachment %></td>
       <td><%= f.text_field :intended_user %></td>
+		
     </tr>
    
    
@@ -47,7 +48,7 @@
 <%= f.text_field :name %><br>
 <%= f.label :file %>
 <%= f.file_field :attachment %>
-	
+	<%= f.submit "Save", class: "btn btn-primary" %>
 </div>
 
 <% end %>
