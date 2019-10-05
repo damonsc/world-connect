@@ -1,12 +1,18 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
+  <%= render 'home/header' %>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Videos</h1>
+<div class="container">
 <div class='jumbotron jumbotron-fluid'>
-	<div class="container">
+	
+		
 		<div class="row">
+			<% if user_signed_in? %>
 			<% @videos.each do |video| %>
 			<div class="col-sm">
 		
@@ -18,22 +24,28 @@ src=<%= video.url %>>
 </iframe>
 
 <p><%= video.description  %></p>
+				
+				</div>
+				<% end %>
+				<br>
+				
+				
+				<% end %>
+			
 		<% if admin_signed_in? %>
 <%= link_to 'Show', video %>
 	<%= link_to 'New Video', new_video_path %>
 <%= link_to 'Edit', edit_video_path(video) %>
 <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-				<% if user_signed_in? %>
-				<%= link_to 'Home', root_path %>
-				<% end %>
-	</div>
-		<% end %>
+				
+	
 		
+				
+		</div>
 	</div>
+	
 	</div>
-	</div>
-
 
 
 

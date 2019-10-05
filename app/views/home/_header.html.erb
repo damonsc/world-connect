@@ -54,7 +54,7 @@
 			<% end %>
 			
 			
-			<% if user_signed_in? %>
+			<% if user_signed_in?%>
 			<li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
 				</li>
@@ -72,6 +72,7 @@
 			
 		    
 			<% end %>
+			
 			
 			
         </ul>

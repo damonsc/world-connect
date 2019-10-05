@@ -69,21 +69,21 @@
 			
     <div class="col-lg-3">
 		<% if admin_signed_in?%>
-		<div class="jumbotron">
-     <ul class="list-unstyled">
-			 
-          
-			<li><%= link_to 'edit profile', edit_user_registration_path %> </li>
-          
-			<li><%= link_to 'status bank', updates_path %> </li>
-			<li><a href=https://purecodewebdesign.com/php/status_input.php> create status </li>
+	<div class="card" style="width: 18rem;">
+				<div class="card-header">
+    Content Manager
+  </div>
+			<ul class="list-group list-group-flush">
 				
-			<li><%= link_to 'clients bank', clients_path %></li>
-			
-			
-			
-			</ul>
-		</div>
+							
+  		
+								<li class="list-group-item"><%= link_to 'Video manager', videos_path %> </li>
+
+				
+				
+				
+				
+			</div>
 		<% end %>
 		<% if user_signed_in? %>
 			<div class="card" style="width: 18rem;">
