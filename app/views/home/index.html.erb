@@ -133,17 +133,24 @@
   </div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
-							
-  			
-				
-				
-	
 
 				
 				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
 				
+				</ul>
+			</div>
+			<% end %>
+		
+		<% if admin_signed_in? %>
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+    Document Manager
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
+
 				
-				
+				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
 				
 				</ul>
 			</div>
