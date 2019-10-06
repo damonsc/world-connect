@@ -42,9 +42,7 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-  print "Please enter your name: "
-name = gets
-print "Welcome #{name.strip}!!!"
+ 
   if user_signed_in?
     @updates = current_user.updates.build(update_params)
 	@updates.user = current_user
