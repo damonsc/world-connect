@@ -1,13 +1,13 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
+  #before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
 
   # GET /updates
   # GET /updates.json
   def index
   #@updates =null
    if admin_signed_in?
-   @updates = Update.all
+   @updates = Update.where(:admin_id => current_admin.id)
    end
     if user_signed_in?
     @updates = Update.where(:user_id => current_user.id)
@@ -23,7 +23,12 @@ class UpdatesController < ApplicationController
 
   # GET /updates/new
   def new
+  if user_signed_in?
     @updates = current_user.updates.build
+	end
+	if admin_signed_in?
+	@updates = current_admin.updates.build
+	end
   end
 
   # GET /updates/1/edit
@@ -37,6 +42,10 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
+  print "Please enter your name: "
+name = gets
+print "Welcome #{name.strip}!!!"
+  if user_signed_in?
     @updates = current_user.updates.build(update_params)
 	@updates.user = current_user
     respond_to do |format|
@@ -48,6 +57,21 @@ class UpdatesController < ApplicationController
         format.json { render json: @updates.errors, status: :unprocessable_entity }
       end
     end
+	 end 
+	
+	  if admin_signed_in? 
+    @updates = current_admin.updates.build(update_params)
+	@updates.admin = current_admin
+    respond_to do |format|
+      if @updates.save
+        format.html { redirect_to @updates, notice: 'Update was successfully created.' }
+        format.json { render :show, status: :created, location: @updates }
+      else
+        format.html { render :new }
+        format.json { render json: @updates.errors, status: :unprocessable_entity }
+      end
+    end
+	end 
   end
 
   # PATCH/PUT /updates/1

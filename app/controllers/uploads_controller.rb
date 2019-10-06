@@ -12,8 +12,14 @@ require 'devise_roles'
   end
 
   def new
+  if user_signed_in?
   #@upload = Upload.new
 	   @upload = current_user.uploads.build
+	   end
+	    if admin_signed_in?
+  
+	   @upload = current_admin.uploads.build
+	   end
   end
 
   def create
@@ -43,7 +49,16 @@ require 'devise_roles'
   end
   
    private
+   
       def upload_params
-      params.require(:upload).permit(:name, :attachment, :user_id, :intended_user)
-   end
-end
+	 
+      params.require(:upload).permit(:name, :attachment, :user_id, :admin_id, :intended_user)
+	  
+	 
+	  end
+	  
+	  end
+	  
+
+   
+   

@@ -40,16 +40,27 @@
 
 <% if user_signed_in? %>
 <%= form_for @upload, html: { multipart: true } do |f| %>
-<div class="well">
-<%= f.label :Name %>
-<%= f.text_field :intended_user %><br>
-	
-<%= f.label :File_Description %>
-<%= f.text_field :name %><br>
-<%= f.label :file %>
-<%= f.file_field :attachment %>
-	<%= f.submit "Save", class: "btn btn-primary" %>
-</div>
+    <table class="table table-borderless">
+      <thead>
+      <tr>
+        <th scope="col"><%= f.label :File_Name %></th>
+        <th scope="col"><%= f.label :file %></th>
+        <th scope="col"><%= f.label :Upload_Reason %></th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.file_field :attachment %></td>
+        <td><%= f.text_field :intended_user %></td>
+
+      </tr>
+
+
+      </tbody>
+    </table>
+    <%= f.submit "Save", class: "btn btn-primary" %>
 
 <% end %>
 <% end %>
