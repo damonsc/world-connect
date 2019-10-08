@@ -22,6 +22,8 @@ registrations: "admin/registrations"}
   get 'home/profileinfo'
   get 'home/sslaclients'
   get 'home/pcclients'
+  get 'home/donate'
+   get 'home/poc'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 resources  :users do
  resources :posts, only: [:index]

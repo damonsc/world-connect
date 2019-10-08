@@ -23,4 +23,11 @@ require 'devise_roles'
   
   def pcclients
   end
+  
+  def donate
+  end
+  
+  def poc
+  end
+  
 end

@@ -1,0 +1,18 @@
+<h2>Person of contact</h2>
+
+<div class="card">
+  <div class="card-header">
+   <h4>Hello <%= current_user.first_name %> if you have any questions the best contact information is listed below</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Contact Name: Damon Scott </p>
+	  <% if current_user.pc_client == true %>
+	   <p class="card-text">Email: damon@purecodewebdesign.com </p>
+	  <%end%>
+	  <% if current_user.ssla_client == true %>
+	  <p class="card-text">Email: damon@sslagency.org </p>
+	  <%end%>
+	  	   <p class="card-text">Phone number: 502-468-7754 </p>
+	  
+	  </div>
+	
