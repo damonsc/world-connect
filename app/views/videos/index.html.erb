@@ -8,27 +8,25 @@
 
 <h3>Videos</h3>
 <div class="container">
-<div class='jumbotron jumbotron-fluid'>
-	
+	<div class="row">
 		
-		<div class="row">
+	
 			
 			<% @videos.each do |video| %>
-			<div class="col-sm">
+			<div class="col-sm-4">
 		
 
 <p><%= video.name %></p>
 
-<iframe width="420" height="315"
-src=<%= video.url %>>
+<iframe class="embed-responsive-item" width="420" height="315"
+src=<%= video.url %> allowfullscreen>
 </iframe>
-
+				
 <p><small><%= video.description  %></small></p>
 				
 				
 				
 			
-				
 				
 				
 			
@@ -38,12 +36,11 @@ src=<%= video.url %>>
 <%= link_to 'Edit', edit_video_path(video) %>
 <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-				
+			</div>	
 	<% end %>
-		</div>
+		
 				
 		</div>
-	</div>
 	
 	</div>
 

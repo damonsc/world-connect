@@ -1,4 +1,6 @@
 class UploadsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show, :destroy]
+
 require 'devise_roles'
   def index
   

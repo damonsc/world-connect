@@ -1,6 +1,6 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
+  before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
 
   # GET /updates
   # GET /updates.json

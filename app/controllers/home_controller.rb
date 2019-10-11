@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
 require 'devise_roles'
   def index
   end
