@@ -85,6 +85,8 @@
 							
   		
 								<li class="list-group-item"><%= link_to 'Video manager', videos_path %> </li>
+				
+				<li class="list-group-item"><%= link_to 'Payment Manager', payments_path %> </li>
 
 				
 				
@@ -136,7 +138,13 @@
 
 				
 				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
+				<% if current_user.pc_client == true %>
+				<li class="list-group-item"><%= link_to 'Payment History', payments_path %> </li>
+				<% end %>
 				
+				<% if current_user.ssla_client == true %>
+				<li class="list-group-item"><%= link_to 'Donation History', payments_path %> </li>
+				<% end %>
 				</ul>
 			</div>
 			<% end %>

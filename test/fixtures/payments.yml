@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reason: MyString
+  amount: MyText
+  date: 2019-10-13
+  reference_code: 1
+
+two:
+  reason: MyString
+  amount: MyText
+  date: 2019-10-13
+  reference_code: 1

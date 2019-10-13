@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_201424) do
+ActiveRecord::Schema.define(version: 2019_10_13_151348) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2019_10_06_201424) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "password"
     t.text "uname"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "reason"
+    t.text "amount"
+    t.date "date"
+    t.integer "reference_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -94,6 +103,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_201424) do
     t.text "phone_number"
     t.text "pword"
     t.text "contact_email"
+    t.integer "content_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
