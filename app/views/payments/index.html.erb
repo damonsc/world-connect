@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<%= render 'home/header' %>
+
 <% if user_signed_in? %>
 <% if current_user.pc_client == true %>
 <h1>Payment History</h1>
@@ -51,3 +53,5 @@
 <% if admin_signed_in? %>
 <%= link_to 'New Payment', new_payment_path %>
 <%end%>
+<br>
+<%= link_to 'Home', root_path %>
