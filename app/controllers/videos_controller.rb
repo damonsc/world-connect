@@ -9,7 +9,7 @@ class VideosController < ApplicationController
     @videos = Video.all
 	end
 	if user_signed_in?
-	@videos = Video.where(:user_id => current_user.id)
+	@videos = Video.where(:reference_code => current_user.content_code)
 	end
 	
   end
@@ -22,7 +22,9 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
    # @video = Video.new
-   @video = current_user.videos.build
+	  if admin_signed_in?
+   @video = current_admin.videos.build
+	  end
   end
 
   # GET /videos/1/edit
@@ -77,6 +79,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :description, :user_id)
+      params.require(:video).permit(:name, :url, :description, :user_id, :admin_id, :reference_code)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_151348) do
+ActiveRecord::Schema.define(version: 2019_10_14_193814) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_151348) do
     t.integer "user_id"
     t.string "intended_user"
     t.integer "admin_id"
+    t.integer "reference_code"
     t.index ["admin_id"], name: "index_uploads_on_admin_id"
     t.index ["user_id"], name: "index_uploads_on_user_id"
   end
@@ -115,6 +116,9 @@ ActiveRecord::Schema.define(version: 2019_10_13_151348) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "reference_code"
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_videos_on_admin_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 

@@ -1,16 +1,22 @@
 class UploadsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show, :destroy]
+
 
 require 'devise_roles'
   def index
   
 # @upload = Upload.all
-	  if admin_signed_in?
-   @upload = Upload.all
+	if admin_signed_in?
+    @upload = Upload.all
    end
+   
     if user_signed_in?
-    @upload = Upload.where(:user_id => current_user.id)
+    @upload = Upload.where(:user_id => current_user.id) 
+	
+	@upload2 = Upload.where(:reference_code => current_user.content_code)
 	end
+	
+	
+	
   end
 
   def new
@@ -54,7 +60,7 @@ require 'devise_roles'
    
       def upload_params
 	 
-      params.require(:upload).permit(:name, :attachment, :user_id, :admin_id, :intended_user)
+      params.require(:upload).permit(:name, :attachment, :user_id, :admin_id, :intended_user, :reference_code)
 	  
 	 
 	  end

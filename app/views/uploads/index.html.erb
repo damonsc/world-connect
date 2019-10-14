@@ -10,17 +10,20 @@
 <br />
 <br />
 
-<table class = "table table-bordered table-striped">
-   <thead>.
+<table class = "table table-borderless">
+   <thead>
       <tr>
          <th>Name</th>
          <th>Download Link</th>
          <th>Who's this document for</th>
-		  <th> </th>
+		  <% if admin_signed_in? %>
+		  <th>refererence code </th>
+		  <% end %>
       </tr>
    </thead>
-   
+ 
    <tbody>
+	    
       <% @upload.each do |upload| %>
          
          <tr>
@@ -28,14 +31,37 @@
             <td><%= link_to "Download file", upload.attachment_url %></td>
 			 <td><%= upload.intended_user %></td>
 			 <% if admin_signed_in? %>
+			  <td><%= upload.reference_code %></td>
+			 
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
-			 <%end%>
+			<% end %>
          </tr>
          
       <% end %>
+	   
+	   
+	   <% if user_signed_in? %>
+	   <% @upload2.each do |upload| %>
+         
+         <tr>
+            <td class="table-info"><%= upload.name %></td>
+            <td class="table-info"><%= link_to "Download file", upload.attachment_url %></td>
+			 <td class="table-info"><%= upload.intended_user %></td>
+			 <% if admin_signed_in? %>
+			  <td class="table-info"><%= upload.reference_code %></td>
+            <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
+			<% end %>
+         </tr>
+         
+      <% end %>
+	   <% end %>
+
+	  
    </tbody>
-   
-</table>
+	
+	
+	
+	
 
 <%= link_to "Home", root_path, class: "btn btn-primary" %>
 

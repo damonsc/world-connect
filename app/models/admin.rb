@@ -5,4 +5,5 @@ class Admin < ApplicationRecord
   
   has_many :uploads
 has_many :updates
+ has_many :videos
 end
