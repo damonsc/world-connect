@@ -1,10 +1,18 @@
 <p id="notice"><%= notice %></p>
 <%= render 'home/header' %>
+<!------check to see if content code is empty------>
+<% if user_signed_in? %>
+<% if current_user.content_code == nil %>
+<div class="alert alert-danger" role="alert">
+please contact and inform us that your history is not displaying correctly</div>
+<% end %>
+<% end %>
+<!------------------------------------------------->
 
 <% if user_signed_in? %>
 <% if current_user.pc_client == true %>
 <h1>Payment History</h1>
-<%end%>
+<% end %>
 
 <% if current_user.ssla_client == true %>
 <h1>Donation History</h1>
@@ -18,8 +26,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
+		<% if user_signed_in? %>
 		<% if current_user.pc_client == true %>
       <th scope="col">Reason</th>
+		<% end %>
 		<% end %>
       <th scope="col">Amount</th>
       <th scope="col">Date</th>
@@ -35,8 +45,10 @@
     <% @payments.each do |payment| %>
 	  
       <tr>
+		  <% if user_signed_in? %>
 		  <% if current_user.pc_client == true %>
         <td><%= payment.reason %></td>
+		  <%end%>
 		  <%end%>
         <td><%= payment.amount %></td>
         <td><%= payment.date %></td>

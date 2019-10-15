@@ -7,11 +7,20 @@
 <p id="notice"><%= notice %></p>
 
 <h3>Videos</h3>
+<!------check to see if content code is empty------>
+<% if user_signed_in?%>
+<% if current_user.content_code == nil %>
+<div class="alert alert-danger" role="alert">
+please contact and inform us that you are not connected to our upload server</div>
+
+<% end %>
+<% end %>
+<!------------------------------------------------->
 <div class="container">
 	<div class="row">
 		
 	
-			
+			<% if admin_signed_in? || user_signed_in? && current_user.content_code != nil%>
 			<% @videos.each do |video| %>
 			<div class="col-sm-4">
 		
@@ -37,7 +46,7 @@ src=<%= video.url %> allowfullscreen>
   <% end %>
 			</div>	
 	<% end %>
-		
+		<%end%>
 				
 		</div>
 	

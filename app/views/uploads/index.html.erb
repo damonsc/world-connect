@@ -3,7 +3,15 @@
       <%= flash[:notice] %>
    </div>
 <% end %>
+<!------check to see if content code is empty------>
+<% if user_signed_in? %>
+<% if current_user.content_code == nil %>
+<div class="alert alert-danger" role="alert">
+please contact and inform us that you are not connected to our upload server</div>
 
+<% end %>
+<% end %>
+<!------------------------------------------------->
 <br />
 
 <%= link_to "New Uploads", uploads_new_path, class: "btn btn-primary" %>
@@ -40,7 +48,8 @@
       <% end %>
 	   
 	   
-	   <% if user_signed_in? %>
+	   <% if user_signed_in? && current_user.content_code != nil%>
+	   
 	   <% @upload2.each do |upload| %>
          
          <tr>
