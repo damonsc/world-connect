@@ -80,7 +80,10 @@
       </div>
     </div>
   </nav>
-  
+  <% if current_user != true_user %>
+  You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+  <%= link_to "Back to admin", stop_impersonating_userlist_index_path, method: :post %>
+<% end %>
   
   
   

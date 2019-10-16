@@ -10,7 +10,7 @@
 	  
 	  <div class="form-group">
   <div class="field">
-    <%= f.label :contact_email %><br />
+    <%= f.label :best_email_for_contact %><br />
     <%= f.text_field :contact_email, autofocus: true, class: 'form-control' %>
   </div>
 	</div>
@@ -19,13 +19,14 @@
   <div class="field">
     <%= f.label :login_password %><br />
     <%= f.text_field :pword, autofocus: true, class: 'form-control' %>
+	  <%= current_user.current_password %>
   </div>
 	</div>
 	  
 	<div class="form-group">
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+    <%= current_user.email %>
   </div>
 		
 
@@ -58,8 +59,8 @@
 	  
 	  <div class="form-group">
   <div class="field">
-    <%= f.label :content_code %><br />
-    <%= f.text_field :content_code, autofocus: true, class: 'form-control' %>
+    <%= f.label :Reference_number %><br />
+    <%= current_user.content_code %>
   </div>
 	</div>
 	

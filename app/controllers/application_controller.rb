@@ -11,4 +11,8 @@ require 'devise_roles'
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :contact_email, :pword, :content_code])
       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number, :contact_email, :pword, :content_code])
     end
+	
+  impersonates :user
+
+	
 end

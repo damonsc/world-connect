@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'userlist/index'
   resources :payments
   resources :videos
 devise_for :users, path: 'users', controllers: { sessions: "users/sessions",
@@ -38,6 +39,11 @@ end
 
 get 'users/:id/user_posts' => 'users#user_posts', :as => :custom_user_posts
 
+resources :userlist, only: [:index] do
+  post :impersonate, on: :member
+  post :stop_impersonating, on: :collection
+  
+end
 
 
 end

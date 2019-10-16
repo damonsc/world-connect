@@ -30,6 +30,7 @@ gem 'carrierwave'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'pretender'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
