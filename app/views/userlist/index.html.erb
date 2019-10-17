@@ -1,7 +1,9 @@
+<%= render 'home/header' %>
+
 <h1>Userlist</h1>
 
-<ul>
+<ul class="list-group list-group-flush">
   <% @users.each do |user| %>
-    <li>Sign in as <%= link_to user.first_name, impersonate_userlist_path(user), method: :post %></li>
+    <li class="list-group-item">User impersonate: <%= link_to user.email, impersonate_userlist_path(user), method: :post %>||  Reference code:<%= user.content_code%></p></li>
   <% end %>
 </ul>

@@ -1,16 +1,19 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_admin!, except: [:index, :show]
+  #  before_action :authenticate_user!, except: [:index, :show]
+	before_action :is_admin?, except:  [:index, :show]
 
 
   # GET /payments
   # GET /payments.json
   def index
-  if admin_signed_in?
+   if user_signed_in?
+  if current_user.admin == true
   @payments = Payment.all
   end
-  if user_signed_in?
+  if current_user.admin == false
     @payments = Payment.where(:reference_code => current_user.content_code)
+	end
 	end
   end
 
@@ -78,4 +81,10 @@ class PaymentsController < ApplicationController
     def payment_params
       params.require(:payment).permit(:reason, :amount, :date, :reference_code)
     end
+	 def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
+    end
+
 end

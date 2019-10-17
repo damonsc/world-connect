@@ -8,19 +8,19 @@
 
 <h3>Videos</h3>
 <!------check to see if content code is empty------>
-<% if user_signed_in?%>
-<% if current_user.content_code == nil %>
+
+<% if current_user.content_code == nil && current_user.admin = false %>
 <div class="alert alert-danger" role="alert">
 please contact and inform us that you are not connected to our upload server</div>
 
-<% end %>
+
 <% end %>
 <!------------------------------------------------->
 <div class="container">
 	<div class="row">
 		
 	
-			<% if admin_signed_in? || user_signed_in? && current_user.content_code != nil%>
+			<% if current_user.admin = true or current_user.content_code != nil %>
 			<% @videos.each do |video| %>
 			<div class="col-sm-4">
 		
@@ -38,7 +38,7 @@ src=<%= video.url %> allowfullscreen>
 				
 				
 			
-		<% if admin_signed_in? %>
+		<% if current_user.admin %>
 <%= link_to 'Show', video %>
 	<%= link_to 'New Video', new_video_path %>
 <%= link_to 'Edit', edit_video_path(video) %>

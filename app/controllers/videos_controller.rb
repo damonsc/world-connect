@@ -5,10 +5,9 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    if admin_signed_in?
+    if current_user.admin = true
     @videos = Video.all
-	end
-	if user_signed_in?
+	else
 	@videos = Video.where(:reference_code => current_user.content_code)
 	end
 	
@@ -22,8 +21,8 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
    # @video = Video.new
-	  if admin_signed_in?
-   @video = current_admin.videos.build
+	  if current_user.admin
+   @video = current_user.videos.build
 	  end
   end
 

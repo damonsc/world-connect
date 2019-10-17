@@ -34,7 +34,8 @@
 	    <div class="row">
 			<!---------------User Manager-------------------------------------->
 		<div class="col-lg-3">
-			<% if admin_signed_in? %>
+		
+			<% if current_user.admin %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
     USER MANAGEMENT
@@ -44,19 +45,19 @@
 				
 							
     <li class="list-group-item"><%= link_to 'create a new client ', new_user_registration_path %> </li>			
-	<li class="list-group-item"><%= link_to 'create a new Admin ', new_admin_registration_path %> </li>
-	<li class="list-group-item"><%= link_to 'edit admin profile', edit_admin_registration_path %> </li>	
 				<li class="list-group-item"> </li>
 				<li class="list-group-item"> </li>
 				</ul>
 			</div>
+			
+			
 			<% end %>
 			
 			
-			<% if user_signed_in? %>
+			
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
-    User Manager(admin only area)
+    User Manager
   </div>
 			<ul class="list-group list-group-flush">
 				
@@ -68,12 +69,12 @@
 				
 				</ul>
 			</div>
-			<% end %>
+			
 			
 			</div>
 			<!---------------Content Manager-------------------------------------->
     <div class="col-lg-3">
-		<% if admin_signed_in?%>
+		<% if current_user.admin %>
 	<div class="card" style="width: 18rem;">
 				<div class="card-header">
     Content Manager
@@ -94,7 +95,7 @@
 		<% end %>
 		
 		
-		<% if user_signed_in? %>
+		<% if current_user.admin == false %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
     Content Manager
@@ -126,7 +127,7 @@
 			
 		<!---------------Document Manager-------------------------------------->
     <div class="col-lg-3">
-		<% if user_signed_in? %>
+		<% if current_user.admin == false %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
     Document Manager
@@ -147,7 +148,7 @@
 			</div>
 			<% end %>
 		
-		<% if admin_signed_in? %>
+		<% if current_user.admin == true %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
     Document Manager
@@ -165,7 +166,7 @@
 		
 		<!---------------Communications-------------------------------------->
 			<div class="col-lg-3">
-      <% if user_signed_in? %>
+      <% if current_user.admin == false %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
     Communications

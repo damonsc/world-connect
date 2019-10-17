@@ -5,7 +5,7 @@
 <% end %>
 <!------check to see if content code is empty------>
 <% if user_signed_in? %>
-<% if current_user.content_code == nil %>
+<% if current_user.content_code == nil && current_user.pc_client %>
 <div class="alert alert-danger" role="alert">
 please contact and inform us that you are not connected to our upload server</div>
 
@@ -24,7 +24,7 @@ please contact and inform us that you are not connected to our upload server</di
          <th>Name</th>
          <th>Download Link</th>
          <th>Who's this document for</th>
-		  <% if admin_signed_in? %>
+		  <% if current_user.admin? %>
 		  <th>refererence code </th>
 		  <% end %>
       </tr>
@@ -38,7 +38,7 @@ please contact and inform us that you are not connected to our upload server</di
             <td><%= upload.name %></td>
             <td><%= link_to "Download file", upload.attachment_url %></td>
 			 <td><%= upload.intended_user %></td>
-			 <% if admin_signed_in? %>
+			 <% if current_user.admin? %>
 			  <td><%= upload.reference_code %></td>
 			 
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
@@ -56,7 +56,7 @@ please contact and inform us that you are not connected to our upload server</di
             <td class="table-info"><%= upload.name %></td>
             <td class="table-info"><%= link_to "Download file", upload.attachment_url %></td>
 			 <td class="table-info"><%= upload.intended_user %></td>
-			 <% if admin_signed_in? %>
+			 <% if current_user.admin? %>
 			  <td class="table-info"><%= upload.reference_code %></td>
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
 			<% end %>

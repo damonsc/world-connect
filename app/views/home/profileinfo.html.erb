@@ -25,21 +25,12 @@
   <p class="card-text">PureCode Web Design Client </p>
 	  </div>
 	  <% end %>
-	  <% end %>
-	  
-	  <% if admin_signed_in? %>
-  <div class="card-header">
-   <h4>Hello <%= current_admin.first_name %></h4>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Here is the most current information that we have on file.</h5>
-    <p class="card-text">First Name: <%= current_admin.first_name %> </p>
-	  <p class="card-text">Last Name: <%= current_admin.last_name %> </p>
-	   <p class="card-text">Username: <%= current_admin.email %> </p>
-	  	   <p class="card-text">Phone number: <%= current_admin.phone_number %> </p>
-	  <div class="alert alert-danger" role="alert">
-  <p class="card-text">Admin User </p>
+	   <% if current_user.admin == true %>
+	  <div class="alert alert-success" role="alert">
+  <p class="card-text">Admin user </p>
 	  </div>
 	  <% end %>
-  </div>
+	  <% end %>
+	  
+	
 </div>

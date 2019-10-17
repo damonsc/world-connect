@@ -22,7 +22,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-		<% if user_signed_in? || admin_signed_in? %>
+		<% if user_signed_in? %>
           <li class="nav-item">
            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
           </li>
@@ -40,28 +40,23 @@
 		 <li class="nav-item">
             <%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %>
            </li>
-    	
-
-<% end %>	
 			
-			<% if admin_signed_in? %>
-			    <li class="nav-item">
-            <%= link_to 'Clients', home_clients_path, class: 'navbar-brand' %>
-					</li>
-			
+			<% if current_user.admin  %>
 			<li class="nav-item">
-            <%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %>
-				</li>
+            <%= link_to 'User List', userlist_index_path, class: 'navbar-brand' %>
+				<%= link_to 'Client List', home_clients_path, class: 'navbar-brand' %>
+           </li>
 			<% end %>
 			
-			
-			<% if user_signed_in?%>
-			<li class="nav-item">
+    	<li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
 				</li>
-			<% end %>
+
+<% end %>	
+		
+
 			
-			<% unless user_signed_in? || admin_signed_in?%>
+			<% unless user_signed_in? %>
 			
 			<li class="nav-item">
             <%= link_to 'Home', root_path, class: ' navbar-brand ' %>

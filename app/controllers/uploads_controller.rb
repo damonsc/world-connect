@@ -5,11 +5,9 @@ require 'devise_roles'
   def index
   
 # @upload = Upload.all
-	if admin_signed_in?
+	if current_user.admin = true
     @upload = Upload.all
-   end
-   
-    if user_signed_in?
+    else
     @upload = Upload.where(:user_id => current_user.id) 
 	
 	@upload2 = Upload.where(:reference_code => current_user.content_code)
@@ -20,26 +18,17 @@ require 'devise_roles'
   end
 
   def new
-  if user_signed_in?
+  
   #@upload = Upload.new
 	   @upload = current_user.uploads.build
-	   end
-	    if admin_signed_in?
-  
-	   @upload = current_admin.uploads.build
-	   end
+	   
   end
 
   def create
-  if admin_signed_in?
-  @upload = Upload.new(upload_params)
-	  @upload.admin = current_admin
-     end 
-	 
-   if user_signed_in?
+  
    @upload = Upload.new(upload_params)
 	  @upload.user = current_user
-	  end
+	 
         if @upload.save
          redirect_to uploads_path, notice: "The uploads #{@upload.name} has been uploaded."
       else

@@ -6,9 +6,6 @@ class UpdatesController < ApplicationController
   # GET /updates.json
   def index
   #@updates =null
-   if admin_signed_in?
-   @updates = Update.where(:admin_id => current_admin.id)
-   end
     if user_signed_in?
     @updates = Update.where(:user_id => current_user.id)
 	end
@@ -26,9 +23,7 @@ class UpdatesController < ApplicationController
   if user_signed_in?
     @updates = current_user.updates.build
 	end
-	if admin_signed_in?
-	@updates = current_admin.updates.build
-	end
+	
   end
 
   # GET /updates/1/edit
@@ -43,7 +38,7 @@ class UpdatesController < ApplicationController
   # POST /updates.json
   def create
  
-  if user_signed_in?
+ 
     @updates = current_user.updates.build(update_params)
 	@updates.user = current_user
     respond_to do |format|
@@ -57,20 +52,8 @@ class UpdatesController < ApplicationController
     end
 	 end 
 	
-	  if admin_signed_in? 
-    @updates = current_admin.updates.build(update_params)
-	@updates.admin = current_admin
-    respond_to do |format|
-      if @updates.save
-        format.html { redirect_to @updates, notice: 'Update was successfully created.' }
-        format.json { render :show, status: :created, location: @updates }
-      else
-        format.html { render :new }
-        format.json { render json: @updates.errors, status: :unprocessable_entity }
-      end
-    end
-	end 
-  end
+	
+  
 
   # PATCH/PUT /updates/1
   # PATCH/PUT /updates/1.json
@@ -113,4 +96,12 @@ class UpdatesController < ApplicationController
   @update = current_user.updates.find_by(id: params[:id])
   redirect_to updates_path, notice: "Not the correct client to edit this update" if @updates.nil?
   end
+  
+   def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
+    end
+
+  
 end
