@@ -7,7 +7,7 @@ class UserlistController < ApplicationController
 
   def impersonate
     user = User.find(params[:id])
-    impersonate_user(user)
+   impersonate_user(user)
     redirect_to root_path
   end
 
