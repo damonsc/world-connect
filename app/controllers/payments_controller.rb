@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   #  before_action :authenticate_user!, except: [:index, :show]
-	before_action :is_admin?, except:  [:index, :show]
 
 
   # GET /payments
@@ -24,16 +23,19 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
+  is_admin?
     @payment = Payment.new
   end
 
   # GET /payments/1/edit
   def edit
+    is_admin?
   end
 
   # POST /payments
   # POST /payments.json
   def create
+    is_admin?
     @payment = Payment.new(payment_params)
 
     respond_to do |format|
