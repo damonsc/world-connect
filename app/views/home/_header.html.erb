@@ -43,7 +43,6 @@
 			
 			<% if current_user.admin  %>
 			<li class="nav-item">
-            <%= link_to 'User List', userlist_index_path, class: 'navbar-brand' %>
 				<%= link_to 'Client List', home_clients_path, class: 'navbar-brand' %>
            </li>
 			<% end %>
@@ -58,9 +57,7 @@
 			
 			<% unless user_signed_in? %>
 			
-			<li class="nav-item">
-            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
-            </li>
+			
 			
 			<li class="nav-item active">
             <%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %>

@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    if current_user.admin = true
+    if current_user.admin == true
     @videos = Video.all
 	else
 	@videos = Video.where(:reference_code => current_user.content_code)
