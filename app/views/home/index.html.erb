@@ -38,15 +38,16 @@
 			<% if current_user.admin %>
 			<div class="card" style="width: 18rem;">
 				<div class="card-header">
-    USER MANAGEMENT
+					<img src="https://img.icons8.com/ios-glyphs/80/000000/user--v1.png">
+   <p> USER MANAGEMENT</p>
   </div>
 				
 			<ul class="list-group list-group-flush">
-				
-							
-    <li class="list-group-item"><%= link_to 'create a new client ', new_user_registration_path %> </li>			
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
+				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
+			
+				<li class="list-group-item"> <%= link_to 'Client List', home_clients_path %></li>
+				<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><P> </P> </li>
 				</ul>
 			</div>
 			
@@ -54,10 +55,12 @@
 			<% end %>
 			
 			
-			
+			<% if current_user.admin == false%>
 			<div class="card" style="width: 18rem;">
+				
 				<div class="card-header">
-    User Manager
+  <img src="https://img.icons8.com/ios-glyphs/80/000000/user--v1.png">
+   <p> USER MANAGEMENT</p>
   </div>
 			<ul class="list-group list-group-flush">
 				
@@ -71,13 +74,16 @@
 			</div>
 			
 			
+			
+			<% end %>
 			</div>
+			
 			<!---------------Content Manager-------------------------------------->
     <div class="col-lg-3">
 		<% if current_user.admin %>
 	<div class="card" style="width: 18rem;">
-				<div class="card-header">
-    Content Manager
+				<div class="card-header"> <img src="https://img.icons8.com/officel/80/000000/laptop.png">
+					<p>CONTENT MANAGER</p>
   </div>
 			<ul class="list-group list-group-flush">
 				
@@ -86,7 +92,8 @@
 								<li class="list-group-item"><%= link_to 'Video manager', videos_path %> </li>
 				
 				<li class="list-group-item"><%= link_to 'Payment Manager', payments_path %> </li>
-
+<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><P> </P> </li>
 				
 				
 				
@@ -97,8 +104,8 @@
 		
 		<% if current_user.admin == false %>
 			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-    Content Manager
+				<div class="card-header"> <img src="https://img.icons8.com/officel/80/000000/laptop.png">
+					<P>Content Manager</P>
   </div>
 			<ul class="list-group list-group-flush">
 				
@@ -129,8 +136,8 @@
     <div class="col-lg-3">
 		<% if current_user.admin == false %>
 			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-    Document Manager
+				<div class="card-header"><img src="https://img.icons8.com/plasticine/80/000000/document.png">
+					<P>Document Manager</P>
   </div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
@@ -150,14 +157,16 @@
 		
 		<% if current_user.admin == true %>
 			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-    Document Manager
+				<div class="card-header"><img src="https://img.icons8.com/plasticine/80/000000/document.png">
+					<P>DOCUMENT MANAGER</P>
   </div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
 
 				
 				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
+				<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><P> </P> </li>
 				
 				</ul>
 			</div>
@@ -167,13 +176,33 @@
 		<!---------------Communications-------------------------------------->
 			<div class="col-lg-3">
       <% if current_user.admin == false %>
-			<div class="card" style="width: 18rem;">
+			<div class="card" style="width: 18rem;"><img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
 				<div class="card-header">
-    Communications
+					<P>Communications </P>
   </div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><%= link_to 'Meeting Room', 'https://damonsc.my.webex.com/meet/damonsc' %> </li>
 				<li class="list-group-item"><%= link_to 'Person of contact', home_poc_path %> </li>
+				<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><P> </P> </li>
+					
+				
+				
+				
+				</ul>
+			</div>
+			<% end %>
+				
+				<% if current_user.admin == true %>
+			<div class="card" style="width: 18rem;"><img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
+				<div class="card-header">
+					<P>Communications</P>
+  </div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><%= link_to 'Meeting Room', 'https://damonsc.my.webex.com/meet/damonsc' %> </li>
+				<li class="list-group-item"><p></p> </li>
+				<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><P> </P> </li>
 					
 				
 				

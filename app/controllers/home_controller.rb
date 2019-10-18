@@ -12,6 +12,8 @@ require 'devise_roles'
   end
 
   def clients
+  
+  is_admin?
   end
   
    def statuscheck
@@ -21,9 +23,11 @@ require 'devise_roles'
   end
   
   def sslaclients
+  is_admin?
   end
   
   def pcclients
+  is_admin?
   end
   
   def donate
@@ -32,4 +36,9 @@ require 'devise_roles'
   def poc
   end
   
+  def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
+    end
 end

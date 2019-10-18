@@ -41,12 +41,6 @@
             <%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %>
            </li>
 			
-			<% if current_user.admin  %>
-			<li class="nav-item">
-				<%= link_to 'Client List', home_clients_path, class: 'navbar-brand' %>
-           </li>
-			<% end %>
-			
     	<li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
 				</li>
