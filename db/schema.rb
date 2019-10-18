@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_193814) do
+ActiveRecord::Schema.define(version: 2019_10_18_183612) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_193814) do
     t.string "intended_user"
     t.integer "admin_id"
     t.integer "reference_code"
+    t.string "user_submit"
     t.index ["admin_id"], name: "index_uploads_on_admin_id"
     t.index ["user_id"], name: "index_uploads_on_user_id"
   end

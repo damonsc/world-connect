@@ -32,7 +32,6 @@
 	<th scope="col">Username(impersonate)</th>
     <th scope="col">Phone Number</th>
     <th scope="col">Contact Email</th>
-	<th scope="col">Password</th>
 		<th scope="col">Content Code</th>
     </tr>
   </thead>
@@ -45,7 +44,6 @@
 	<td><%= link_to user.email, impersonate_userlist_path(user), method: :post %></td>
 	<td><%= user.phone_number %></td>
 		<td><%= user.contact_email %></td>
-		<td><%= user.pword %></td>
 		<td><%= user.content_code %></td>
     </tr>
    <% end %>

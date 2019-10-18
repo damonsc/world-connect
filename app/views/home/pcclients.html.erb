@@ -26,7 +26,7 @@
 	<th scope="col">Username</th>
     <th scope="col">Phone Number</th>
     <th scope="col">Contact Email</th>
-	<th scope="col">Password</th>
+		<th scope="col">Content Code</th>
     </tr>
   </thead>
 	<% @users = User.all %>
@@ -41,7 +41,7 @@
 	<td><%= user.email %></td>
 	<td><%= user.phone_number %></td>
 		<td><%= user.contact_email %></td>
-		<td><%= user.pword %></td>
+		<td><%= user.content_code %></td>
     </tr>
    <% end %>
 <% end %>

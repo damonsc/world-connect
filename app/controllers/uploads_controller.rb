@@ -5,7 +5,7 @@ require 'devise_roles'
   def index
   
 # @upload = Upload.all
-	if current_user.admin = true
+	if current_user.admin == true
     @upload = Upload.all
     else
     @upload = Upload.where(:user_id => current_user.id) 
@@ -49,7 +49,7 @@ require 'devise_roles'
    
       def upload_params
 	 
-      params.require(:upload).permit(:name, :attachment, :user_id, :admin_id, :intended_user, :reference_code)
+      params.require(:upload).permit(:name, :attachment, :user_id, :admin_id, :intended_user, :reference_code, :user_submit)
 	  
 	 
 	  end

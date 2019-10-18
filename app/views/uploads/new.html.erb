@@ -30,6 +30,7 @@
       <td><%= f.file_field :attachment %></td>
       <td><%= f.text_field :intended_user %></td>
 	  <td><%= f.text_field :reference_code %></td>
+		<%= f.hidden_field :user_submit, value: current_user.email  %>
 		
     </tr>
    
@@ -56,6 +57,7 @@
         <td><%= f.text_field :name %></td>
         <td><%= f.file_field :attachment %></td>
         <td><%= f.text_field :intended_user %></td>
+		  <%= f.hidden_field :user_submit, value: current_user.email  %>
 
       </tr>
 
