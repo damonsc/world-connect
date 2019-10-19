@@ -29,12 +29,9 @@
   </div>
 	</div>
 
-	<div class:'form-control'>
-  <div class="field">
-    <%= form.label :who_made_this_note %>
-    <%= form.text_area :creater, class: 'form-control' %>
-  </div>
-	</div>
+	
+    <%= form.hidden_field :creater, value: current_user.first_name %>
+  
 
 	<div class:'form-control'>
   <div class="field">
@@ -48,5 +45,5 @@
   </div>
 <% end %>
 		
-<%= link_to 'Home', root_path %>
+
 	</div>
