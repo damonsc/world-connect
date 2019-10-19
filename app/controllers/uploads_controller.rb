@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
 
 require 'devise_roles'
   def index
-  
+  @users = User.all
 # @upload = Upload.all
 	if current_user.admin == true
     @upload = Upload.all

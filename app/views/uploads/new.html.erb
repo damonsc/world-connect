@@ -29,9 +29,10 @@
       <td><%= f.text_field :name %></td>
       <td><%= f.file_field :attachment %></td>
       <td><%= f.text_field :intended_user %></td>
-	  <td><%= f.text_field :reference_code %></td>
+	 <td><%= f.collection_select :reference_code, User.order(:content_code),:content_code, :email %></td>
 		<%= f.hidden_field :user_submit, value: current_user.email  %>
 		
+	
     </tr>
    
    
