@@ -33,8 +33,9 @@
 
 	<div class="form-group">
   <div class="field">
-    <%= form.label :reference_code %>
-    <%= form.number_field :reference_code, class:'form-control' %>
+    <%= form.label :Select_Reference %>
+        <%= form.collection_select :reference_code, User.order(:content_code),:content_code, :email , class: 'form-control'%>
+
   </div>
 	</div>
 

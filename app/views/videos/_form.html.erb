@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 <%= form_with(model: video, local: true) do |form| %>
   <% if video.errors.any? %>
     <div id="error_explanation">
@@ -34,8 +37,8 @@
 	
 	<div class="form-group">
   <div class="field">
-    <%= form.label :reference_code %><br />
-    <%= form.text_field :reference_code, autofocus: true, class: 'form-control' %>
+    <%= form.label :Select_Reference %><br />
+    <%= form.collection_select :reference_code, User.order(:content_code),:content_code, :email , class:'form-control custom-select'%>
   </div>
 	</div>
 

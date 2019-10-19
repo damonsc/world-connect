@@ -10,7 +10,7 @@ class VideosController < ApplicationController
 	else
 	@videos = Video.where(:reference_code => current_user.content_code)
 	end
-	
+	#@user = User.all
   end
 
   # GET /videos/1
