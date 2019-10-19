@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'userlist/index'
   resources :payments
   resources :videos
+  
 devise_for :users, path: 'users', controllers: { sessions: "users/sessions",
 registrations: "users/registrations" }
 #devise_for :admin, path: 'admin', controllers: { sessions: "admin/sessions", 
