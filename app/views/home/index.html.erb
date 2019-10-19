@@ -213,27 +213,27 @@
     </div>
 		
 		
-		<!--------------------------------------------------
+		
 		<div class="col-lg-3">
-     
+     <% if current_user.admin == true %>
 			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-   
+				<div class="card-header"> <img src="https://img.icons8.com/dusk/80/000000/leaf.png">
+   <p>RESOURCES</p>
   </div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-										<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
+				<li class="list-group-item"><%= link_to 'iCONS', 'https://icons8.com/icons/set/leaf' %> </li>
+				<li class="list-group-item"><p> </p> </li>
+										<li class="list-group-item"><p> </p> </li>
+				<li class="list-group-item"><p> </p> </li>
+				
 				
 				
 				
 				</ul>
 			</div>
-			
+			<% end %>
     </div>
---->
+
 		
 				<!-----------------------------------------------------
 		<div class="col-lg-3">
