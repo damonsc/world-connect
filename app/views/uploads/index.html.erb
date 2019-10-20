@@ -7,7 +7,7 @@
 <% end %>
 <!------check to see if content code is empty------>
 <% if user_signed_in? %>
-<% if current_user.content_code == nil && current_user.pc_client %>
+<% if current_user.content_code == nil %>
 <div class="alert alert-danger" role="alert">
 please contact and inform us that you are not connected to our upload server</div>
 
@@ -57,7 +57,7 @@ please contact and inform us that you are not connected to our upload server</di
       <% end %>
 	 
 	   
-	   <% if current_user.content_code != nil%>
+	   <% if current_user.content_code != nil && current_user.admin == false%>
 	   
 	   <% @upload2.each do |upload| %>
          
