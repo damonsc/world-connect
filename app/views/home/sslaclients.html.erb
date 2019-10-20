@@ -34,7 +34,7 @@
 		<th scope="col">Content Code</th>
     </tr>
   </thead>
-	<% @users = User.all %>
+	<% @users = User.all.order(:content_code) %>
 	<% @users.each do |user| %>
 <% if user.ssla_client %>
   <tbody>

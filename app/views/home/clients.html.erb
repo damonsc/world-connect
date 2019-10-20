@@ -20,7 +20,7 @@
 <div class="container">
 
 <table class="table table-hover table-responsive-md">
-<% @users = User.all %>
+<% @users = User.all.order(:content_code) %>
 
 
   <thead>
