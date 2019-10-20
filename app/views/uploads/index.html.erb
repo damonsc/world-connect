@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
       <%= flash[:notice] %>
@@ -14,7 +16,8 @@ please contact and inform us that you are not connected to our upload server</di
 <!------------------------------------------------->
 <br />
 
-<%= link_to "Upload File", uploads_new_path, class: "btn btn-info" %>
+<%= link_to "Upload File", uploads_new_path, class: "btn btn-primary" %>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
 <br />
 <br />
 
@@ -35,16 +38,16 @@ please contact and inform us that you are not connected to our upload server</di
       <% @upload.each do |upload| %>
          
          <tr>
-            <td class="table-info"><%= upload.name %></td>
-            <td class="table-info"><%= link_to "Download file", upload.attachment_url %></td>
-			 <td class="table-info"><%= upload.intended_user %></td>
+            <td ><%= upload.name %></td>
+            <td><%= link_to "Download file", upload.attachment_url %></td>
+			 <td><%= upload.intended_user %></td>
 			 <% if current_user.admin? %>
 			 <% if upload.reference_code != nil %>
-			  <td class="table-info"><%= upload.reference_code %>: uploaded by admin  <%= upload.user_submit %></td>
+			  <td><%= upload.reference_code %>: uploaded by admin  <%= upload.user_submit %></td>
 			 <% end %>
 			 
 			<% if upload.reference_code == nil %>
-			 <td class="table-info">uploaded by user <%= upload.user_submit %></td>
+			 <td>uploaded by user <%= upload.user_submit %></td>
 			 <% end %>
 			 
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
@@ -73,10 +76,9 @@ please contact and inform us that you are not connected to our upload server</di
 
 	  
    </tbody>
-	
+</table>
 	
 	
 	
 
-<%= link_to "Home", root_path, class: "btn btn-info" %>
 

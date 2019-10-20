@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 <% if !@upload.errors.empty? %>
    <div class = "alert alert-error">
       
@@ -39,7 +42,8 @@
   </tbody>
 </table>
 <%= f.submit "Save", class: "btn btn-primary" %>
-<%= link_to "Home", root_path, class:"btn btn-info" %>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
+
    <% end %>
 <% end %>
 
