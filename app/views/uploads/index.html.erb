@@ -16,8 +16,8 @@ please contact and inform us that you are not connected to our upload server</di
 <!------------------------------------------------->
 <br />
 
-<%= link_to "Upload File", uploads_new_path, class: "btn btn-primary" %>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<%= link_to "Upload File", uploads_new_path, class: "btn btn-light" %>
+<%= link_to "Home", root_path, class: "btn btn-light" %>
 <br />
 <br />
 
@@ -62,11 +62,11 @@ please contact and inform us that you are not connected to our upload server</di
 	   <% @upload2.each do |upload| %>
          
          <tr>
-            <td class="table-info"><%= upload.name %></td>
-            <td class="table-info"><%= link_to "Download file", upload.attachment_url %></td>
-			 <td class="table-info"><%= upload.intended_user %></td>
+            <td><%= upload.name %></td>
+            <td><%= link_to "Download file", upload.attachment_url %></td>
+			 <td><%= upload.intended_user %></td>
 			 <% if current_user.admin? %>
-			  <td class="table-info"><%= upload.reference_code %> :uploaded by <% upload.user_submit %></td>
+			  <td><%= upload.reference_code %> :uploaded by <% upload.user_submit %></td>
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
 			<% end %>
          </tr>

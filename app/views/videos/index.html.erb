@@ -17,7 +17,7 @@ please contact and inform us that you are not connected to our upload server</di
 <% end %>
 <!------------------------------------------------->
 <% if current_user.admin %>
-<%= link_to "New Uploads", new_video_path, class: "btn btn-info" %>
+<%= link_to "New Uploads", new_video_path, class: "btn btn-light" %>
 <% end %>
 <div class="container">
 	<div class="row">
@@ -42,10 +42,9 @@ src=<%= video.url %> allowfullscreen>
 				
 			
 		<% if current_user.admin  %>
-<%= link_to 'Show', video %>
-	<%= link_to 'New Video', new_video_path %>
-<%= link_to 'Edit', edit_video_path(video) %>
-<%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to 'Edit', edit_video_path(video), class:"btn btn-light" %>
+<%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-light"%>
   <% end %>
 			</div>	
 	<% end %>

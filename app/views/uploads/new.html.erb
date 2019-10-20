@@ -32,7 +32,7 @@
       <td><%= f.text_field :name %></td>
       <td><%= f.file_field :attachment %></td>
       <td><%= f.text_field :intended_user %></td>
-	 <td><%= f.collection_select :reference_code, User.order(:content_code),:content_code, :email %></td>
+	 <td><%= f.collection_select :reference_code, User.order(:email),:content_code, :email %></td>
 		<%= f.hidden_field :user_submit, value: current_user.first_name + current_user.last_name  %>
 		
 	
@@ -41,8 +41,8 @@
    
   </tbody>
 </table>
-<%= f.submit "Save", class: "btn btn-primary" %>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<%= f.submit "Save", class: "btn btn-light" %>
+<%= link_to "Home", root_path, class: "btn btn-light" %>
 
    <% end %>
 <% end %>
@@ -70,9 +70,9 @@
 
       </tbody>
     </table>
-    <%= f.submit "Save", class: "btn btn-info" %>
+    <%= f.submit "Save", class: "btn btn-light" %>
 
-<%= link_to "Home", root_path, class:"btn btn-info" %>
+<%= link_to "Home", root_path, class:"btn btn-light" %>
 <% end %>
 <% end %>
 

@@ -38,7 +38,7 @@
 	<div class="form-group">
   <div class="field">
     <%= form.label :Select_Reference %><br />
-    <%= form.collection_select :reference_code, User.order(:content_code),:content_code, :email , class:'form-control custom-select'%>
+    <%= form.collection_select :reference_code, User.order(:email),:content_code, :email , class:'form-control custom-select'%>
   </div>
 	</div>
 
