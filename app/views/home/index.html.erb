@@ -110,10 +110,15 @@
 			<ul class="list-group list-group-flush">
 				
 							
-  				<% if current_user.email == 'lakeisha@purecodewebdesign.com' %>
+  				<% if current_user.content_code == 700001 %>
 				<li class="list-group-item"><%= link_to "Boss lady manager", "http://bossladyforever.com" %> </li>
 				<% end %>
-				
+				<% if current_user.content_code == 700002 %>
+				<li class="list-group-item"><%= link_to "ShopAWG Manager", "https://www.shopawg.com/wp-login.php" %></li>
+				<% end %>
+				<% if current_user.content_code == 700003 %>
+				<li class="list-group-item"> </li>
+				<% end %>
 				
 				<% if current_user.ssla_client %>
 				<li class="list-group-item"><%= link_to 'Schedule a session', "https://form.jotform.com/72344436584158"%> </li>
