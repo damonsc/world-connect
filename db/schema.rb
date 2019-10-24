@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_183612) do
+ActiveRecord::Schema.define(version: 2019_10_24_233744) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2019_10_18_183612) do
     t.text "uname"
   end
 
+  create_table "logs", force: :cascade do |t|
+    t.date "date_of_session"
+    t.time "time_of_sesion"
+    t.string "details"
+    t.integer "reference_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "payments", force: :cascade do |t|
     t.string "reason"
     t.text "amount"
@@ -56,6 +65,15 @@ ActiveRecord::Schema.define(version: 2019_10_18_183612) do
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "session_logs", force: :cascade do |t|
+    t.date "date_of_session"
+    t.time "time_of_sesion"
+    t.string "details"
+    t.integer "reference_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

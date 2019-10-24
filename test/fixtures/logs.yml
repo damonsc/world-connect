@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_session: 2019-10-24
+  time_of_sesion: 2019-10-24 19:37:44
+  details: MyString
+  reference_code: 1
+
+two:
+  date_of_session: 2019-10-24
+  time_of_sesion: 2019-10-24 19:37:44
+  details: MyString
+  reference_code: 1

@@ -9,6 +9,9 @@ class UpdatesController < ApplicationController
     if user_signed_in?
     @updates = Update.where(:user_id => current_user.id)
 	end
+	  if current_user.admin
+    @adminupdates = Update.where(:user_id => current_user.id)
+	end
 	
   end
 
@@ -23,6 +26,7 @@ class UpdatesController < ApplicationController
   if user_signed_in?
     @updates = current_user.updates.build
 	end
+	 
 	
   end
 

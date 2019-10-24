@@ -26,7 +26,13 @@
           <li class="nav-item">
            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
           </li>
-		  
+			
+		  <% if true_user.admin %>
+			<li class="nav-item">
+			<%= link_to 'Session Logs', logs_path, class: 'navbar-brand' %>
+			</li>
+			<% end %>
+			
 			 <li class="nav-item">
             <%= link_to 'Notes', updates_path, class: ' navbar-brand ' %>
           </li>
@@ -41,9 +47,11 @@
             <%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %>
            </li>
 			
+			
     	<li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
 				</li>
+			
 
 <% end %>	
 		

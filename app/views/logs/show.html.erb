@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date of session:</strong>
+  <%= @log.date_of_session %>
+</p>
+
+<p>
+  <strong>Time of sesion:</strong>
+  <%= @log.time_of_sesion %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @log.details %>
+</p>
+
+<p>
+  <strong>Reference code:</strong>
+  <%= @log.reference_code %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>
