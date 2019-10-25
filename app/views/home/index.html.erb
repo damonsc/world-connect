@@ -43,11 +43,10 @@
   </div>
 				
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
-			
-				<li class="list-group-item"> <%= link_to 'Client List', home_clients_path %></li>
-				<li class="list-group-item"><P> </P> </li>
-				<li class="list-group-item"><P> </P> </li>
+				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %></li>
+				<li class="list-group-item"><%= link_to 'Client List', home_clients_path %></li>
+				<li class="list-group-item"><%= link_to 'Session Logs', logs_path %></li>
+				<li class="list-group-item"><P></P></li>
 				</ul>
 			</div>
 			
@@ -86,16 +85,13 @@
 					<p>CONTENT MANAGER</p>
   </div>
 			<ul class="list-group list-group-flush">
-				
-							
-  		
 								<li class="list-group-item"><%= link_to 'Video manager', videos_path %> </li>
 				
 				<li class="list-group-item"><%= link_to 'Payment Manager', payments_path %> </li>
-<li class="list-group-item"><P> </P> </li>
-				<li class="list-group-item"><P> </P> </li>
+<li class="list-group-item"><P></P></li>
+				<li class="list-group-item"><P></P></li>
 				
-				
+		</ul>
 				
 				
 			</div>
@@ -155,6 +151,7 @@
 				
 				<% if current_user.ssla_client == true %>
 				<li class="list-group-item"><%= link_to 'Donation History', payments_path %> </li>
+				<li class="list-group-item"><%= link_to 'Session Logs', logs_path %></li>
 				<% end %>
 				</ul>
 			</div>

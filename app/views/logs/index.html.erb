@@ -1,15 +1,25 @@
+<%= render 'home/header' %>
 <p id="notice"><%= notice %></p>
+<% if current_user.admin == false %>
+<h1><%= current_user.first_name %> <%= current_user.last_name %> Session Logs</h1>
+<% end %>
 
-<h1>Logs</h1>
+<% if current_user.admin == true %>
+<h1> Session Logs</h1>
 
-<table>
-  <thead>
+
+<%= link_to 'New Log', new_log_path, class:"btn btn-info" %>
+<% end %>
+<table class="table responsive">
+  <thead class="thead-light">
     <tr>
-      <th>Date of session</th>
-      <th>Time of sesion</th>
-      <th>Details</th>
-      <th>Reference code</th>
-      <th colspan="3"></th>
+      <th scope="col">Date of session</th>
+     
+      <th scope="col">Session Details</th>
+		 <% if current_user.admin  %>
+      <th scope="col">Reference code</th>
+		<% end %>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -17,17 +27,18 @@
     <% @logs.each do |log| %>
       <tr>
         <td><%= log.date_of_session %></td>
-        <td><%= log.time_of_sesion %></td>
         <td><%= log.details %></td>
+		  <% if current_user.admin  %>
         <td><%= log.reference_code %></td>
-        <td><%= link_to 'Show', log %></td>
+        <td><%= link_to 'View', log %></td>
         <td><%= link_to 'Edit', edit_log_path(log) %></td>
         <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  <%end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Log', new_log_path %>
+
+

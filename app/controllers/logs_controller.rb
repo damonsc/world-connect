@@ -1,10 +1,18 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /logs
   # GET /logs.json
   def index
-    @logs = Log.all
+  
+  if current_user.admin
+  @logs = Log.all
+    
+	else
+	@logs = Log.where(:reference_code => current_user.content_code)
+	end
+  
   end
 
   # GET /logs/1
