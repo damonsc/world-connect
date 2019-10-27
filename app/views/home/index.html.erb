@@ -31,280 +31,416 @@
 			 
 		</div>
 	   </div>
-	    <div class="row">
-			<!---------------User Manager-------------------------------------->
-		<div class="col-lg-3">
-		
-			<% if current_user.admin %>
-			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-					<img src="https://img.icons8.com/ios-glyphs/80/000000/user--v1.png">
-   <p> USER MANAGEMENT</p>
-  </div>
+	   
+	   <!---------------User Manager-------------------------------------->
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3> USER MANAGEMENT</h3></div>
+    <div class="col"><hr></div>
+</div>
+	   
+	   <div class="row">
+		   <% if current_user.admin %>
+			<div class="col-lg-2">
 				
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %></li>
-				<li class="list-group-item"><%= link_to 'Client List', home_clients_path %></li>
-				<li class="list-group-item"><%= link_to 'Session Logs', logs_path %></li>
-				<li class="list-group-item"><P></P></li>
-				</ul>
-			</div>
-			
-			
-			<% end %>
-			
-			
-			<% if current_user.admin == false%>
-			<div class="card" style="width: 18rem;">
-				
-				<div class="card-header">
-  <img src="https://img.icons8.com/ios-glyphs/80/000000/user--v1.png">
-   <p> USER MANAGEMENT</p>
-  </div>
-			<ul class="list-group list-group-flush">
-				
-  				
-				<li class="list-group-item"><%= link_to 'edit profile', edit_user_registration_path %> </li>
+				 <div class="div-square">
+                    <%= link_to edit_user_registration_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-glyphs/80/000000/user--v1.png")%>
+					 <%end%>
+                      
+					<h4><%= link_to 'edit profile', edit_user_registration_path %></h4>
+                      </div>
 				
 				
+				</div>
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to home_clients_path do %>
+                       <%= image_tag ( "https://img.icons8.com/nolan/80/000000/list.png")%>
+					 <%end%>
+					 
+					
+ 
+					 <h4><%= link_to 'Client List', home_clients_path %></h4>
+                      </div>
 				
 				
-				</ul>
-			</div>
-			
-			
-			
-			<% end %>
-			</div>
-			
-			<!---------------Content Manager-------------------------------------->
-    <div class="col-lg-3">
-		<% if current_user.admin %>
-	<div class="card" style="width: 18rem;">
-				<div class="card-header"> <img src="https://img.icons8.com/officel/80/000000/laptop.png">
-					<p>CONTENT MANAGER</p>
-  </div>
-			<ul class="list-group list-group-flush">
-								<li class="list-group-item"><%= link_to 'Video manager', videos_path %> </li>
-				
-				<li class="list-group-item"><%= link_to 'Payment Manager', payments_path %> </li>
-<li class="list-group-item"><P></P></li>
-				<li class="list-group-item"><P></P></li>
-				
-		</ul>
+				</div>
+		   
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to logs_path do %>
+                       <%= image_tag ( "https://img.icons8.com/plasticine/80/000000/logs-folder.png")%>
+					 <%end%>
+					
+ 
+					 <h4><%= link_to 'Session Logs', logs_path %></h4>
+                      </div>
 				
 				
-			</div>
-		<% end %>
-		
-		
-		<% if current_user.admin == false %>
-			<div class="card" style="width: 18rem;">
-				<div class="card-header"> <img src="https://img.icons8.com/officel/80/000000/laptop.png">
-					<P>Content Manager</P>
-  </div>
-			<ul class="list-group list-group-flush">
+				</div>
+		   <% end %>
+		   
+		   <% if current_user.admin == false %>
+		   
+		   <div class="col-lg-2">
 				
-							
-  				<% if current_user.content_code == 700001 %>
-				<li class="list-group-item"><%= link_to "Boss lady manager", "http://bossladyforever.com" %> </li>
+				 <div class="div-square">
+                    <%= link_to edit_user_registration_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-glyphs/80/000000/user--v1.png")%>
+					 <% end %>
+                      
+					 <h4><%= link_to 'edit profile', edit_user_registration_path %></h4>
+                      </div>
+				
+				
+				</div>
+		   
+		   
+		   <% end %>
+		   
+		   
+				</div>
+	   <br>
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>CONTENT MANAGER</h3></div>
+    <div class="col"><hr></div>
+</div>
+	   
+	   
+					 
+                      
+				
+	   <div class="row">
+		   <% if current_user.admin %>
+		    <div class="col-lg-2">
+				
+				 <div class="div-square">
+                    <%= link_to videos_path do %>
+                       <%= image_tag ( "https://img.icons8.com/cotton/80/000000/youtube.png")%>
+					 <% end %>
+                      
+					 <h4><%= link_to 'Video manager', videos_path %></h4>
+                      </div>
+				
+				
+				</div>
+		   
+		    <div class="col-lg-2">
+				
+				 <div class="div-square">
+                    <%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/mobile-payment.png")%>
+					 <% end %>
+                      
+					 <h4><%= link_to 'Payment manager', payments_path %></h4>
+                      </div>
+				
+				
+				</div>
+				
+				<% end %>
+				
+	   
+	   <% if current_user.admin == false %>
+	   
+	   <% if current_user.content_code == 700001 %>
+
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://bossladyforever.com" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>Boss Lady Login</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+	   
 				<% end %>
 				<% if current_user.content_code == 700002 %>
-				<li class="list-group-item"><%= link_to "ShopAWG Manager", "https://www.shopawg.com/wp-login.php" %></li>
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://www.shopawg.com/wp-login.php" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>ShopAWG Login</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
 				<% end %>
 				<% if current_user.content_code == 700003 %>
-				<li class="list-group-item"> </li>
+				<div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://newlifefn.com" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>New Life Fitness</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
 				<% end %>
+	   
+	   <% if current_user.ssla_client %>
+	   <div class="col-lg-2">
 				
-				<% if current_user.ssla_client %>
-				<li class="list-group-item"><%= link_to 'Schedule a session', "https://form.jotform.com/72344436584158"%> </li>
-				<li class="list-group-item"><%= link_to 'Videos', videos_path%> </li>
-				<li class="list-group-item"><%= link_to 'Donate', "#"%> </li>
+				 <div class="div-square">
+                    <%= link_to videos_path do %>
+                       <%= image_tag ( "https://img.icons8.com/cotton/80/000000/youtube.png")%>
+					 <% end %>
+                      
+					 <h4><%= link_to 'Videos', videos_path %></h4>
+                      </div>
 				
-				<% end %>
 				
-				<% if current_user.pc_client %>
-				<li class="list-group-item"><%= link_to 'Request an update', "https://purecodewebdesign.com/update.html"%> </li>
-				<li class="list-group-item"><%= link_to 'make a payment', "https://purecodewebdesign.com/payment.html"%> </li>
-				<li class="list-group-item"><%= link_to 'Check Status', "https://purecodewebdesign.com/statuscheck.html"%> </li>
-				<% end %>
-				</ul>
-			</div>
-			<% end %>
-    </div>
-			
-		<!---------------Document Manager-------------------------------------->
-    <div class="col-lg-3">
-		<% if current_user.admin == false %>
-			<div class="card" style="width: 18rem;">
-				<div class="card-header"><img src="https://img.icons8.com/plasticine/80/000000/document.png">
-					<P>Document Manager</P>
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
-
-				
-				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
-				<% if current_user.pc_client == true %>
-				<li class="list-group-item"><%= link_to 'Payment History', payments_path %> </li>
-				<% end %>
-				
-				<% if current_user.ssla_client == true %>
-				<li class="list-group-item"><%= link_to 'Donation History', payments_path %> </li>
-				<li class="list-group-item"><%= link_to 'Session Logs', logs_path %></li>
-				<% end %>
-				</ul>
-			</div>
-			<% end %>
-		
+				</div>
+	   
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="#" >
+<img src="https://img.icons8.com/dusk/80/000000/donate.png">                      <h4>Donate</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+	   
+	    <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="#" >
+<img src="https://img.icons8.com/plasticine/80/000000/overtime.png">                      <h4>Schedule A Session</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+	   
+	   <% end %>
+	   
+	   <% if current_user.pc_client %>
+	   
+	   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://purecodewebdesign.com/update.html" >
+<img src="https://img.icons8.com/color/80/000000/approve-and-update.png">                   
+							   <h4>Request an update</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+	   
+	   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://purecodewebdesign.com/payment.html" >
+<img src="https://img.icons8.com/dusk/80/000000/card-in-use--v2.png">                  
+							   <h4>Make a payment</h4>
+                      </a>
+                      </div>
+                  </div>
+	   
+	   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://purecodewebdesign.com/statuscheck.html" >
+<img src="https://img.icons8.com/officel/80/000000/unknown-status.png">                 
+							   <h4>Check Status</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+	   <% end %>
+	   
+	   
+	   <% end %>
+		   </div>
+	   
+	   <br>
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>DOCUMENT MANAGER</h3></div>
+    <div class="col"><hr></div>
+</div>
+	
+	<div class="row">
 		<% if current_user.admin == true %>
-			<div class="card" style="width: 18rem;">
-				<div class="card-header"><img src="https://img.icons8.com/plasticine/80/000000/document.png">
-					<P>DOCUMENT MANAGER</P>
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'Downloads', uploads_path %> </li>
-
-				
-				<li class="list-group-item"><%= link_to 'Upload A File', uploads_new_path %> </li>
-				<li class="list-group-item"><P> </P> </li>
-				<li class="list-group-item"><P> </P> </li>
-				
-				</ul>
-			</div>
-			<% end %>
-		</div>
 		
-		<!---------------Communications-------------------------------------->
-			<div class="col-lg-3">
-      <% if current_user.admin == false %>
-			<div class="card" style="width: 18rem;"><img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
-				<div class="card-header">
-					<P>Communications </P>
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'Meeting Room', 'https://damonsc.my.webex.com/meet/damonsc' %> </li>
-				<li class="list-group-item"><%= link_to 'Person of contact', home_poc_path %> </li>
-				<li class="list-group-item"><P> </P> </li>
-				<li class="list-group-item"><P> </P> </li>
+		 <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_path do %>
+                       <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
 					
+					 <% end %>
+					  <h4><%= link_to 'Downloads', uploads_path %></h4>
+ 
+					 
+                      </div>
+				</div>
+		
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_new_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
+					 
+					 <% end %>
+					 <h4><%= link_to 'Upload A file', uploads_new_path %></h4>
+					 
+                      </div>
+				</div>
+		
+	
+		
+		<% end %>
+		
+		<% if current_user.admin == false %>
+		
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_path do %>
+                       <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
+					 
+					 <% end %>
+					 <h4><%= link_to 'Downloads', uploads_path %></h4>
+ 
+					 
+                      </div>
 				
 				
-				
-				</ul>
-			</div>
-			<% end %>
-				
-				<% if current_user.admin == true %>
-			<div class="card" style="width: 18rem;"><img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
-				<div class="card-header">
-					<P>Communications</P>
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'Meeting Room', 'https://damonsc.my.webex.com/meet/damonsc' %> </li>
-				<li class="list-group-item"><p></p> </li>
-				<li class="list-group-item"><P> </P> </li>
-				<li class="list-group-item"><P> </P> </li>
+				</div>
+		
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_new_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
+					 <% end %>
+					 <h4><%= link_to 'Upload A file', uploads_new_path %></h4>
+					 
+					 
+                      </div>
+				</div>
+		
+		<% end %>
+		<% if current_user.pc_client == true %>
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <h4><%= link_to 'Payment History', payments_path %></h4>
+					 <% end %>
 					
-				
-				
-				
-				</ul>
+					 
+                      </div>
+				</div>
+		<% end %>
+		
+		<% if current_user.ssla_client == true %>
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <% end %>
+					 <h4><%= link_to 'Donation History', payments_path %></h4>
 			</div>
-			<% end %>
-    </div>
-		
-		
-		
-		<div class="col-lg-3">
-     <% if current_user.admin == true %>
-			<div class="card" style="width: 18rem;">
-				<div class="card-header"> <img src="https://img.icons8.com/dusk/80/000000/leaf.png">
-   <p>RESOURCES</p>
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to 'iCONS', 'https://icons8.com/icons/set/leaf' %> </li>
-				<li class="list-group-item"><p> </p> </li>
-										<li class="list-group-item"><p> </p> </li>
-				<li class="list-group-item"><p> </p> </li>
-				
-				
-				
-				
-				</ul>
 			</div>
-			<% end %>
-    </div>
-
+					 <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to logs_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
+					 <% end %>
+					<h4><%= link_to 'Session Logs', logs_path %></h4>
+ 
+					
+                      </div>
+				 
+				
+				</div>
+					 <% end %>
+					
 		
-				<!-----------------------------------------------------
-		<div class="col-lg-3">
-     
-			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-   
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-										<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				
-				
-				
-				</ul>
-			</div>
+		
+		
+		
 			
-    </div>
-		--->
 		
-				<!----------------------------------------------------
-		<div class="col-lg-3">
-     
-			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-   
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-										<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				
-				
-				
-				</ul>
-			</div>
-			
-    </div>
-		--->
-				<!----------------------------------------------------
-		<div class="col-lg-3">
-     
-			<div class="card" style="width: 18rem;">
-				<div class="card-header">
-   
-  </div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-										<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				<li class="list-group-item"> </li>
-				
-				
-				
-				</ul>
-			</div>
-			
-    </div>
-      --->
-        
-        
-		 </div>
-    </div>
+		
+	</div>
+	
+	<br>
+	 <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Communications</h3></div>
+    <div class="col"><hr></div>
+</div>
+	
+	   <div class="row">
+		   <% if current_user.admin == false %>
+		   
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://damonsc.my.webex.com/meet/damonsc" >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 
+							   <h4>Meeting Room</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+		   
+		   
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to home_poc_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/phone-contact.png")%>
+					 <h4><%= link_to 'Person Of Contact', home_poc_path %></h4>
+					 <% end %>
+					
+					
+                      </div>
+				</div>
+		  
+		   
+		   
+		   <% end %>
+		   
+		   <% if current_user.admin == true %>
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://damonsc.my.webex.com/meet/damonsc" >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+		   
+		   <% end %>
+		   
+	   </div>
+	
+	   <br>
+	   <% if current_user.admin == true %>
+	 <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Resources</h3></div>
+    <div class="col"><hr></div>
+</div>
+	   
+	   <div class="row">
+		   
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://icons8.com/icons/set/leaf" >
+<img src="https://img.icons8.com/dusk/80/000000/leaf.png">                 <h4>Icons</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+		   
+	   </div>
+	   <% end %>
+   </div>
+	
 
 </body>
 
