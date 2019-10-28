@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
   end
   if current_user.admin == false
     @payments = Payment.where(:reference_code => current_user.content_code)
+	@clientpayments = Payment.where(:client_code => current_user.client_code)
 	end
 	end
   end
@@ -81,7 +82,7 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:reason, :amount, :date, :reference_code)
+      params.require(:payment).permit(:reason, :amount, :date, :reference_code, :client_code, :iname)
     end
 	 def is_admin?
       # check if user is a admin

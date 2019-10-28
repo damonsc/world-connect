@@ -12,8 +12,16 @@
     </div>
   <% end %>
 
-<div class="form-group">
 
+
+	<div class="form-group">
+ 
+    <%= form.label :Whose_session_was_this %><br />
+     <%= form.text_field :iname, class: "form-control" %>
+  
+	</div>
+	
+	<div class="form-group">
     <%= form.label :date_of_session %>
     <%= form.date_select :date_of_session, class: "form-control" %>
   
@@ -29,6 +37,13 @@
  
     <%= form.label :Select_Reference %><br />
     <%= form.collection_select :reference_code, User.order(:email),:content_code, :email , class:'form-control custom-select'%>
+  
+	</div>
+	
+	<div class="form-group">
+ 
+    <%= form.label :Select_Client_Code_Reference %><br />
+    <%= form.collection_select :client_code, User.order(:client_code),:client_code, :client_code , class:'form-control custom-select'%>
   
 	</div>
 

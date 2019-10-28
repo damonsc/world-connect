@@ -28,7 +28,7 @@ please contact and inform us that your history is not displaying correctly</div>
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
-		
+		<th scope="col">Name</th>
 		<% if current_user.pc_client == true || current_user.admin == true %>
       <th scope="col">Reason</th>
 		
@@ -47,7 +47,7 @@ please contact and inform us that your history is not displaying correctly</div>
     <% @payments.each do |payment| %>
 	  
       <tr>
-		  
+		  <td><%= payment.iname %></td>
 		  <% if current_user.pc_client == true || current_user.admin == true %>
         <td><%= payment.reason %></td>
 		  <% end %>

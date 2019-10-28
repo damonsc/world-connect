@@ -11,8 +11,8 @@ class LogsController < ApplicationController
     
 	else
 	@logs = Log.where(:reference_code => current_user.content_code)
+	@clientlogs = Log.where(:client_code => current_user.client_code)
 	end
-  
   end
 
   # GET /logs/1
@@ -79,7 +79,7 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:date_of_session, :time_of_sesion, :details, :reference_code)
+      params.require(:log).permit(:date_of_session, :time_of_sesion, :details, :reference_code, :client_code, :iname)
     end
 	
 	 def is_admin?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_211356) do
+ActiveRecord::Schema.define(version: 2019_10_28_222843) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_10_25_211356) do
     t.integer "reference_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "client_code"
+    t.string "iname"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -61,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_10_25_211356) do
     t.integer "reference_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "client_code"
+    t.string "iname"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -124,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_211356) do
     t.text "pword"
     t.text "contact_email"
     t.integer "content_code"
+    t.integer "client_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
