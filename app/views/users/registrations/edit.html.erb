@@ -59,10 +59,8 @@
 
 <div class="form-group">
   <div class="field">
-    <%= f.label :assign_a_client_code %><br />
-    <%= f.text_field :client_code, autofocus: true, class: 'form-control' %>
-  </div>
-	</div>
+    <%= f.label :Select_Client_Code%>
+        <%= f.collection_select :client_code, Code.order(:code),:code, :code , class: 'form-control'%>
 
 	
 <div class="form-group">

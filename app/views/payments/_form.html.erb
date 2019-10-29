@@ -26,6 +26,7 @@
     <%= form.text_field :reason, class:'form-control' %>
   </div>
 	</div>
+	
 <div class="form-group">
   <div class="field">
     <%= form.label :amount %>
@@ -45,6 +46,13 @@
     <%= form.label :Select_Reference %>
         <%= form.collection_select :reference_code, User.order(:email),:content_code, :email , class: 'form-control'%>
 
+  </div>
+	</div>
+	
+	<div class="form-group">
+  <div class="field">
+    <%= form.label :Client_Code %>
+    <%= form.text_field :client_code, class:'form-control' %>
   </div>
 	</div>
 

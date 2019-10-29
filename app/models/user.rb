@@ -9,4 +9,5 @@ class User < ApplicationRecord
 		 has_many :payments
 		 has_many :session_logs
 		 has_many :logs
+		 has_one :code
 end
