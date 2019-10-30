@@ -4,7 +4,7 @@ class CodesController < ApplicationController
   # GET /codes
   # GET /codes.json
   def index
-is_admin?
+  is_admin?
     @codes = Code.all
   end
 
@@ -15,11 +15,13 @@ is_admin?
 
   # GET /codes/new
   def new
+  is_admin?
     @code = Code.new
   end
 
   # GET /codes/1/edit
   def edit
+  is_admin?
   end
 
   # POST /codes
@@ -55,6 +57,7 @@ is_admin?
   # DELETE /codes/1
   # DELETE /codes/1.json
   def destroy
+  
     @code.destroy
     respond_to do |format|
       format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
