@@ -69,6 +69,6 @@ class CodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_params
-      params.require(:code).permit(:code)
+      params.require(:code).permit(:code, :client)
     end
 end
