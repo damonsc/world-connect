@@ -20,6 +20,7 @@
       <th scope="col">Session Details</th>
 		 <% if current_user.admin  %>
       <th scope="col">Reference code</th>
+		<th scope="col">Client code</th>
 		<% end %>
       <th colspan="2"></th>
     </tr>
@@ -34,6 +35,7 @@
         <td><%= log.details %></td>
 		  <% if current_user.admin  %>
         <td><%= log.reference_code %></td>
+		  <td><%= log.client_code %></td>
         <td><%= link_to 'View', log %></td>
         <td><%= link_to 'Edit', edit_log_path(log) %></td>
         <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>

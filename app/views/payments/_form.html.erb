@@ -51,10 +51,8 @@
 	
 	<div class="form-group">
   <div class="field">
-    <%= form.label :Client_Code %>
-    <%= form.text_field :client_code, class:'form-control' %>
-  </div>
-	</div>
+    <%= form.label :Select_Client_Code%>
+        <%= form.collection_select :client_code, ClientCode.order(:code),:code, :client , class: 'form-control'%>
 
   <div class="actions">
     <%= form.submit %>

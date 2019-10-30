@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :client_codes
   resources :logs
   get 'userlist/index'
   resources :payments

@@ -5,7 +5,6 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-  
   if current_user.admin
   @logs = Log.all
     
