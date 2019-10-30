@@ -4,7 +4,7 @@ class CodesController < ApplicationController
   # GET /codes
   # GET /codes.json
   def index
-is_admin
+is_admin?
     @codes = Code.all
   end
 
