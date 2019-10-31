@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'home/header' %>
 <h1>Client Codes</h1>
 
 <table class="table">
@@ -16,9 +16,6 @@
       <tr>
         <td><%= client_code.client %></td>
         <td><%= client_code.code %></td>
-        <td><%= link_to 'Show', client_code %></td>
-        <td><%= link_to 'Edit', edit_client_code_path(client_code) %></td>
-        <td><%= link_to 'Destroy', client_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

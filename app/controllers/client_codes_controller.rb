@@ -4,6 +4,7 @@ class ClientCodesController < ApplicationController
   # GET /client_codes
   # GET /client_codes.json
   def index
+  is_admin?
     @client_codes = ClientCode.all
   end
 
@@ -14,6 +15,7 @@ class ClientCodesController < ApplicationController
 
   # GET /client_codes/new
   def new
+  is_admin?
     @client_code = ClientCode.new
   end
 
@@ -70,5 +72,11 @@ class ClientCodesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_code_params
       params.require(:client_code).permit(:client, :code)
+    end
+	
+	def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
     end
 end
