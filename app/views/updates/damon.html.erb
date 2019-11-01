@@ -11,6 +11,7 @@
 </ul>
 <p id="notice"><%= notice %></p>
 <% @updates.each do |update| %>
+<% if current_user.client_code ==200000 %>
 <div class="card">
   <h3 class="card-header"><%= update.title %></h3>
   <div class="card-body">
@@ -35,5 +36,7 @@
 
 
 	  <% end %>
+
+ <% end %>
 
  
