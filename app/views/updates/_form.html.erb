@@ -21,13 +21,25 @@
     <%= form.text_field :title, class:'form-control' %>
   </div>
 	</div>
-
+	<% if current_user.admin %>
+<div class:'form-control'>
+  <div class="field">
+	 
+    <%= form.label :reference_code %>
+<%= current_user.content_code %><p>If posting to Admin notes area. Enter the above reference code before creating note. If not posting to Admin notes area leave blank.</p>
+    <%= form.text_field :reference_code, class:'form-control' %>
+  </div>
+	</div>
+	<% end %>
+	
 	<div class:'form-control'>
   <div class="field">
     <%= form.label :Note %>
     <%= form.text_area :status, class:'form-control' %>
   </div>
 	</div>
+	
+	
 
 	
     <%= form.hidden_field :creater, value: current_user.first_name %>

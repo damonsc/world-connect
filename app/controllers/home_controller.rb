@@ -19,6 +19,10 @@ require 'devise_roles'
    def statuscheck
   end
   
+  def adminnotes
+   is_admin?
+  end
+  
   def profileinfo
   end
   
@@ -34,6 +38,10 @@ require 'devise_roles'
   end
   
   def poc
+  end
+  
+  def admins
+  is_admin?
   end
   
   def is_admin?

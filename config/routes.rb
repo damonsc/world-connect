@@ -29,6 +29,8 @@ registrations: "users/registrations" }
   get 'home/pcclients'
   get 'home/donate'
    get 'home/poc'
+   get 'home/adminnotes'
+   get 'home/admins'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 resources  :users do
  resources :posts, only: [:index]

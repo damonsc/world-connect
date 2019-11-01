@@ -10,7 +10,7 @@ class UpdatesController < ApplicationController
     @updates = Update.where(:user_id => current_user.id)
 	end
 	  if current_user.admin
-    @adminupdates = Update.where(:user_id => current_user.id)
+    @adminupdates = Update.where(:user_id => current_user.id)  
 	end
 	
   end
@@ -93,7 +93,7 @@ class UpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
-      params.require(:update).permit(:title, :status, :creater, :time, :user_id)
+      params.require(:update).permit(:title, :status, :creater, :time, :reference_code, :user_id)
     end
 	
 	def correct_user
@@ -106,6 +106,10 @@ class UpdatesController < ApplicationController
       # if not admin then redirect to where ever you want 
       redirect_to root_path unless current_user.admin? 
     end
+	
+	def adminnotes
+	
+	end
 
   
 end

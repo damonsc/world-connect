@@ -6,22 +6,21 @@
   <%= render 'home/header' %>
 <nav class="nav nav-pills nav-fill">
 <%= link_to 'ALL CLIENTS', home_clients_path, class: 'nav-item nav-link active' %>
-<%= link_to 'SSLA CLIENTS', home_sslaclients_path, class: 'nav-item nav-link active' %> 
+  <%= link_to 'SSLA CLIENTS', home_sslaclients_path, class: 'nav-item nav-link active' %>
 <%= link_to 'PURECODE CLIENTS', home_pcclients_path, class: 'nav-item nav-link active' %>
 	<%= link_to 'ADMINS', home_admins_path, class: 'nav-item nav-link active' %>
-
+	
 </nav>
 
-<h2>clients</h2>
+<h2>Admins</h2>
+
 
 
 
 
 
 <div class="container">
-
 <table class="table table-hover table-responsive-md">
-<% @users = User.all.order(:content_code) %>
 
 
   <thead>
@@ -30,19 +29,20 @@
     <th scope="col">User ID</th>
     <th scope="col">First Name</th>
     <th scope="col">Last Name</th>
-	<th scope="col">Username(impersonate)</th>
+	<th scope="col">Username</th>
     <th scope="col">Phone Number</th>
     <th scope="col">Contact Email</th>
 		<th scope="col">Content Code</th>
     </tr>
   </thead>
-	
+	<% @users = User.all.order(:content_code) %>
+	<% @users.each do |user| %>
+<% if user.admin %>
   <tbody>
-  <% @users.each do |user| %>
-	  <% if user.admin == false %>
     <tr>
-      <th scope="row"><%= user.id %></th>
-     <td><%= user.first_name %></td>
+		
+     <th scope="row"><%= user.id %></th> 
+    <td> <%= user.first_name %></td>
      <td><%= user.last_name %></td>
 	<td><%= link_to user.email, impersonate_userlist_path(user), method: :post %></td>
 	<td><%= user.phone_number %></td>
@@ -50,11 +50,11 @@
 		<td><%= user.content_code %></td>
     </tr>
    <% end %>
-	  <% end %>
-
+<% end %>
   </tbody>
 </table>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -4,16 +4,14 @@
 	
 
 		<h1>Notes</h1>
-	<p>Feel free to create a note for you to always be able to reference back to. you have complete access to delete or create as many notes as needed.</p>
+	<p>These notes are for admins only</p>
 	<ul class="list-inline">
   <li class="list-inline-item"><%= link_to 'Create new note', new_update_path, class:'btn btn-light' %></li>
-		<% if current_user.admin  %>
-		<li class="list-inline-item"><%= link_to 'Admin Notes Area', home_adminnotes_path, class:'btn btn-light' %></li>
-		<% end %>
   <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
 </ul>
 <p id="notice"><%= notice %></p>
-<% @updates.each do |update| %>
+<% @adminupdates = Update.all  %>
+<% @adminupdates.each do |update| %>
 <div class="card">
   <h3 class="card-header"><%= update.title %></h3>
   <div class="card-body">
