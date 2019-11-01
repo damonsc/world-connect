@@ -111,5 +111,8 @@ class UpdatesController < ApplicationController
 	
 	end
 
+def damon
+end
+
   
 end
