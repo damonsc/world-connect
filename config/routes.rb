@@ -9,7 +9,6 @@ devise_for :users, path: 'users', controllers: { sessions: "users/sessions",
 registrations: "users/registrations" }
 #devise_for :admin, path: 'admin', controllers: { sessions: "admin/sessions", 
 #registrations: "admin/registrations"}
-   get 'updates/damon'
   get 'uploads/index'
   get 'uploads/new'
   get 'uploads/create'

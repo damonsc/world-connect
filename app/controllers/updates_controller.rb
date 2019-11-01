@@ -107,12 +107,6 @@ class UpdatesController < ApplicationController
       redirect_to root_path unless current_user.admin? 
     end
 	
-	def adminnotes
-	
-	end
-
-def damon
-end
 
   
 end
