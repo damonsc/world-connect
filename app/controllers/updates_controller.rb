@@ -7,7 +7,7 @@ class UpdatesController < ApplicationController
   def index
   #@updates =null
     if user_signed_in?
-    @updates = Update.where(:user_id => current_user.id)
+    @updates = @current_user.updates.where(:user_id => current_user.id)
 	end
 	  if current_user.admin
     @adminupdates = Update.where(:user_id => current_user.id)  
