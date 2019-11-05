@@ -44,7 +44,7 @@ please contact and inform us that your history is not displaying correctly</div>
   </thead>
 
   <tbody>
-	  <% if current_user.client_code == nil %>
+	  <% if current_user.client_code ==0 || current_user.client_code ==200000 %>
     <% @payments.each do |payment| %>
 	  
       <tr>
@@ -70,7 +70,8 @@ please contact and inform us that your history is not displaying correctly</div>
   </tbody>
 	
 	<tbody>
-	  <% if current_user.client_code != nil %>
+		<% if current_user.admin == false %>
+	  <% if current_user.client_code > 0 %>
     <% @clientpayments.each do |payment| %>
 	  
       <tr>
@@ -82,6 +83,7 @@ please contact and inform us that your history is not displaying correctly</div>
 	
       </tr>
 	   <% end %>
+		<% end %>
 	  <% end %>
   </tbody>
 </table>
