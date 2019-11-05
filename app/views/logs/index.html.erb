@@ -25,7 +25,7 @@
       <th colspan="2"></th>
     </tr>
   </thead>
-<% if current_user.client_code == nil %>
+<% if current_user.client_code == 0 || current_user.client_code == 200000 %>
   <tbody>
     <% @logs.each do |log| %>
       <tr>
@@ -50,7 +50,7 @@
 
 
 
-<% if current_user.client_code != nil && current_user.admin == false %>
+<% if current_user.client_code != 0 && current_user.admin == false %>
   <tbody>
     <% @clientlogs.each do |log| %>
       <tr>
