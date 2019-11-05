@@ -26,6 +26,7 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'devise_roles'
 gem 'carrierwave'
+gem 'bundler-audit'
 
 gem 'sassc-rails', '>= 2.1.0'
 gem 'bootstrap-sass'

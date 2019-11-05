@@ -44,6 +44,10 @@ require 'devise_roles'
   is_admin?
   end
   
+  def sessiontrack
+  is_admin?
+  end
+  
   def is_admin?
       # check if user is a admin
       # if not admin then redirect to where ever you want 
