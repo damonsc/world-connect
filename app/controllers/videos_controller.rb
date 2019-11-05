@@ -16,18 +16,20 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+  is_admin?
   end
 
   # GET /videos/new
   def new
    # @video = Video.new
-	  if current_user.admin
+	  is_admin?
    @video = current_user.videos.build
-	  end
+	  
   end
 
   # GET /videos/1/edit
   def edit
+  is_admin?
   end
 
   # POST /videos
@@ -80,4 +82,11 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:name, :url, :description, :user_id, :admin_id, :reference_code)
     end
+	
+	def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
+    end
+	
 end

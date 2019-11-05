@@ -1,15 +1,17 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :destroy, :edit]
+  before_action :index, :authenticate_user!, except: [:destroy]
 
   # GET /updates
   # GET /updates.json
   def index
   #@updates =null
     if user_signed_in?
-    @updates = @current_user.updates.where(:user_id => current_user.id)
+   @updates = @current_user.updates.where(:user_id => current_user.id)
+  
 	end
-	  if current_user.admin
+	
+	if current_user.admin
     @adminupdates = Update.where(:user_id => current_user.id)  
 	end
 	
@@ -18,7 +20,7 @@ class UpdatesController < ApplicationController
   # GET /updates/1
   # GET /updates/1.json
   def show
-  
+correct_user
   end
 
   # GET /updates/new
@@ -32,10 +34,11 @@ class UpdatesController < ApplicationController
 
   # GET /updates/1/edit
   def edit
+ correct_user
   end
   
   def userPost
-  @updates = update.where(:user_id => current_user.id)
+  @updates = Update.where(:user_id => current_user.id)
   end
 
   # POST /updates
@@ -63,7 +66,7 @@ class UpdatesController < ApplicationController
   # PATCH/PUT /updates/1.json
   def update
     respond_to do |format|
-      if @update.update(update_params)
+      if @update.updates(update_params)
         format.html { redirect_to @update, notice: 'Update was successfully updated.' }
         format.json { render :show, status: :ok, location: @update }
       else
@@ -97,8 +100,8 @@ class UpdatesController < ApplicationController
     end
 	
 	def correct_user
-  @update = current_user.updates.find_by(id: params[:id])
-  redirect_to updates_path, notice: "Not the correct client to edit this update" if @updates.nil?
+  @updates = current_user.updates.find_by(id: params[:id])
+  redirect_to root_path, notice: "Not the correct User" if @updates.nil?
   end
   
    def is_admin?

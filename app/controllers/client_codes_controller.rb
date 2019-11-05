@@ -11,6 +11,7 @@ class ClientCodesController < ApplicationController
   # GET /client_codes/1
   # GET /client_codes/1.json
   def show
+ is_admin?
   end
 
   # GET /client_codes/new
@@ -21,6 +22,7 @@ class ClientCodesController < ApplicationController
 
   # GET /client_codes/1/edit
   def edit
+  is_admin?
   end
 
   # POST /client_codes

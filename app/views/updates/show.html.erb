@@ -10,10 +10,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="card">
-  <h3 class="card-header"><%= @update.title %></h3>
+  <h3 class="card-header"><%= @updates.title %></h3>
   <div class="card-body">
-    <p class="card-text"><%= @update.status %></p>
-	   <h5 class="card-title">submitted by: <%= @update.creater %> &nbsp; <%= @update.time.in_time_zone('EST') %> -EST</h5>
+    <p class="card-text"><%= @updates.status %></p>
+	   <h5 class="card-title">submitted by: <%= @updates.creater %> &nbsp; <%= @updates.time.in_time_zone('EST') %> -EST</h5>
 	  
 	  <ul class="list-inline">
 		  <% if current_user.admin? %>

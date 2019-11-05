@@ -45,6 +45,11 @@ require 'devise_roles'
       redirect_to uploads_path, notice:  "The upload #{@upload.name} has been deleted."
   end
   
+  def correct_user
+  @upload = current_user.uploads.find_by(id: params[:id])
+  redirect_to root_path, notice: "Not the correct User" if @uploads.nil?
+  end
+  
    private
    
       def upload_params

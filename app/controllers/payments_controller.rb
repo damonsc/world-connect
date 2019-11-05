@@ -20,6 +20,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
+  is_admin?
   end
 
   # GET /payments/new
