@@ -66,7 +66,7 @@ correct_user
   # PATCH/PUT /updates/1.json
   def update
     respond_to do |format|
-      if @update.updates(update_params)
+      if @update.update(update_params)
         format.html { redirect_to @update, notice: 'Update was successfully updated.' }
         format.json { render :show, status: :ok, location: @update }
       else
