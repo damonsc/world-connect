@@ -12,7 +12,7 @@ require 'devise_roles'
       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number, :contact_email, :pword, :content_code, :client_code])
     end
 	
-  impersonates :user
+  impersonates :user 
 
 	
 end

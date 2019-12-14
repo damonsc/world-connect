@@ -3,7 +3,9 @@
 
 <%= render 'home/header' %>
 
-<div class="panel panel-default">
+
+<body style="background-color:#DCDCDC;">
+    <div class="panel panel-default">
 	<div class="panel-heading">
 <h2>Log in </h2></div>
 	<div class="panel-body">
@@ -27,7 +29,7 @@
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, class: 'form-control' %>
+      <%= f.label :remember_me %>
     </div>
   <% end %>
 			</div>
@@ -37,9 +39,10 @@
   </div>
 <% end %>
 
-          
+    
 			
 			
 
 <%= render "users/shared/links" %>
 		
+    </body>
