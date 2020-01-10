@@ -112,6 +112,21 @@
 		   
 		   <% end %>
 		   
+		   <% if current_user.pc_client == true %>
+		   
+		   <div class="col-lg-2">
+				
+				 <a href="#" >
+							   <img src="https://img.icons8.com/wired/80/000000/service.png">
+							   <h4>Current Services</h4>
+                      </a>
+				
+				
+				</div>
+		   
+		   
+		   <% end %>
+		   
 		   
 				</div>
 	   <br>
@@ -486,6 +501,40 @@
 	 <div class="row">
     <div class="col"><hr></div>
     <div class="col-auto"><h3>Resources</h3></div>
+    <div class="col"><hr></div>
+</div>
+	   
+	   <div class="row">
+		   
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://icons8.com/icons/set/leaf" >
+<img src="https://img.icons8.com/dusk/80/000000/leaf.png">                 <h4>Icons</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+		   
+		   
+		    <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://wpstarterpack.com/my-account/" >
+<img src="https://img.icons8.com/ios-filled/80/000000/wordpress.png">                 
+							   <h4>Wp Resources</h4>
+                      </a>
+                      </div>
+                     
+                     
+                  </div>
+		   
+	   </div>
+	   <% end %>
+	   
+	   <% if current_user.pc_client == true %>
+	 <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Service Recomendations</h3></div>
     <div class="col"><hr></div>
 </div>
 	   
