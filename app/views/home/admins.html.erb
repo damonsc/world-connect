@@ -37,7 +37,7 @@
   </thead>
 	<% @users = User.all.order(:content_code) %>
 	<% @users.each do |user| %>
-<% if user.admin %>
+<% if user.admin || user.exec %>
   <tbody>
     <tr>
 		
