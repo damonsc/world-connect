@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_140625) do
+ActiveRecord::Schema.define(version: 2020_10_08_044655) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,13 +52,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_140625) do
     t.text "uname"
   end
 
-  create_table "codes", force: :cascade do |t|
-    t.integer "code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "client"
-  end
-
   create_table "logs", force: :cascade do |t|
     t.date "date_of_session"
     t.time "time_of_sesion"
@@ -79,21 +72,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_140625) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "client_code"
     t.string "iname"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "session_logs", force: :cascade do |t|
-    t.date "date_of_session"
-    t.time "time_of_sesion"
-    t.string "details"
-    t.integer "reference_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "updates", force: :cascade do |t|
@@ -133,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_140625) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
-    t.text "role"
     t.text "roles"
     t.boolean "ssla_client", default: false
     t.boolean "pc_client", default: false
@@ -144,11 +121,12 @@ ActiveRecord::Schema.define(version: 2019_11_05_140625) do
     t.text "contact_email"
     t.integer "content_code"
     t.integer "client_code"
-    t.integer "SignInCount"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.integer "sign_in_count"
+    t.boolean "exec", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
