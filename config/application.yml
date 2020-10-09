@@ -1,12 +1,12 @@
 development:
    AWS_ACCESS_KEY_ID: 'AKIA2EMSESLGBOOR36L6'
    AWS_SECRET_KEY_ID: 'DzMVvwIU9mnYuMkWHHH44iBZFvQGzlruCtyQm3cx'
-   AWS_BUCKET: 'wordlconnect'
+   AWS_BUCKET: 'worldconnect'
 test:
    AWS_ACCESS_KEY_ID: 'AKIA2EMSESLGBOOR36L6'
    AWS_SECRET_KEY_ID: 'PDzMVvwIU9mnYuMkWHHH44iBZFvQGzlruCtyQm3cx'
-   AWS_BUCKET: 'wordlconnect'
+   AWS_BUCKET: 'worldconnect'
 production:
    AWS_ACCESS_KEY_ID: 'AKIA2EMSESLGBOOR36L6'
    AWS_SECRET_KEY_ID: 'PDzMVvwIU9mnYuMkWHHH44iBZFvQGzlruCtyQm3cx'
-   AWS_BUCKET: 'wordlconnect'
+   AWS_BUCKET: 'worldconnect'
