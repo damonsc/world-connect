@@ -57,6 +57,11 @@
     <%= f.label :Select_Client_Code%>
         <%= f.collection_select :client_code, ClientCode.order(:code),:code, :code , class: 'form-control'%>
 
+        <div class="form-group">
+  <div class="field">
+    <%= f.label :Select_Connect_Code%>
+        <%= f.collection_select :connect_code, ConnectCode.order(:code),:code, :code , class: 'form-control'%>
+
 		
 
 		<div class="form-group">
