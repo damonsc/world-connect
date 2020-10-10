@@ -7,8 +7,9 @@
    <h4>Hello <%= current_user.first_name %> if you have any questions the best contact information is listed below</h4>
   </div>
   <div class="card-body">
-    <p class="card-text">Contact Name: Damon Scott </p>
+   
 	  <% if current_user.connect_code == 0 %>
+       <p class="card-text">Contact Name: Damon Scott </p>
 	   <p class="card-text">Email: damon@purecodedigital.com </p>
 	  <%end%>
 	  <% if current_user.ssla_client == true %>
@@ -16,10 +17,12 @@
 	  <%end%>
       
        <% if current_user.connect_code == 121787 %>
+       <p class="card-text">Contact Name: Cordero Allen </p>
 	  <p class="card-text">Email: cordero@purecodedigital.com </p>
 	  <%end%>
       
       <% if current_user.connect_code == 121767 %>
+       <p class="card-text">Contact Name: Darrel Burnett </p>
 	  <p class="card-text">Email: darrel@purecodedigital.com </p>
 	  <%end%>
       
