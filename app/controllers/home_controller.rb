@@ -21,6 +21,7 @@ require 'devise_roles'
 
   def adminnotes
    is_admin?
+      is_exec?
   end
 
   def profileinfo

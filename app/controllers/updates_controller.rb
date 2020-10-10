@@ -11,7 +11,7 @@ class UpdatesController < ApplicationController
   
 	end
 	
-	if current_user.admin
+	if current_user.admin || current_user.exec
     @adminupdates = Update.where(:user_id => current_user.id)  
 	end
 	
