@@ -11,10 +11,15 @@ class UpdatesController < ApplicationController
   
 	end
 	
-	if current_user.admin || current_user.exec
+	if current_user.admin
     @adminupdates = Update.where(:user_id => current_user.id)  
 	end
 	
+      if current_user.exec
+    @adminupdates = Update.where(:user_id => current_user.id)  
+	end
+	
+      
   end
 
   # GET /updates/1
