@@ -8,7 +8,7 @@
   </div>
   <div class="card-body">
     <p class="card-text">Contact Name: Damon Scott </p>
-	  <% if current_user.pc_client == true %>
+	  <% if current_user.connect_code == 0 %>
 	   <p class="card-text">Email: damon@purecodedigital.com </p>
 	  <%end%>
 	  <% if current_user.ssla_client == true %>
