@@ -9,6 +9,7 @@ class User < ApplicationRecord
 		 has_many :payments
 		 has_many :session_logs
 		 has_many :logs
+         has_many :tasks
 		 has_one :client_codes
 		 has_one :connect_codes
 end
