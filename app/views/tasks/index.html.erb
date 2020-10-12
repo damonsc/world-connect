@@ -1,13 +1,14 @@
+<%= render 'home/header' %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
-
-<table>
+<h1>Tasks</h1><br>
+<h5><%= link_to 'Create a new task', new_task_path %></h5>
+<table class="table">
   <thead>
     <tr>
       <th>Description</th>
-      <th>Status</th>
-      <th>Complete</th>
+      <th>is it Complete</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +17,18 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.description %></td>
-        <td><%= task.status %></td>
-        <td><%= task.complete %></td>
-        <td><%= link_to 'Show', task %></td>
+          <% if task.complete %>
+        <td><span class="glyphicon glyphicon-ok alert alert-success"></span></td>
+          <% end %>
+           <% if !task.complete %>
+        <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
+          <% end %>
+          
+        <td><%= link_to 'View Details', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <%if current_user.admin %>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+
