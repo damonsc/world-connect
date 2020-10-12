@@ -21,7 +21,7 @@ else
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-      
+      is_member?
   end
 
   # GET /tasks/new
@@ -56,7 +56,7 @@ else
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
-      if @task.tasks(task_params)
+      if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
@@ -84,7 +84,7 @@ else
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :notes)
+      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note)
     end
     
     	def correct_user

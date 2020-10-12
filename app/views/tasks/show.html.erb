@@ -1,25 +1,38 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 <%= render 'home/header' %>
 <p id="notice"><%= notice %></p>
+<br>
 
-<h3>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</h3>
 
-<p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Status</th>
+        <th>Note</th>
+        <th>is it complete?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @task.note %>
-</p>
+  <tbody>
+      <tr>
+        <td><%= @task.description %></td>
+           <td><%= @task.status %></td>
+          <td><%= @task.note %></td>
+         <td><% if @task.complete %>
+    <%= 'completed'%>
+    <% else %>
+    <%=  'Not competed yet' %>
+    <% end %></td>
+          
+         
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Complete:</strong>
-  <%= @task.complete %>
-</p>
 
-<%= link_to 'Edit Task', edit_task_path(@task) %> |
-<%= link_to 'Go Back', tasks_path %>
+
+<h3><%= link_to 'Update', edit_task_path(@task) %>|<%= link_to 'Go Back', tasks_path %></h3>

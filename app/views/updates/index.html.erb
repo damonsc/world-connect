@@ -29,6 +29,7 @@
 	  
 	  <ul class="list-inline">
 		  <% if update.user == current_user or current_user.admin? %>
+          <li class="list-inline-item"><%= link_to 'View', @update, class:"btn btn-light" %></li>
   <li class="list-inline-item"><%= link_to 'Edit', edit_update_path(update), class:"btn btn-light" %></li>
   <li class="list-inline-item"><%= link_to 'Delete', update,class:"btn btn-light",  method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		  <% end %>
