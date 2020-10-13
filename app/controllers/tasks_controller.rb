@@ -110,7 +110,7 @@ else
     end
     
 	def correct_user
-  @updates = current_user.updates.find_by(id: params[:id])
+  @updates = current_user.tasks.find_by(id: params[:id])
   redirect_to root_path, notice: "You aren't able to do that" if @updates.nil?
   end
     
