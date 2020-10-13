@@ -22,7 +22,9 @@ else
   # GET /tasks/1.json
   def show
       is_member?
+	  if current_user.admin = false 
 	  correct_user
+ end 
   end
 
   # GET /tasks/new
@@ -34,6 +36,7 @@ else
 
   # GET /tasks/1/edit
   def edit
+	  
 	  correct_user
   end
 
