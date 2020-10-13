@@ -22,9 +22,9 @@ else
   # GET /tasks/1.json
   def show
       is_member?
-	  if current_user.admin = false 
-	  correct_user
- end 
+	  
+	  correct_user unless current_user.admin
+ 
   end
 
   # GET /tasks/new
@@ -111,7 +111,7 @@ else
     
 	def correct_user
   @updates = current_user.updates.find_by(id: params[:id])
-  redirect_to root_path, notice: "Not the correct User" if @updates.nil?
+  redirect_to root_path, notice: "You aren't able to do that" if @updates.nil?
   end
     
 end
