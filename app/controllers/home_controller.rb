@@ -20,8 +20,7 @@ require 'devise_roles'
   end
 
   def adminnotes
-   is_admin?
-     is_exec?
+   is_member? 
   end
 
   def profileinfo
@@ -57,5 +56,11 @@ require 'devise_roles'
       # check if user is a admin
       # if not admin then redirect to where ever you want
       redirect_to root_path unless current_user.admin?
+    end
+	
+	def is_member?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want
+      redirect_to root_path unless current_user.member?
     end
 end

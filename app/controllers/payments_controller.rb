@@ -85,10 +85,16 @@ class PaymentsController < ApplicationController
     def payment_params
       params.require(:payment).permit(:reason, :amount, :date, :reference_code, :client_code, :iname)
     end
+	
 	 def is_admin?
       # check if user is a admin
       # if not admin then redirect to where ever you want 
       redirect_to root_path unless current_user.admin? 
     end
+	
+	def correct_user
+  @updates = current_user.payment.find_by(id: params[:id])
+  redirect_to root_path, notice: "" if @payment.nil?
+  end
 
 end

@@ -7,7 +7,8 @@
 	<p>These notes are for admins only</p>
 	<ul class="list-inline">
   <li class="list-inline-item"><%= link_to 'Create new note', new_update_path, class:'btn btn-light' %></li>
-  <li class="list-inline-item"><%= link_to 'Home', root_path, class:'btn btn-light' %></li>
+  <li class="list-inline-item"><%= link_to 'Personal Notes', updates_path, class:'btn btn-light' %></li>
+		<li class="list-inline-item"><%= link_to 'Admin Notes', home_adminnotes_path, class:'btn btn-light' %></li>
 </ul>
 <p id="notice"><%= notice %></p>
 <% @adminupdates = Update.all  %>

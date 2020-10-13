@@ -1,0 +1,117 @@
+<html>
+
+
+	   <!-------------------Document Manager----------------------------------->
+
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>DOCUMENT MANAGER</h3></div>
+    <div class="col"><hr></div>
+</div>
+
+	<div class="row">
+		<% if current_user.admin == true %>
+
+		 <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_path do %>
+                       <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
+
+					 <% end %>
+					  <h4><%= link_to 'Downloads', uploads_path %></h4>
+
+
+                      </div>
+				</div>
+
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_new_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
+
+					 <% end %>
+					 <h4><%= link_to 'Upload A file', uploads_new_path %></h4>
+
+                      </div>
+				</div>
+
+
+
+		<% end %>
+
+		<% if current_user.admin == false %>
+
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_path do %>
+                       <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
+
+					 <% end %>
+					 <h4><%= link_to 'Downloads', uploads_path %></h4>
+
+
+                      </div>
+
+
+				</div>
+
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to uploads_new_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
+					 <% end %>
+					 <h4><%= link_to 'Upload A file', uploads_new_path %></h4>
+
+
+                      </div>
+				</div>
+
+		<% end %>
+		<% if current_user.pc_client == true %>
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <h4><%= link_to 'Payment History', payments_path %></h4>
+					 <% end %>
+
+
+                      </div>
+				</div>
+		<% end %>
+
+		<% if current_user.ssla_client == true %>
+		<div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <% end %>
+					 <h4><%= link_to 'Donation History', payments_path %></h4>
+			</div>
+			</div>
+					 <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to logs_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
+					 <% end %>
+					<h4><%= link_to 'Session Logs', logs_path %></h4>
+
+
+                      </div>
+
+
+				</div>
+					 <% end %>
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+</html>

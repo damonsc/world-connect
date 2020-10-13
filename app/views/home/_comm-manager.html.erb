@@ -1,0 +1,127 @@
+<html>
+ <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Communications</h3></div>
+    <div class="col"><hr></div>
+</div>
+	
+	
+	 <div class="row">
+		   <% if current_user.admin == false %>
+		   <% if current_user.ssla_client == true %>
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://www.gotomeet.me/DamonScott1/scotts-scholastic-learning-agency" >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
+							   <h4>Meeting Room</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   <% end %>
+
+		   <% if current_user.pc_client == true %>
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://www.gotomeet.me/purecodedigitalagency/client-room " >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
+							   <h4>Meeting Room</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   <% end %>
+
+
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to home_poc_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/phone-contact.png")%>
+					 <h4><%= link_to 'Person Of Contact', home_poc_path %></h4>
+					 <% end %>
+
+
+                      </div>
+				</div>
+
+
+
+		   <% end %>
+
+		   <% if current_user.admin == true %>
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://www.gotomeet.me/purecodedigitalagency/client-room " >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-purecode</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://www.gotomeet.me/DamonScott1/scotts-scholastic-learning-agency" >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-ssla</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to home_adminnotes_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
+					 <% end %>
+					<h4><%= link_to 'Admin Notes', home_adminnotes_path %></h4>
+
+
+                      </div>
+
+
+				</div>
+
+
+		   <% end %>
+           
+           
+           <% if current_user.exec == true %>
+		   <div class="col-lg-2">
+                      <div class="div-square">
+                           <a href="https://www.gotomeet.me/purecodedigitalagency/client-room " >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-purecode</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+		   <div class="col-lg-2">
+				 <div class="div-square">
+					<%= link_to home_adminnotes_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
+					 <% end %>
+					<h4><%= link_to 'Pure Code Notes', home_adminnotes_path %></h4>
+
+
+                      </div>
+
+
+				</div>
+
+
+		   <% end %>
+           
+
+	   </div>
+
+
+
+
+
+</html>
