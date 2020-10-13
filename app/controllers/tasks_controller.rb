@@ -26,9 +26,9 @@ else
 
   # GET /tasks/new
   def new
-     if user_signed_in?
+   is_member?
     @task = current_user.tasks.build
-     end
+     
   end
 
   # GET /tasks/1/edit
