@@ -37,7 +37,7 @@ else
   # GET /tasks/1/edit
   def edit
 	  
-	  correct_user unlss current_user.admin
+	  correct_user unless current_user.admin
   end
 
   # POST /tasks
