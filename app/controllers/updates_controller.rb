@@ -103,7 +103,7 @@ correct_user
 	
 	def correct_user
   @updates = current_user.updates.find_by(id: params[:id])
-  redirect_to root_path, notice: "Not the correct User" if @updates.nil?
+  redirect_to root_path, notice: "" if @updates.nil?
   end
   
    def is_admin?
