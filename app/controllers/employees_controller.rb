@@ -4,26 +4,31 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
+	  is_admin?
     @employees = Employee.all
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
+	  is_admin?
   end
 
   # GET /employees/new
   def new
+	  is_admin?
     @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
+	  is_admin?
   end
 
   # POST /employees
   # POST /employees.json
   def create
+	  is_admin?
     @employee = Employee.new(employee_params)
 
     respond_to do |format|
@@ -71,4 +76,15 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:first_name, :last_name, :assigned_username)
     end
+	
+	
+	def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want
+      redirect_to root_path unless current_user.admin?
+    end
+	
 end
+
+
+
