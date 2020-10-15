@@ -30,7 +30,7 @@ else
 
   # GET /tasks/new
   def new
-   is_member?
+   
     @task = current_user.tasks.build
      
   end

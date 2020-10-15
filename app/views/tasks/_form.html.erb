@@ -1,3 +1,6 @@
+
+
+
 <%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
     <div id="error_explanation">
@@ -10,28 +13,55 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+<% if current_user.member %>
+<form>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"Give a brief description" %>
+    <%= form.text_field :description, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+		</div>
+	
+<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"What's the status (client will see this)" %>
+    <%= form.text_field :status, class: "form-control" %>
   </div>
+	</div>
 
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_field :note %>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"important notes" %>
+    <%= form.text_field :note, class: "form-control" %>
   </div>
+		</div>
 
-  <div class="field">
-    <%= form.label :complete %>
-    <%= form.check_box :complete %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</form>
+<% end %>
+
+
+
+<% if current_user.member == false %>
+  <div class="field form-group">
+    <%= form.label :'what are you needing complete' %>
+    <%= form.text_area :description, :class => "textarea form-control" %>
+  </div>
+
+
+
+  
+
+  <div class="actions form-group">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+
+
+
 <% end %>
