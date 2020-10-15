@@ -35,8 +35,15 @@
     <%= form.text_field :note, class: "form-control" %>
   </div>
 		</div>
-
-
+<% if current_user.admin %>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"assigned connect code" %>
+            <%= form.collection_select :code, ConnectCode.order(:assigned),:assigned, :assigned , class: 'form-control'%>
+  </div>
+		</div>
+	<% end %>
+	
   <div class="actions">
     <%= form.submit %>
   </div>
