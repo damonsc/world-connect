@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :tasks do
 	  collection do
-	  get :completed
+	    get :completed
+		get :status
   	end
   end
   resources :employees

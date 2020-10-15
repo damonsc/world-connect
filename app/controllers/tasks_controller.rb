@@ -28,6 +28,11 @@ else
 	  correct_user unless current_user.admin
  
   end
+	
+	
+	def status
+		@tasks = Task.all
+	end
 
   # GET /tasks/new
   def new
@@ -46,10 +51,16 @@ else
 		if current_user.member  && current_user.exec
     @tasks = current_user.tasks.where(:user_id => current_user.id)
 		end
+		
+	
 			
 			if current_user.member && current_user.admin
     @tasks = Task.all
 			end
+		
+		if current_user.member == false
+			@tasks = Task.all
+		end
    
 		
 	end
@@ -104,7 +115,7 @@ else
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note, :code)
+      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note, :code, :client_code)
     end
     
     	def correct_user
