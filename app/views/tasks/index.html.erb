@@ -15,12 +15,14 @@
     <tr>
       <th>Description</th>
       <th>is it Complete</th>
+		<th>code</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
+	  <% if task.code = current_user.connect_code %>
       <tr>
         <td><%= task.description %></td>
           <% if task.complete %>
@@ -29,13 +31,14 @@
            <% if !task.complete %>
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
           <% end %>
-          
+          <td><%= task.code %></td>
         <td><%= link_to 'View Details', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
           <%if current_user.admin %>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
+	  <% end %>
     <% end %>
   </tbody>
 </table>

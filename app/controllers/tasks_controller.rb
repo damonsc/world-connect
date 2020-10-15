@@ -11,7 +11,8 @@ if current_user.admin
 else
       
    if current_user.member 
-    @tasks = current_user.tasks.where(:user_id => current_user.id)
+    #@tasks = current_user.tasks.where(:user_id => current_user.id)
+	   @tasks = Task.all
    end
        
 	
@@ -103,7 +104,7 @@ else
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note)
+      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note, :code)
     end
     
     	def correct_user
