@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Pending Tasks</h1><br>
+<h1>Completed Tasks</h1><br>
 <ul class="list-inline">
   <li class="list-inline-item"><%= link_to 'Create a new task', new_task_path, class:'btn btn-light' %></li>
 		
@@ -21,6 +21,7 @@
 
   <tbody>
     <% @tasks.each do |task| %>
+	  <% if task.complete %>
       <tr>
         <td><%= task.description %></td>
           <% if task.complete %>
@@ -29,6 +30,7 @@
            <% if !task.complete %>
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
           <% end %>
+		
           
         <td><%= link_to 'View Details', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
@@ -36,10 +38,9 @@
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
+	  <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-

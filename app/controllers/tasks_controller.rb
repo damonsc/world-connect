@@ -13,7 +13,8 @@ else
    if current_user.member 
     @tasks = current_user.tasks.where(:user_id => current_user.id)
    end
-          
+       
+	
       end
       
       
@@ -40,6 +41,19 @@ else
 	  correct_user unless current_user.admin
   end
 
+	def completed
+		if current_user.member  && current_user.exec
+    @tasks = current_user.tasks.where(:user_id => current_user.id)
+		end
+			
+			if current_user.member && current_user.admin
+    @tasks = Task.all
+			end
+   
+		
+	end
+	
+	
   # POST /tasks
   # POST /tasks.json
   def create
@@ -114,4 +128,5 @@ else
   redirect_to root_path, notice: "" if @updates.nil?
   end
     
+	
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+	  collection do
+	  get :completed
+  	end
+  end
   resources :employees
   resources :connect_codes
   resources :client_codes
