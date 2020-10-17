@@ -11,8 +11,7 @@ if current_user.admin
 else
       
    if current_user.member 
-    #@tasks = current_user.tasks.where(:user_id => current_user.id)
-	   @tasks = Task.all
+    @tasks = current_user.tasks.where(:code => current_user.connect_code)
    end
        
 	
