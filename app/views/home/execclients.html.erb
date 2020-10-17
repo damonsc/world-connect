@@ -31,7 +31,8 @@
   </thead>
 	<% @users = User.all.order(:content_code) %>
 	<% @users.each do |user| %>
-<% if user.connect_code == current_user.connect_code %>
+	
+<% if user.connect_code == current_user.connect_code && user.member == false %>
   <tbody>
     <tr>
 

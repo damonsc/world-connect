@@ -41,7 +41,7 @@
 	
   <tbody>
   <% @users.each do |user| %>
-	  <% if user.admin == false %>
+	  <% if user.admin == false && user.member == false %>
     <tr>
       <th scope="row"><%= user.id %></th>
      <td><%= user.first_name %></td>
