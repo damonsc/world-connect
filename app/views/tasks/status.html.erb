@@ -21,7 +21,7 @@
   <tbody>
     <% @tasks.each do |task| %>
 	  <% if task.complete == false %>
-      <% if task.code = current_user.connect_code && task.code = current_user.client_code%>
+      <% if task.code = current_user.connect_code && task.client_code = current_user.client_code%>
 	  <tr>
         <td><%= task.status %></td>	
 		  <% if task.complete %>

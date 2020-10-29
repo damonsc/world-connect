@@ -22,6 +22,7 @@
 
   <tbody>
     <% @tasks.each do |task| %>
+	   <% if task.complete = false %>
 	  <% if task.code = current_user.connect_code %>
       <tr>
         <td><%= task.description %></td>
@@ -38,6 +39,7 @@
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
+	  <% end %>
 	  <% end %>
     <% end %>
   </tbody>

@@ -63,14 +63,14 @@
 <% if current_user.member == false %>
   <div class="field form-group">
     <%= form.label :'what are you needing complete' %>
-    <%= form.text_area :description, :class => "textarea form-control" %>
+    <%= form.text_area :description, class: "textarea form-control" %>
   </div>
-<div class="form-group ">
+<div class="field form-group ">
    
 
 
-<%= form.hidden_field(:code, value: current_user.connect_code) %>
-	<%= form.hidden_field(:client_code, value: current_user.client_code) %>
+<%= form.hidden_field :code, value: current_user.connect_code %>
+	<%= form.hidden_field :client_code, value: current_user.client_code %>
 </div>
 
 
