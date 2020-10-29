@@ -6,19 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
       is_member?
-if current_user.admin
           @tasks = Task.all
-else
-      
-   if current_user.member 
-    @tasks = current_user.tasks.where(:code => current_user.connect_code)
-   end
-end
-       
-	
-      
-      
-      
   end
   # GET /tasks/1
   # GET /tasks/1.json
