@@ -26,13 +26,13 @@
 	  
       <tr>
         <td><%= task.description %></td>
-          <% if task.complete %>
-        <td><span class="glyphicon glyphicon-ok alert alert-success"></span></td>
-          <% end %>
-           <% if !task.complete %>
+       
+           
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
-          <% end %>
+          
 		  <td><%= task.code %></td>
+		  <td><%= task.client_code %></td>
+		  <td><%= task.complete %></td>
         <td><%= link_to 'View Details', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
           <%if current_user.admin %>
