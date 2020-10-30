@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	  collection do
 	    get :completed
 		get :status
+        get :client_task
   	end
   end
   resources :employees

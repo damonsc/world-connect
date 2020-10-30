@@ -5,10 +5,9 @@
 <h1>Pending Tasks</h1><br>
 <ul class="list-inline">
   <li class="list-inline-item"><%= link_to 'Create a new task', new_task_path, class:'btn btn-light' %></li>
-	<% if current_user.admin %>
+		<% if current_user.admin %>
 	<li class="list-inline-item"><%= link_to 'Client Tasks', client_task_tasks_path, class:'btn btn-light' %></li>
 	<% end %>
-		
 	<li class="list-inline-item"><%= link_to 'Pending Tasks', tasks_path, class:'btn btn-light' %></li>
 	<li class="list-inline-item"><%= link_to 'Completed Tasks', completed_tasks_path, class:'btn btn-light' %></li>
 	
@@ -25,9 +24,8 @@
 
   <tbody>
    <% @tasks.each do |task| %>
-	  <% if current_user.admin == false %>
-	  <% if task.code == current_user.connect_code %>
 	   <% if !task.complete == true %>
+	  <% if task.code == current_user.connect_code %>
 	  
       <tr>
         <td><%= task.description %></td>
@@ -45,38 +43,8 @@
           <% end %>
       </tr>
 	 
-	   <% end %>
 	  <% end %>
     <% end %>
-	  
-	  
-	  
-	  
-	  <% if current_user.admin %>
-	 
-	   <% if !task.complete == true %>
-	  
-      <tr>
-        <td><%= task.description %></td>
-       
-           
-        <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
-          
-		  <td><%= task.code %></td>
-		  <td><%= task.client_code %></td>
-		  <td><%= task.complete %></td>
-        <td><%= link_to 'View Details', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-          <%if current_user.admin %>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-      </tr>
-	 
-	   <% end %>
-    <% end %>
-	  
-	  
-	  
 	  <% end %>
   </tbody>
 	
