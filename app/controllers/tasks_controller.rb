@@ -9,7 +9,7 @@ class TasksController < ApplicationController
       if current_user.admin
           @tasks = Task.all
       else
-          @tasks = current_user.tasks.where(:client_code => current_user.connect_code)
+          @tasks = current_user.tasks.where(:code => current_user.connect_code)
       end
   end
   # GET /tasks/1
@@ -23,7 +23,7 @@ class TasksController < ApplicationController
 	
 	
 	def status
-		@tasks = Task.all
+		@tasks = current_user.tasks.where(:client_code => current_user.connect_code)
 	end
 
   # GET /tasks/new
