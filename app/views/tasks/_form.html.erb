@@ -72,17 +72,17 @@
     <%= form.text_area :description, class: "textarea form-control" %>
   </div>
 <div class="field form-group ">
-	<%= form.text_field :client_code, value: current_user.content_code %>
+	<%= form.hidden_field :client_code, value: current_user.content_code %>
 </div>
 
 <div class="field form-group ">
 
-<%= form.text_field :code, value: current_user.connect_code %>
+<%= form.hidden_field :code, value: current_user.connect_code %>
 </div>
 	
 	<div class="field form-group ">
 
-<%= form.text_field :complete, value: false %>
+<%= form.hidden_field :complete, value: false %>
 </div>
 
 

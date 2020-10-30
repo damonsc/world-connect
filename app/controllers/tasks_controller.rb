@@ -23,7 +23,7 @@ class TasksController < ApplicationController
 	
 	
 	def status
-		@tasks = current_user.tasks.where(:client_code => current_user.connect_code)
+		@tasks = Task.all
 	end
 
   # GET /tasks/new
