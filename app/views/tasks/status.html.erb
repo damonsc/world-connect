@@ -26,12 +26,11 @@
 	  <tr>
 		   <td><%= task.description %></td>	
         <td><%= task.status %></td>	
-		  <% if task.complete %>
-        <td><span class="glyphicon glyphicon-ok alert alert-success"></span></td>
-          <% end %>
-           <% if !task.complete %>
+		  <td><%= task.code %></td>	
+		  <td><%= task.client_code %></td>	
+		
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
-          <% end %>
+          
 		  
       </tr>
 	  <% end %>
