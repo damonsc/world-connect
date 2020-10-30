@@ -6,7 +6,11 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
       is_member?
+      if current_user.admin
           @tasks = Task.all
+      else
+          @tasks = current_user.tasks.where(:client_code => current_user.connect_code)
+      end
   end
   # GET /tasks/1
   # GET /tasks/1.json

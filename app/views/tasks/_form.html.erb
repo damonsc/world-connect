@@ -52,7 +52,12 @@
   </div>
 		</div>
 	
-  <div class="actions">
+ 
+	
+	
+	
+	
+	<div class="actions">
     <%= form.submit %>
   </div>
 </form>
@@ -61,6 +66,7 @@
 
 
 <% if current_user.member == false %>
+<form>
   <div class="field form-group">
     <%= form.label :'what are you needing complete' %>
     <%= form.text_area :description, class: "textarea form-control" %>
@@ -73,6 +79,11 @@
 
 <%= form.text_field :code, value: current_user.connect_code %>
 </div>
+	
+	<div class="field form-group ">
+
+<%= form.text_field :complete, value: false %>
+</div>
 
 
   
@@ -80,7 +91,7 @@
   <div class="actions form-group">
     <%= form.submit %>
   </div>
-
+</form>
 <% end %>
 
 
