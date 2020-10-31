@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
 	  
-	  correct_user unless current_user.admin
+	  correct_user unless current_user.member
   end
 
 	def completed
