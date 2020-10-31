@@ -48,9 +48,9 @@
 		 
 		 <div class="col-lg-2">
 				 <div class="div-square">
-					<%= link_to tasks_new_path do %>
+					<%= link_to new_task_path do %>
                        <%= image_tag ( "https://img.icons8.com/plasticine/80/000000/tasks.png")%>
-					 <h4><%= link_to 'Create A new request', tasks_new_path %></h4>
+					 <h4><%= link_to 'Create a new request', new_task_path %></h4>
 					 <% end %>
 
 
@@ -59,9 +59,9 @@
 		 
 		 <div class="col-lg-2">
 				 <div class="div-square">
-					<%= link_to tasks_status_path do %>
+					<%= link_to status_tasks_path do %>
                        <%= image_tag ( "https://img.icons8.com/carbon-copy/80/000000/serial-tasks.png")%>
-					 <h4><%= link_to 'Create A new request', tasks_status_path %></h4>
+					 <h4><%= link_to 'Check Requests', status_tasks_path %></h4>
 					 <% end %>
 
 
