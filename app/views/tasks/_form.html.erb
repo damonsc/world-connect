@@ -44,6 +44,15 @@
 		</div>
 	<% end %>
 	
+	<% if !current_user.admin %>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"assigned connect code" %>
+            <%= form.hidden_field :code, value: current_user.connect_code,  class: 'form-control' %>
+  </div>
+		</div>
+	<% end %>
+	
 	
 	<div class="row">
   <div class="field form-group col-md-6">
