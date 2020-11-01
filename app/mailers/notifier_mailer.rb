@@ -1,11 +1,15 @@
 class NotifierMailer < ApplicationMailer
     
-     default from: 'notify@worldconnect.app'
+     default from: 'worldconnect.pc.app@gmail.com'
  
   def task_email
-    @user = params[:user]
+      
+    @user = User.find_by_id(1)
     @url  = 'http://worldconnect.app/'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.contact_email, subject: 'Welcome to My Awesome Site')
   end
+
+    
+
     
 end
