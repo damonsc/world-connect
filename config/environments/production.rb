@@ -110,15 +110,15 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
     
-    config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "worldconnect.app",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password:ENV["GMAIL_PASSWORD"]
-  }
+   config.action_mailer.smtp_settings = {
+   address:              'smtp.sendgrid.com',
+   port:                 587,
+   domain:               'worldconnect.app',
+   user_name:            'apikey',
+   password:             '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',
+   authentication:       'plain',
+   enable_starttls_auto: true  
+}
 
     
 	config.action_mailer.default_url_options = { host: 'world-connect.herokuapp.com'}

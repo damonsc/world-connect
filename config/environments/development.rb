@@ -57,18 +57,21 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
     
     
+    
     config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "worldconnect.app",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password:ENV["GMAIL_PASSWORD"]
-  }
+   address:              'smtp.sendgrid.com',
+   port:                 587,
+   domain:               'worldconnect.app',
+   user_name:            'apikey',
+   password:             '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',
+   authentication:       'plain',
+   enable_starttls_auto: true  
+}
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    
+    
 end
