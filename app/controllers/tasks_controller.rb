@@ -68,6 +68,7 @@ class TasksController < ApplicationController
       @tasks.user = current_user
     respond_to do |format|
       if @tasks.save
+           NotifierMailer.with(task: @tasks).task_email.deliver_now
         format.html { redirect_to @tasks, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
@@ -82,6 +83,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
+           NotifierMailer.with(task: @tasks).task_email.deliver_now
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
