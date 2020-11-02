@@ -65,9 +65,11 @@ Rails.application.configure do
    user_name:            'apikey',
    password:             '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',
    authentication:       'plain',
-   enable_starttls_auto: true  
-}
+   enable_starttls_auto: true  ,
+          :openssl_verify_mode  => 'none'
 
+}
+  
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker

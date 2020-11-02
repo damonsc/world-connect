@@ -1,6 +1,6 @@
 class NotifierMailer < ApplicationMailer
     
-     default from: 'worldconnect.pc.app@gmail.com'
+     default from: 'worldconnect@purecodedigital.com'
  
   def task_email
       

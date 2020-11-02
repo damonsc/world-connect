@@ -117,8 +117,10 @@ Rails.application.configure do
    user_name:            'apikey',
    password:             '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',
    authentication:       'plain',
-   enable_starttls_auto: true  
+   enable_starttls_auto: true  ,
+         :openssl_verify_mode  => 'none'
 }
+
 
     
 	config.action_mailer.default_url_options = { host: 'world-connect.herokuapp.com'}
