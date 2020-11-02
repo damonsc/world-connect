@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -57,18 +57,19 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
     
     
-    
-    config.action_mailer.smtp_settings = {
-   address:              'smtp.sendgrid.com',
+    config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   address:              'giowm1168.siteground.biz',
    port:                 587,
    domain:               'worldconnect.app',
-   user_name:            'apikey',
-   password:             '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',
+   user_name:            'worldconnect@purecodedigital.com',
+   password:             '1B.4eC@d`22c',
    authentication:       'plain',
    enable_starttls_auto: true  ,
-          :openssl_verify_mode  => 'none'
-
+         :openssl_verify_mode  => 'none'
 }
+    
+    
   
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
