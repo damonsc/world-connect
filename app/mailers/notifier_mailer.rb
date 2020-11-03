@@ -14,12 +14,18 @@ class NotifierMailer < ApplicationMailer
      def task_email2
 
        @tasks = params[:tasks]
-       @email = 'damon@purecodedigital.com'
+       @email = 'darrel@purecodedigital.com'
        @url  = 'http://worldconnect.app/'
        mail(to: @email, subject: 'Welcome to My Awesome Site')
      end
 
-    
+    def task_email3
+
+       @tasks = params[:tasks]
+       @email = 'cordero@purecodedigital.com'
+       @url  = 'http://worldconnect.app/'
+       mail(to: @email, subject: 'Welcome to My Awesome Site')
+     end
 
     
 end
