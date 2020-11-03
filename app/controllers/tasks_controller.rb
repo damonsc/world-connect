@@ -68,7 +68,12 @@ class TasksController < ApplicationController
       @tasks.user = current_user
     respond_to do |format|
       if @tasks.save
+        if @tasks.code == 100
            NotifierMailer.with(task: @tasks).task_email.deliver_now
+              end
+          if @tasks.code == 121767
+           NotifierMailer.with(task: @tasks).task_email.deliver_now
+              end
         format.html { redirect_to @tasks, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
