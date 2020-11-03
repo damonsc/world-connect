@@ -72,7 +72,7 @@ class TasksController < ApplicationController
            NotifierMailer.with(task: @tasks).task_email.deliver_now
               end
           if @tasks.code == 121767
-           NotifierMailer.with(task: @tasks).task_email.deliver_now
+           NotifierMailer.with(task: @tasks).task_email2.deliver_now
               end
         format.html { redirect_to @tasks, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
