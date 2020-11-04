@@ -39,7 +39,7 @@
 	<div class="row">
   <div class="field form-group col-md-6">
     <%= form.label :"assigned connect code" %>
-            <%= form.text_field :code,  class: 'form-control' %>
+            <%= form.text_field :code, value: current_user.connect_code,  class: 'form-control' %>
   </div>
 		</div>
 	<% end %>
@@ -94,8 +94,10 @@
 <%= form.hidden_field :complete, value: false %>
 </div>
 
+    <div class="field form-group ">
+    <%= form.hidden_field :status, value: "We are working on it" %>
 
-  
+    </div>
 
   <div class="actions form-group">
     <%= form.submit %>

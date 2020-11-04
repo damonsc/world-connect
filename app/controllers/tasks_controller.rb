@@ -93,7 +93,6 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-           NotifierMailer.with(task: @tasks).task_email.deliver_now
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
