@@ -25,7 +25,8 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-  is_admin?
+  is_member?
+      
     @payment = Payment.new
   end
 
@@ -90,6 +91,12 @@ class PaymentsController < ApplicationController
       # check if user is a admin
       # if not admin then redirect to where ever you want 
       redirect_to root_path unless current_user.admin? 
+    end
+    
+    def is_member?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.member? 
     end
 	
 	def correct_user
