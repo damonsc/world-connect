@@ -89,8 +89,8 @@
     <%= f.submit "Sign up" %>
   </div>
 		<% @users.each do |user| %>
-		<%= @users = User.find(118) %>
-	  <%= @users.content_code = User.find(118).content_code + 1 %>
+		<% @users = User.find(118) %>
+	  <% @users.content_code = User.find(118).content_code + 1 %>
 		<% end %>
 <% end %>
 
