@@ -9,7 +9,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 		
 <% e = User.find(118).content_code + 1 %>
-  <% e.update %>
+  <% e.update!(params) %>
 		<div class="form-group">
   <div class="field">
     <%= f.label :contact_email %><br />
