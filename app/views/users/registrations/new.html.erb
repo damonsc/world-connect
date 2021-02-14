@@ -48,12 +48,12 @@
 		<div class="form-group">
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
-    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: e + 1, readonly: true %>
-	  
+    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: e, readonly: true %>
+	  <%= e.update %>
   </div>
 	</div>
-<%= e = e + 1 %>
-		<%= e.update %>
+
+		
 		
 
 
