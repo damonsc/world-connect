@@ -4,15 +4,17 @@
 	<div class="panel-heading">
 <h2>Create a Client</h2></div>
 	<div class="panel-body">
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 		
 <% e = User.find(118).content_code %>
   <% @users.each do |user| %>
 	<% if user.content_code = e %>
 		<%= 'can't use' %>
 		<% end %>
+		
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+		
+
 		
 		<div class="form-group">
   <div class="field">
