@@ -7,7 +7,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+<%= e = User.find(118).content_code + 1 %>
  <div class="form-group">
   <div class="field">
     <%= f.label :contact_email %><br />
@@ -46,7 +46,7 @@
 		<div class="form-group">
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
-    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: User.find(118).content_code + 1, readonly: true %>
+    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: e, readonly: true %>
 	  
   </div>
 	</div>
@@ -91,12 +91,7 @@
 <% end %>
 
 <%= render "users/shared/links" %>
-		
-		<% @users.each do |user| %>
-		<% @users = User.find(118) %>
-	  <% @users.content_code = User.find(118).content_code + 1 %>
-		<% end %>
-		
+
 		<script>
 	var code = prompt("Please enter the access code");
 
