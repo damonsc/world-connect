@@ -17,7 +17,7 @@ class ConnectCodesController < ApplicationController
 
   # GET /connect_codes/new
   def new
-    is_admin?
+    
     @connect_code = ConnectCode.new
   end
 
