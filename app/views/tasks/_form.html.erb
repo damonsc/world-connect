@@ -107,5 +107,42 @@
 
 
 
+<% if current_user.member == false && current_user.client_code > 0 %>
+<form>
+  <div class="field form-group">
+    <%= form.label :'if you are seeing this. it is a test' %>
+    <%= form.text_area :description, class: "textarea form-control" %>
+  </div>
+<div class="field form-group ">
+	<%= form.hidden_field :client_code, value: current_user.content_code %>
+</div>
+
+<div class="field form-group ">
+
+<%= form.hidden_field :code, value: current_user.connect_code %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :client_submit, value: true %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :complete, value: false %>
+</div>
+
+    <div class="field form-group ">
+    <%= form.hidden_field :status, value: "We are working on it" %>
+
+    </div>
+
+  <div class="actions form-group">
+    <%= form.submit %>
+  </div>
+</form>
+<% end %>
+
+
 
 <% end %>
