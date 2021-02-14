@@ -9,7 +9,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 		
 <% e = User.find(118).content_code + 1 %>
- 
+  <% e.update %>
 		<div class="form-group">
   <div class="field">
     <%= f.label :contact_email %><br />
@@ -49,7 +49,7 @@
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
     <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: e, readonly: true %>
-	  <% e.update %>
+	 
   </div>
 	</div>
 
