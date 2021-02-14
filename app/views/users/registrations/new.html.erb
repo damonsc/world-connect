@@ -88,9 +88,10 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-		
+		<% @users.each do |user| %>
 		<%= @user = User.find(118) %>
 	  <%= @user.content_code = User.find(118).content_code + 1 %>
+		<% end %>
 <% end %>
 
 <%= render "users/shared/links" %>
