@@ -47,8 +47,8 @@
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
     <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: User.find(118).content_code + 1, readonly: true %>
-	  <% e = User.find(118).content_code + 1 %>
-	  <% e.save %>
+	  <% e = User.find(118) %>
+	  <% e.content_code = e.content_code + 1 %>
   </div>
 	</div>
 
