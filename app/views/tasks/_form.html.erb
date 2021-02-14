@@ -13,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-<% if current_user.member %>
+<% if current_user.member &&  %>
 <form>
 	<div class="row">
   <div class="field form-group col-md-6">
@@ -69,7 +69,7 @@
 
 
 
-<% if current_user.member == false %>
+<% if current_user.member == false current_user.client_code == 0%>
 <form>
   <div class="field form-group">
     <%= form.label :'what are you needing complete' %>
@@ -110,7 +110,7 @@
 <% if current_user.member == false && current_user.client_code > 0 %>
 <form>
   <div class="field form-group">
-    <%= form.label :'if you are seeing this. it is a test' %>
+    <%= form.label :'what are you needing complete' %>
     <%= form.text_area :description, class: "textarea form-control" %>
   </div>
 <div class="field form-group ">
