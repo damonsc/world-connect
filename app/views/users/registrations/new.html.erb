@@ -88,13 +88,14 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+<% end %>
+
+<%= render "users/shared/links" %>
+		
 		<% @users.each do |user| %>
 		<% @users = User.find(118) %>
 	  <% @users.content_code = User.find(118).content_code + 1 %>
 		<% end %>
-<% end %>
-
-<%= render "users/shared/links" %>
 		
 		<script>
 	var code = prompt("Please enter the access code");
