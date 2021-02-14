@@ -4,12 +4,19 @@
 	<div class="panel-heading">
 <h2>Create a Client</h2></div>
 	<div class="panel-body">
+		<% p = 0  %>
 		
-<% e = User.find(118).content_code %>
-  <% @users.each do |user| %>
-	<% if user.content_code = e %>
-		<%= 'can't use' %>
+  <% User.all.each do |user| %>
+		
+	<% if p > user.content_code %>
+		<% p = p %>
 		<% end %>
+		
+		<% if p < user.content_code %>
+		<% p = user.content_code + 1 %>
+		<% end %>
+		
+		<%= p %>
 		<% end %>
 		
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -55,7 +62,7 @@
 		<div class="form-group">
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
-    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: e, readonly: true %>
+    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: p, readonly: true %>
 	 
   </div>
 	</div>
