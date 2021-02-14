@@ -46,7 +46,8 @@
 		<div class="form-group">
   <div class="field">
 	  <%= f.label :assigned_content_code %><br />
-    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: User.last.content_code + 1, readonly: true %>
+    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: User.find(118).content_code + 1, readonly: true %>
+	  <% User.find(118).content_code + 1%>
   </div>
 	</div>
 
