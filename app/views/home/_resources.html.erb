@@ -222,6 +222,33 @@
 	   <div class="row">
 
 
+		   
+		   <!--------Recommendations Manager Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 1 %>
+		   <% temp = link.content_code_matcher %>
+		   <% if current_user.content_code == temp %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-lg-2 ">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+<!------------------------------------------------------------------------------------------------------------------------->
 
 
 
