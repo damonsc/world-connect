@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content link:</strong>
+  <%= @link.content_link %>
+</p>
+
+<p>
+  <strong>Image link:</strong>
+  <%= @link.image_link %>
+</p>
+
+<p>
+  <strong>Content code matcher:</strong>
+  <%= @link.content_code_matcher %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

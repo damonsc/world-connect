@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_151537) do
+ActiveRecord::Schema.define(version: 2021_02_15_052301) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_10_30_151537) do
     t.string "assigned_username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "content_link"
+    t.string "image_link"
+    t.integer "content_code_matcher"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "location"
+    t.string "title"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -158,7 +168,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_151537) do
     t.string "last_sign_in_ip"
     t.integer "sign_in_count"
     t.boolean "exec"
-    t.integer "connect_code" , default: 100
+    t.integer "connect_code", default: 0
     t.boolean "member", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

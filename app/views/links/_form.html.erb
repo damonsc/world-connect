@@ -1,0 +1,55 @@
+<%= form_with(model: link, local: true) do |form| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+        <% link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form>
+	
+	<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+		</div>
+
+
+		<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :content_link %>
+    <%= form.text_field :content_link, class: "form-control" %>
+  </div>
+			</div>
+
+			<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :image_link %>
+    <%= form.text_field :image_link, class: "form-control" %>
+  </div>
+				</div>
+
+				<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :content_code_matcher %>
+    <%= form.number_field :content_code_matcher, class: "form-control" %>
+  </div>
+					</div>
+ 
+					<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :location %>
+    <%= form.number_field :location, class: "form-control" %>
+  </div>
+						</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+	</form>
+<% end %>
