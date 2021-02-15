@@ -75,6 +75,7 @@
 <!--------Clients Content Manager Function------------------------------------------------------------------------------>
 	  
 		   <% Link.all.each do |link| %>
+		   <% if link.location == 0 %>
 		   <% temp = link.content_code_matcher %>
 		   <% if current_user.content_code == temp %>
 		   
