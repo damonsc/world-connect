@@ -3,7 +3,6 @@ class NotifierMailer < ApplicationMailer
      default from: 'worldconnect@purecodedigital.com'
  
   def task_email
-      <% User.all.each do |user| %>
     @tasks = params[:tasks]
     @user = params[:user]
     @email = 'damonsc@forfam2u.com'
