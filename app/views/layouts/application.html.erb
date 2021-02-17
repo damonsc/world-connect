@@ -9,9 +9,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<body style="background-color:#EBF4FA;">
-	  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<body style="background-color:#F5F5F5;">
+	  
+		<% if notice %>
+	<div style="font-size:22px; text-align: center;"  class="alert alert-primary" role="alert">
+  <%= notice %>
+</div>
+	<% end %>
+	
+	<% if alert %>
+	<div style="font-size:22px; text-align: center;"  class="alert alert-danger" role="alert">
+  <%= alert %>
+</div>
+	<% end %>
+	
+	<br>
+       
 	  <div class="container">
     <%= yield %>
 		  </div>

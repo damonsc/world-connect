@@ -1,0 +1,7 @@
+<% User.all.each do |user| %>
+<% if user.pc_client == false %>
+
+<%= user.email %>
+
+<% end %>
+<% end %>

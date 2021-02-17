@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'unverified/unverified-list'
   resources :links
   resources :tasks do
 	  collection do
@@ -42,6 +43,7 @@ registrations: "users/registrations" }
    get 'home/sessiontrack'
    get 'home/admins'
    get 'home/execclients'
+   get 'home/unverified'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 resources  :users do
  resources :posts, only: [:index]

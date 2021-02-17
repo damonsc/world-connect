@@ -2,23 +2,23 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <%= render 'home/header' %>
-
+<br>
 
 <body style="background-color:#DCDCDC;">
     <div class="panel panel-default">
 	<div class="panel-heading">
-<h2>Log in </h2></div>
+<h2 style="font-size:40px;">Log in </h2></div>
 	<div class="panel-body">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-   <div class="form-group">
+   <div style="font-size:18px;" class="form-group">
 	<div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
   </div>
 	  </div>
 
-	<div class="form-group">
+	<div style="font-size:18px;" class="form-group">
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>

@@ -51,6 +51,10 @@ require 'devise_roles'
   def execclients
 
   end
+  
+  def unverified
+      is_admin?
+  end
 
   def is_admin?
       # check if user is a admin
