@@ -6,15 +6,21 @@
 	<div class="panel-body">
 		<% p = 0  %>
 		
-  <% User.all.each do |user| %>
+  <% User.all.each do |user|%>
 		
-	<% if p > user.content_code %>
+		<% if p > user.content_code %>
 		<% p = p %>
 		<% end %>
 		
-		<% if p < user.content_code %>
+		
+		
+		<% if p <= user.content_code %>
 		<% p = user.content_code + 1 %>
 		<% end %>
+		
+	
+		
+		
 		<% end %>
 		
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
