@@ -56,9 +56,31 @@
     <%= current_user.content_code %>
   </div>
 	</div>
+	  
+	  <% if true_user.admin == true %>
+	  <% if current_user.pc_client == false %>
+	  <div class="form-group">
+  <div class="field">
+   <%= f.label :pc_client_on%><br>
+	  <%= f.radio_button :pc_client, true %><br>
+  </div>
+	</div>
+	  <% end %> 
+	  <% end %> 
+	  
 
+	  <% if true_user.admin == true %>
+	  <% if current_user.pc_client == true %>
+	  <div class="form-group">
+  <div class="field">
+	  <%= f.label :pc_client_off%><br>
+	  <%= f.radio_button :pc_client, false %>
+  </div>
+	</div>
+	  <% end %> 
+	  <% end %> 
 
-
+	  
 	
 <div class="form-group">
   <div class="field">
