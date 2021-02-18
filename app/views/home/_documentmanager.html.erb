@@ -12,7 +12,7 @@
 	<div class="row">
 		<% if current_user.admin == true %>
 
-		 <div class="col-sm-2">
+		 <div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to uploads_path do %>
                        <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
@@ -24,7 +24,7 @@
                       </div>
 				</div>
 
-		<div class="col-sm-2">
+		<div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to uploads_new_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
@@ -41,7 +41,7 @@
 
 		<% if current_user.admin == false %>
 
-		<div class="col-sm-2">
+		<div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to uploads_path do %>
                        <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
@@ -55,7 +55,7 @@
 
 				</div>
 
-		<div class="col-sm-2">
+		<div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to uploads_new_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
@@ -68,7 +68,7 @@
 
 		<% end %>
 		<% if current_user.pc_client == true %>
-		<div class="col-sm-2">
+		<div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to payments_path do %>
                        <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
@@ -81,7 +81,7 @@
 		<% end %>
 
 		<% if current_user.ssla_client == true %>
-		<div class="col-sm-2">
+		<div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to payments_path do %>
                        <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
@@ -89,7 +89,7 @@
 					 <h4><%= link_to 'Donation History', payments_path %></h4>
 			</div>
 			</div>
-					 <div class="col-sm-2">
+					 <div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to logs_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>

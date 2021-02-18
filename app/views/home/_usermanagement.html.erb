@@ -10,7 +10,7 @@
        <!---------------ADMIN------------------------------------------------->
 		   <% if current_user.admin %>
 			   
-			<div class="col-sm-2">
+			<div class="col-sm-2 pt-2 pb-2">
 
 				 <div class="div-square">
                     <%= link_to edit_user_registration_path do %>
@@ -22,7 +22,7 @@
 
 
 				</div>
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to home_clients_path do %>
                        <%= image_tag ( "https://img.icons8.com/nolan/80/000000/list.png")%>
@@ -36,7 +36,7 @@
 
 				</div>
 
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
 				 <div class="div-square">
 					<%= link_to logs_path do %>
                        <%= image_tag ( "https://img.icons8.com/plasticine/80/000000/logs-folder.png")%>
@@ -49,7 +49,7 @@
 
 				</div>
 
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
                       <div class="div-square">
                         <%= link_to employees_path do %>
                                      <%= image_tag ( "https://img.icons8.com/ios-glyphs/80/000000/group.png")%>
@@ -67,7 +67,7 @@
        <!---------------Execs------------------------------------------------->
   <% if current_user.exec %>
 
-  <div class="col-sm-2">
+  <div class="col-sm-2 pt-2 pb-2">
     <div class="div-square">
      <%= link_to home_execclients_path do %>
                   <%= image_tag ( "https://img.icons8.com/nolan/80/000000/list.png")%>
@@ -87,7 +87,7 @@
 
 		   <% if current_user.admin == false %>
 
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
 
 				 <div class="div-square">
                     <%= link_to edit_user_registration_path do %>
@@ -105,7 +105,7 @@
 
 		   <% if current_user.pc_client == true %>
 
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
                       <div class="div-square">
                            <a href="https://purecodedigital.com/client-payment-area/" >
 <img src="https://img.icons8.com/dusk/80/000000/card-in-use--v2.png">
@@ -115,7 +115,7 @@
                   </div>
 
 		      <% if current_user.content_code == 700009 %>
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
 
 				 <a href="https://purecodedigital.com/services-page/services-0009.html" >
 
@@ -127,7 +127,7 @@
 				</div>
 		   <% end %>
 		   <% if current_user.content_code == 700010 %>
-		   <div class="col-sm-2">
+		   <div class="col-sm-2 pt-2 pb-2">
 
 				 <a href="https://purecodedigital.com/services-page/services-0010.html" >
 
