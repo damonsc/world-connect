@@ -13,12 +13,20 @@
       </ul>
     </div>
   <% end %>
-<% if current_user.member &&  %>
+<% if current_user.member  %>
 <form>
+	
+	<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+		</div>
+	
 	<div class="row">
   <div class="field form-group col-md-6">
-    <%= form.label :"Give a brief description" %>
-    <%= form.text_field :description, class: "form-control" %>
+    <%= form.label :"Give a detailed description" %>
+    <%= form.text_area :description, class: "textarea form-control" %>
   </div>
 		</div>
 	
@@ -71,10 +79,20 @@
 
 <% if current_user.member == false && current_user.client_code == 0 %>
 <form>
+	
+
+	<div class="field form-group">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+		
+	
+	
   <div class="field form-group">
     <%= form.label :'what are you needing complete' %>
     <%= form.text_area :description, class: "textarea form-control" %>
   </div>
+	
 <div class="field form-group ">
 	<%= form.hidden_field :client_code, value: current_user.content_code %>
 </div>
@@ -109,6 +127,13 @@
 
 <% if current_user.member == false && current_user.client_code > 0 %>
 <form>
+	
+	<div class="field form-group">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+
+	
   <div class="field form-group">
     <%= form.label :'what are you needing complete' %>
     <%= form.text_area :description, class: "textarea form-control" %>

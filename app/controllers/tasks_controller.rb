@@ -13,9 +13,10 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-      is_member?
-	  
-	  correct_user unless current_user.admin
+      
+	  if current_user.admin == false || current_user.member = false
+	  correct_user
+      end
  
   end
 	
@@ -70,7 +71,7 @@ class TasksController < ApplicationController
       if @tasks.save
         if @tasks.code == 100
            NotifierMailer.with(task: @tasks).task_email.deliver_now
-           NotifierMailer.with(task: @tasks).clientemail.deliver_now
+          
               end
           if @tasks.code == 121767
               NotifierMailer.with(task: @tasks).task_email.deliver_now
@@ -120,14 +121,14 @@ class TasksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note, :code, :client_code, :client_submit)
-    end
+        def task_params
+      params.require(:task).permit(:description, :status, :complete, :task_id, :user_id, :note, :code, :client_code, :client_submit, :brief)
+        end
     
     	def correct_user
   @tasks = current_user.tasks.find_by(id: params[:id])
   redirect_to root_path, notice: "Not the correct User" if @tasks.nil?
-  end
+        end
   
    def is_admin?
       # check if user is a admin
@@ -141,10 +142,10 @@ class TasksController < ApplicationController
       redirect_to root_path unless current_user.member? 
     end
     
-	def correct_user
+    def correct_user
   @updates = current_user.tasks.find_by(id: params[:id])
   redirect_to root_path, notice: "" if @updates.nil?
-  end
+    end
     
 	
 end

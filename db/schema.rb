@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_052301) do
+ActiveRecord::Schema.define(version: 2021_02_18_025543) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_052301) do
     t.integer "code"
     t.integer "client_code"
     t.boolean "client_submit", default: false
+    t.string "title"
+    t.string "brief"
     t.index ["task_id"], name: "index_tasks_on_task_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
