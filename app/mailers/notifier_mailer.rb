@@ -10,7 +10,6 @@ class NotifierMailer < ApplicationMailer
     @tasks = params[:tasks]
     @user = params[:user]
     @email = 'damonsc@forfam2u.com'
-    @email2 = current_user.email
     @url  = 'http://worldconnect.app/'
     mail(to: @email, subject: 'Task Notification')
   end
