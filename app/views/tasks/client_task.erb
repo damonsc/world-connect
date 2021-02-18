@@ -15,7 +15,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Description</th>
+      <th>Request Title</th>
       <th>Is it Complete</th>
 		<th>Code</th>
       <th colspan="3"></th>
@@ -28,7 +28,7 @@
 	  <% if task.code == current_user.connect_code %>
 	  
       <tr>
-        <td><%= task.description %></td>
+        <td><%= task.brief %></td>
        
            
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
