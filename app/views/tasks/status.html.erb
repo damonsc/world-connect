@@ -14,8 +14,7 @@
   <thead>
     <tr>
 		<th>Request Title</th>
-      <th>The latest update</th>
-      <th>in progress</th>
+      <th>Progress</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,7 +25,6 @@
       <% if task.client_code == current_user.content_code %>
 	  <tr>
 		   <td><%= task.brief%></td>	
-        <td><%= task.status %></td>	
 		
 		
         <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>

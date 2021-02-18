@@ -10,7 +10,6 @@
   <thead>
     <tr>
    <th>Request Title</th>
-      <th>Status</th>
 		<% if current_user.member %>
         <th>Note</th>
 		<% end %> 
@@ -22,7 +21,6 @@
   <tbody>
       <tr>
         <td><%= @task.brief %></td>
-           <td><%= @task.status %></td>
          <td><% if @task.complete %>
     <%= 'completed'%>
     <% else %>
@@ -34,6 +32,13 @@
   </tbody>
 </table>
 <br>
+<hr>
+<div class="container" style="text-align:center;  padding-bottom: 100px; padding-top: 10px;">
+	<h2 class="alert alert-info">Status Update</h2>
+<p style=" padding-bottom: 50px;"> <%= @task.brief %> </p>
+	<br>
+	
+</div>
 <hr>
 <div class="container" style="text-align:center;  padding-bottom: 100px; padding-top: 100px;">
 	<h2>Full Description</h2>
