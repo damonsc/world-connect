@@ -3,13 +3,7 @@ class NotifierMailer < ApplicationMailer
      default from: 'worldconnect@purecodedigital.com'
      
      
-     def task_emailclient
-       @tasks = params[:tasks]
-       @user = params[:users]
-       @email2 = current_user.email
-       @url  = 'http://worldconnect.app/'
-       mail(to: @user.contact_email, subject: 'Task Notification')
-     end
+  
    
  
   def task_email
@@ -37,10 +31,6 @@ class NotifierMailer < ApplicationMailer
        mail(to: @email, subject: 'Task Notification')
      end
 
-    def current_user
-      return unless session[:user_id]
-      @current_user ||= User.find(session[:user_id])
-    end
   
 
 end
