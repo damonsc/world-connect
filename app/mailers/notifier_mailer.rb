@@ -8,7 +8,7 @@ class NotifierMailer < ApplicationMailer
        @user = params[:users]
        @email2 = current_user.email
        @url  = 'http://worldconnect.app/'
-       mail(to: @user, subject: 'Task Notification')
+       mail(to: @user.contact_email, subject: 'Task Notification')
      end
    
  

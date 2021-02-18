@@ -70,7 +70,7 @@ class TasksController < ApplicationController
       if @tasks.save
         if @tasks.code == 100
            NotifierMailer.with(task: @tasks).task_email.deliver_now
-           NotifierMailer.with(task: @tasks).task_emailclient.deliver_now
+           NotifierMailer.with(task: @tasks).clientemail.deliver_now
               end
           if @tasks.code == 121767
               NotifierMailer.with(task: @tasks).task_email.deliver_now
