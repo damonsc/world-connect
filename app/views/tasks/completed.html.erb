@@ -77,8 +77,9 @@
 		
           
         <td><%= link_to 'View Details', task %></td>
+		   <%if current_user.admin %>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
-          <%if current_user.admin %>
+         
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
