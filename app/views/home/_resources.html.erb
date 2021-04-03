@@ -215,7 +215,7 @@
 	   <% if current_user.pc_client == true %>
 	 <div class="row">
     <div class="col"><hr></div>
-    <div class="col-auto"><h3>Service Recommendations</h3></div>
+    <div class="col-auto"><h3>Personal Service Recommendations</h3></div>
     <div class="col"><hr></div>
 </div>
 
@@ -247,8 +247,51 @@
 		    <% end %>
 		   
 		   
+
+
+
+	   </div>
+	   <% end %>
+<!----------------------------Services--------------------------------------------------------------------------------------------->
+
+
+	
+	
+	<% if current_user.pc_client == true %>
+	 <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Service Offers</h3></div>
+    <div class="col"><hr></div>
+</div>
+
+	   <div class="row">
+
+
 		   
-<!------------------------------------------------------------------------------------------------------------------------->
+		   <!--------Service Manager Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 2 %>
+		   
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
 
 
 
@@ -256,7 +299,7 @@
 	   </div>
 	   <% end %>
 
-
+<!------------------------------------------------------------------------------------------------------------------------->
 
 
 </html>
