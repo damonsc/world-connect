@@ -42,13 +42,19 @@
   </div>
 					</div>
 	
+	
+	
+	
 	<div class="row">
   <div class="field form-group col-md-6">
     <%= form.label :client_code_matcher %>
-	 <%= form.collection_select :client_code_matcher, User.order(:client_code), :client_code, :client_code, class: 'form-control' %>
+	 	 <%= form.collection_select :client_code_matcher, ClientCode.order(:code), :code, :code, class: 'form-control' %>
 
   </div>
 					</div>
+	
+
+
 	
 	
  <% if current_user.member && current_user.admin==false  %>
