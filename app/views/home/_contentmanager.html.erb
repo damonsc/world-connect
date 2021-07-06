@@ -102,7 +102,7 @@
 		   <% Link.all.each do |link| %>
 		   <% if link.location == 0 %>
 		   <% temp = link.client_code_matcher %>
-		   <% if current_user.client_code == temp %>
+		   <% if current_user.client_code == temp && current_user.client_code != 0 %>
 		   
 		   <% a = link.content_link %>
 		   <% b = link.image_link %>
