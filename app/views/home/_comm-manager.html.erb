@@ -21,18 +21,7 @@
                   </div>
 		   <% end %>
 
-		   <% if current_user.pc_client == true %>
-		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
-                           <a href="https://purecode-035.my.webex.com/meet/streaming" >
-<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
-							   <h4>Meeting Room</h4>
-                      </a>
-                      </div>
-
-
-                  </div>
-		   <% end %>
+		  
 
 
 		   <div class="col-sm-2 pt-2 pb-2">
@@ -70,6 +59,89 @@
  <% end %>
 
 
+		 
+		 
+		 
+		 
+		  <% if current_user.pc_client == true %>
+		   <div class="col-sm-2 pt-2 pb-2">
+                      <div class="div-square">
+                           <a href="https://purecode-035.my.webex.com/meet/streaming" >
+<img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
+							   <h4>Meeting Room</h4>
+                      </a>
+                      </div>
+
+
+		 </div>
+	
+		 
+		 
+		 
+		  <!--------Clients Content Manager Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 4 %>
+		   <% temp = link.content_code_matcher %>
+		   <% if current_user.content_code == temp %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   <!--------Clients Client Code Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 4 %>
+		   <% temp = link.client_code_matcher %>
+		   <% if current_user.client_code == temp && current_user.client_code != 0 %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   
+		   
+<!------------------------------------------------------------------------------------------------------------------------->
+		 
+		 
+		 
+		   <% end %>
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 		   <% end %>
 
 		   <% if current_user.admin == true %>
