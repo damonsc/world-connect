@@ -222,13 +222,7 @@
        
        
 	   <% if current_user.pc_client == true %>
-	 <div class="row">
-    <div class="col"><hr></div>
-    <div class="col-auto"><h3>Personal Service Recommendations</h3></div>
-    <div class="col"><hr></div>
-</div>
-
-	   <div class="row">
+	 
 
 
 		   
@@ -238,6 +232,15 @@
 		   <% if link.location == 1 %>
 		   <% temp = link.content_code_matcher %>
 		   <% if current_user.content_code == temp %>
+		   
+		    <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Personal Service Recommendations</h3></div>
+    <div class="col"><hr></div>
+</div>
+
+	   <div class="row">
+		   
 		   
 		   <% a = link.content_link %>
 		   <% b = link.image_link %>
@@ -267,13 +270,7 @@
 	
 	
 	<% if current_user.pc_client == true %>
-	 <div class="row">
-    <div class="col"><hr></div>
-    <div class="col-auto"><h3>Service Offers</h3></div>
-    <div class="col"><hr></div>
-</div>
-
-	   <div class="row">
+	
 
 
 		   
@@ -281,8 +278,18 @@
 	  
 		   <% Link.all.each do |link| %>
 		   <% if link.location == 2 %>
+	
+	<% temp = link.content_code_matcher %>
+		   <% if current_user.content_code == temp %>
 		   
+		    <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>Service Offers</h3></div>
+    <div class="col"><hr></div>
+</div>
+
 		   
+		   <div class="row">
 		   <% a = link.content_link %>
 		   <% b = link.image_link %>
 		   <% c = link.title %>
@@ -298,6 +305,7 @@
 		   
 		   <% end %>
 		    <% end %>
+			   <% end %>
 		   
 		   
 		   
