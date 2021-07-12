@@ -1,0 +1,55 @@
+
+<%= form_with(model: log, local: true) do |form| %>
+  <% if log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(log.errors.count, "error") %> prohibited this log from being saved:</h2>
+
+      <ul>
+        <% log.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+	<div class="form-group">
+ 
+    <%= form.label :Whose_session_was_this %><br />
+     <%= form.text_field :iname, class: "form-control" %>
+  
+	</div>
+	
+	<div class="form-group">
+    <%= form.label :date_of_session %>
+    <%= form.date_select :date_of_session, class: "form-control" %>
+  
+	</div>
+
+		<div class="form-group">
+    <%= form.label :details %>
+    <%= form.text_area :details, class: "form-control", rows:"5" %>
+			</div>
+
+			
+  	<div class="form-group">
+ 
+    <%= form.label :Select_Reference %><br />
+		
+    <%= form.collection_select :reference_code, User.order(:email),:content_code, :email , class:'form-control custom-select'%>
+  
+	</div>
+	
+	<div class="form-group">
+ 
+    <%= form.label :Select_Client_Code_Reference %><br />
+    <%= form.collection_select :client_code, ClientCode.order(:code),:code, :client , class:'form-control custom-select'%>
+  
+	</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+	
+<% end %>

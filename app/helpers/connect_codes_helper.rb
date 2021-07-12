@@ -1,0 +1,2 @@
+module ConnectCodesHelper
+end

@@ -10,22 +10,16 @@
 	  
 	  <div class="form-group">
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+    <%= f.label :best_email_for_contact %><br />
+    <%= f.text_field :contact_email, autofocus: true, class: 'form-control' %>
   </div>
 	</div>
 	  
-	   <div class="form-group">
-  <div class="field">
-    <%= f.label :login_password %><br />
-    <%= f.text_field :pword, autofocus: true, class: 'form-control' %>
-  </div>
-	</div>
 	  
 	<div class="form-group">
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+    <%= f.label :username %><br />
+    <%= current_user.email %>
   </div>
 		
 
@@ -48,12 +42,44 @@
   </div>
 	</div>
 	  
+	  
 	  <div class="form-group">
   <div class="field">
     <%= f.label :phone_number %><br />
     <%= f.telephone_field :phone_number, autofocus: true, class: 'form-control' %>
   </div>
 	</div>
+	  
+	  <div class="form-group">
+  <div class="field">
+    <%= f.label :Reference_number %><br />
+    <%= current_user.content_code %>
+  </div>
+	</div>
+	  
+	  <% if true_user.admin == true %>
+	  <% if current_user.pc_client == false %>
+	  <div class="form-group">
+  <div class="field">
+   <%= f.label :pc_client_on%><br>
+	  <%= f.radio_button :pc_client, true %><br>
+  </div>
+	</div>
+	  <% end %> 
+	  <% end %> 
+	  
+
+	  <% if true_user.admin == true %>
+	  <% if current_user.pc_client == true %>
+	  <div class="form-group">
+  <div class="field">
+	  <%= f.label :pc_client_off%><br>
+	  <%= f.radio_button :pc_client, false %>
+  </div>
+	</div>
+	  <% end %> 
+	  <% end %> 
+
 	  
 	
 <div class="form-group">
@@ -92,23 +118,11 @@
     <%= f.submit "Update", class:'btn btn-primary' %>
   </div>
 <% end %>
-
+<%if true_user.admin == true %>
 <h3>Cancel the account</h3>
 
-<p>Do you need to erase this client <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<p>Do you need to erase this client <%= button_to "Cancel the account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%end%>
 <%= link_to "Back", :back %>
 	</form>
 	</div>
-	<script>
-	var code = prompt("Please enter the access code");
-
-if (code == '8181') {
-  alert('thanks');
-	
-} else {
-  alert('wrong code');
-	window.location.replace("https://worldconnect.app");
-
-}
-		</script>

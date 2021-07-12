@@ -1,0 +1,90 @@
+<%= render 'home/header' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Completed Tasks</h1><br>
+<br>
+<% if current_user.member %>
+<ul class="list-inline">
+  <li class="list-inline-item"><%= link_to 'Create a new task', new_task_path, class:'btn btn-light' %></li>
+		
+	<li class="list-inline-item"><%= link_to 'Pending Tasks', tasks_path, class:'btn btn-light' %></li>
+	<li class="list-inline-item"><%= link_to 'Completed Tasks', completed_tasks_path, class:'btn btn-light' %></li>
+	
+</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Request Title</th>
+      <th>is it Complete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+	  <% if task.complete %>
+      <tr>
+        <td><%= task.brief %></td>
+          <% if task.complete %>
+        <td><span class="glyphicon glyphicon-ok alert alert-success"></span></td>
+          <% end %>
+           <% if !task.complete %>
+        <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
+          <% end %>
+		
+          
+        <td><%= link_to 'View Details', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <%if current_user.admin %>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+	  <% end %>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+<% if current_user.member == false%>
+<ul class="list-inline">
+
+	<li class="list-inline-item"><%= link_to 'Pending Tasks', status_tasks_path, class:'btn btn-light' %></li>
+	<li class="list-inline-item"><%= link_to 'Completed Tasks', completed_tasks_path, class:'btn btn-light' %></li>
+	
+</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th>The final status update</th>
+      <th>is it Complete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+	  <% if task.complete %>
+      <tr>
+        <td><%= task.status %></td>
+          <% if task.complete %>
+        <td><span class="glyphicon glyphicon-ok alert alert-success"></span></td>
+          <% end %>
+           <% if !task.complete %>
+        <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
+          <% end %>
+		
+          
+        <td><%= link_to 'View Details', task %></td>
+		   <%if current_user.admin %>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+         
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+	  <% end %>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

@@ -109,5 +109,27 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+    
+    config.action_mailer.delivery_method = :smtp
+   config.action_mailer.smtp_settings = {
+   address:              'giowm1168.siteground.biz',
+   port:                 587,
+   domain:               'worldconnect.app',
+   user_name:            'worldconnect@purecodedigital.com',
+   password:             '1B.4eC@d`22c',
+   authentication:       'plain',
+   enable_starttls_auto: true  ,
+         :openssl_verify_mode  => 'none'
+}
+
+config.action_mailer.raise_delivery_errors = true
+    
 	config.action_mailer.default_url_options = { host: 'world-connect.herokuapp.com'}
+	config.force_ssl = true
+    
+    
 end
+
+
+  
+

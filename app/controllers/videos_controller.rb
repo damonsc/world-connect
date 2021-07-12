@@ -1,31 +1,35 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
+
   # GET /videos
   # GET /videos.json
   def index
-    if admin_signed_in?
+    if current_user.admin == true
     @videos = Video.all
+	else
+	@videos = Video.where(:reference_code => current_user.content_code)
 	end
-	if user_signed_in?
-	@videos = Video.where(:user_id => current_user.id)
-	end
-	
+	#@user = User.all
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+  is_admin?
   end
 
   # GET /videos/new
   def new
    # @video = Video.new
+	  is_admin?
    @video = current_user.videos.build
+	  
   end
 
   # GET /videos/1/edit
   def edit
+  is_admin?
   end
 
   # POST /videos
@@ -76,6 +80,13 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :description, :user_id)
+      params.require(:video).permit(:name, :url, :description, :user_id, :admin_id, :reference_code)
     end
+	
+	def is_admin?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to root_path unless current_user.admin? 
+    end
+	
 end

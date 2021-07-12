@@ -1,0 +1,4 @@
+---for each shirt---
+-regular price
+-variations of shirt(S,L,XL,Red,Blue)
+-will you need sku identifier for stock purposes

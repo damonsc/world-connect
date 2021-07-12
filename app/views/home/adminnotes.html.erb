@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<%= render 'home/header' %>
+<div class="panel panel-default">
+	
+
+		<h1>Notes</h1>
+	<p>These notes are for Pure Code eyes only. Anyone in the netwrork will be able to see.</p>
+	<ul class="list-inline">
+<li class="list-inline-item"><%= link_to 'Create new note', new_update_path, class:'btn btn-light' %></li>
+		<li class="list-inline-item"><%= link_to 'Admin Notes', home_adminnotes_path, class:'btn btn-light' %></li>
+		 <li class="list-inline-item"><%= link_to 'Personal Notes', updates_path, class:'btn btn-light' %></li>
+</ul>
+<p id="notice"><%= notice %></p>
+<% @adminupdates = Update.all  %>
+<% @adminupdates.each do |update| %>
+	<% if update.reference_code.to_i > 100000 && update.reference_code.to_i < 200000 %>
+<div class="card">
+  <h3 class="card-header"><%= update.title %></h3>
+  <div class="card-body">
+    <p class="card-text"><%= update.status %></p>
+	   <h5 class="card-title">submitted by: <%= update.creater %> &nbsp; <%= update.time %> -EST</h5>
+	  
+	
+	  
+	  
+	  
+	  
+	  <ul class="list-inline">
+		  <% if update.user == current_user or current_user.admin? %>
+  <li class="list-inline-item"><%= link_to 'Edit', edit_update_path(update), class:"btn btn-light" %></li>
+  <li class="list-inline-item"><%= link_to 'Delete', update,class:"btn btn-light",  method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		  <% end %>
+		  
+</ul>
+    
+	</div>
+
+		</div>
+<% end %>
+
+	  <% end %>
+	
+
+ 
+

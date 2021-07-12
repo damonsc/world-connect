@@ -1,28 +1,43 @@
+
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 <h2>Create a Client</h2></div>
 	<div class="panel-body">
-
+		<% p = 0  %>
+		
+  <% User.all.each do |user|%>
+		
+		<% if p > user.content_code %>
+		<% p = p %>
+		<% end %>
+		
+		
+		
+		<% if p <= user.content_code %>
+		<% p = user.content_code + 1 %>
+		<% end %>
+		
+	
+		
+		
+		<% end %>
+		
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
- <div class="form-group">
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, class: 'form-control' %>
-  </div>
-	</div>
 		
-		 <div class="form-group">
+
+		
+		<div class="form-group">
   <div class="field">
-    <%= f.label :login_password %><br />
-    <%= f.text_field :pword, autofocus: true, class: 'form-control' %>
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email, autofocus: true, class: 'form-control' %>
   </div>
 	</div>
 		
 	<div class="form-group">
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :username %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
   </div>
 	</div>
@@ -46,6 +61,32 @@
     <%= f.label :phone_number %><br />
     <%= f.telephone_field :phone_number, autofocus: true, class: 'form-control' %>
   </div>
+	</div>
+		
+		<div class="form-group">
+  <div class="field">
+	  <%= f.label :assigned_content_code %><br />
+    <%= f.text_field :content_code, autofocus: true, class: 'form-control', value: p, readonly: true %>
+	 
+  </div>
+	</div>
+
+		
+		
+
+
+		<div class="form-group">
+  <div class="field">
+    <%= f.label :Select_Client_Code%>
+        <%= f.collection_select :client_code, ClientCode.order(:code),:code, :code , class: 'form-control'%>
+	  </div>
+	</div>
+
+        <div class="form-group">
+  <div class="field">
+    <%= f.label :Select_Connect_Code%>
+        <%= f.collection_select :connect_code, ConnectCode.order(:code),:code, :code , class: 'form-control'%>
+</div>
 	</div>
 		
 
@@ -72,3 +113,16 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+		<script>
+	var code = prompt("Please enter the access code");
+
+if (code == '8181') {
+  alert('thanks');
+	
+} else {
+  alert('wrong code');
+	window.location.replace("https://worldconnect.app");
+
+}
+		</script>

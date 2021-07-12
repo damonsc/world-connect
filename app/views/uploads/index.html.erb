@@ -1,41 +1,85 @@
+
+
 <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
       <%= flash[:notice] %>
    </div>
 <% end %>
+<!------check to see if content code is empty------>
+<% if user_signed_in? %>
+<% if current_user.content_code == nil %>
+<div class="alert alert-danger" role="alert">
+please contact and inform us that you are not connected to our upload server</div>
 
+<% end %>
+<% end %>
+<!------------------------------------------------->
 <br />
 
-<%= link_to "New Uploads", uploads_new_path, class: "btn btn-primary" %>
+<%= link_to "Upload File", uploads_new_path, class: "btn btn-light" %>
+<%= link_to "Home", root_path, class: "btn btn-light" %>
 <br />
 <br />
+<p>Downloads expire after 30 days</p>
 
-<table class = "table table-bordered table-striped">
-   <thead>.
+<table class = "table table-borderless table-responsive">
+   <thead>
       <tr>
          <th>Name</th>
          <th>Download Link</th>
          <th>Who's this document for</th>
-		  <th> </th>
+		  <% if current_user.admin? %>
+		  <th>refererence code </th>
+		  <% end %>
       </tr>
    </thead>
-   
+ 
    <tbody>
+	    
       <% @upload.each do |upload| %>
+         
+         <tr>
+            <td ><%= upload.name %></td>
+            <td><%= link_to "Download file", upload.attachment_url %></td>
+			 <td><%= upload.intended_user %></td>
+			 <% if current_user.admin? %>
+			 <% if upload.reference_code != nil %>
+			  <td><%= upload.reference_code %>: uploaded by admin  <%= upload.user_submit %></td>
+			 <% end %>
+			 
+			<% if upload.reference_code == nil %>
+			 <td>uploaded by user <%= upload.user_submit %></td>
+			 <% end %>
+			 
+            <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
+			<% end %>
+         </tr>
+         
+      <% end %>
+	 
+	   
+	   <% if current_user.content_code != nil && current_user.admin == false%>
+	   
+	   <% @upload2.each do |upload| %>
          
          <tr>
             <td><%= upload.name %></td>
             <td><%= link_to "Download file", upload.attachment_url %></td>
 			 <td><%= upload.intended_user %></td>
-			 <% if admin_signed_in? %>
+			 <% if current_user.admin? %>
+			  <td><%= upload.reference_code %> :uploaded by: <% upload.user_submit %></td>
             <td><%= button_to "Delete",  upload, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{upload.name}?" %></td>
-			 <%end%>
+			<% end %>
          </tr>
          
       <% end %>
-   </tbody>
-   
-</table>
+	   <% end %>
 
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
+	  
+   </tbody>
+</table>
+	
+	
+	
+
 

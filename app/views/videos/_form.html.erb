@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 <%= form_with(model: video, local: true) do |form| %>
   <% if video.errors.any? %>
     <div id="error_explanation">
@@ -11,20 +14,33 @@
     </div>
   <% end %>
 <div class="form">
+	<div class="form-group">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, class:'form-control' %>
   </div>
+		</div>
 
+		<div class="form-group">
   <div class="field">
     <%= form.label :url %>
     <%= form.text_field :url,class:'form-control' %>
   </div>
+			</div>
 
+			<div class="form-group">
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description,class:'form-control' %>
   </div>
+				</div>
+	
+	<div class="form-group">
+  <div class="field">
+    <%= form.label :Select_Reference %><br />
+    <%= form.collection_select :reference_code, User.order(:email),:content_code, :email , class:'form-control custom-select'%>
+  </div>
+	</div>
 
   <div class="actions">
     <%= form.submit %>
@@ -33,15 +49,3 @@
 </div>
 
 
-<script>
-	var code = prompt("Please enter the access code");
-
-if (code == '8181') {
-  alert('thanks');
-	
-} else {
-  alert('wrong code');
-	window.location.replace("https://worldconnect.app");
-
-}
-		</script>

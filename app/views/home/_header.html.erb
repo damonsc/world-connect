@@ -22,14 +22,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-		<% if user_signed_in? || admin_signed_in? %>
+		<% if user_signed_in? %>
           <li class="nav-item">
            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
           </li>
-		  
+			
+            <% if current_user.member %>
 			 <li class="nav-item">
-            <%= link_to 'Create A Note', updates_path, class: ' navbar-brand ' %>
+            <%= link_to 'Tasks', tasks_path, class: ' navbar-brand ' %>
           </li>
+            <% end %>
+			 <li class="nav-item">
+            <%= link_to 'Notes', updates_path, class: ' navbar-brand ' %>
+          </li>
+			 
           <li class="nav-item"> 
             <%= link_to 'Documents', home_documents_path, class: ' navbar-brand' %>
           </li>
@@ -39,46 +45,29 @@
 		 <li class="nav-item">
             <%= link_to 'Profile Info', home_profileinfo_path, class: 'navbar-brand' %>
            </li>
-    	
-
-<% end %>	
-			
-			<% if admin_signed_in? %>
-			    <li class="nav-item">
-            <%= link_to 'Clients', home_clients_path, class: 'navbar-brand' %>
-					</li>
-			
-			<li class="nav-item">
-            <%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'navbar-brand' %>
-				</li>
-			<% end %>
 			
 			
-			<% if user_signed_in? %>
-			<li class="nav-item">
+    	<li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
 				</li>
-			<% end %>
 			
-			<% unless user_signed_in? || admin_signed_in?%>
+
+<% end %>	
+		
+
 			
-			<li class="nav-item">
-            <%= link_to 'Home', root_path, class: ' navbar-brand ' %>
-            </li>
 			
-			<li class="nav-item active">
-            <%= link_to 'Sign in', new_user_session_path , class: 'navbar-brand' %>
-			</li>
 			
-		    
-			<% end %>
 			
 			
         </ul>
       </div>
     </div>
   </nav>
-  
+  <% if current_user != true_user %>
+  You (<%= true_user.first_name %>) are signed in as <%= current_user.first_name %>
+  <%= link_to "Back to admin", stop_impersonating_userlist_index_path, method: :post %>
+<% end %>
   
   
   

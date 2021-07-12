@@ -1,0 +1,13 @@
+<% if current_user.member %>
+
+<h1>Create New Task</h1>
+<% end %>
+
+<% if current_user.member ==false %>
+
+<h1>Request a Task</h1>
+<% end %>
+
+<%= render 'form', task: @task %>
+
+<%= link_to 'Back', tasks_path %>

@@ -1,0 +1,97 @@
+
+
+<p id="notice"><%= notice %></p>
+<%= render 'home/header' %>
+<!------check to see if content code is empty------>
+
+<% if current_user.content_code == nil && current_user.admin == false %>
+<div class="alert alert-danger" role="alert">
+please contact and inform us that your history is not displaying correctly</div>
+<% end %>
+
+<!------------------------------------------------->
+
+
+<% if current_user.pc_client == true %>
+<h1>Payment History</h1>
+<% end %>
+
+<% if current_user.ssla_client == true %>
+<h1>Donation History</h1>
+<% end %>
+
+<% if current_user.admin == true %>
+<h1>Payments</h1>
+<% end %>
+
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+		<th scope="col">Name</th>
+		<% if current_user.pc_client == true || current_user.admin == true %>
+      <th scope="col">Reason</th>
+		
+		<% end %>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+		<% if current_user.admin == true %>
+      <th scope="col">Reference code</th>
+		<th scope="col">Client code(if applicable)</th>
+		<% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  <% if current_user.client_code ==0 || current_user.client_code ==200000 %>
+    <% @payments.each do |payment| %>
+	  
+      <tr>
+		  <td><%= payment.iname %></td>
+		  <% if current_user.pc_client == true || current_user.admin == true %>
+        <td><%= payment.reason %></td>
+		  <% end %>
+		  
+        <td><%= payment.amount %></td>
+        <td><%= payment.date %></td>
+		  <% if current_user.admin == true %>
+        <td><%= payment.reference_code %></td>
+		   <td><%= payment.client_code %></td>
+		  <% end %>
+		  
+		  <% if current_user.admin == true %>
+        <td><%= link_to 'Edit', edit_payment_path(payment), class:"btn btn-light" %></td>
+        <td><%= link_to 'Destroy', payment,class:"btn btn-light", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  <% end %>
+      </tr>
+	   <% end %>
+	  <% end %>
+  </tbody>
+	
+	<tbody>
+		<% if current_user.admin == false %>
+	  <% if current_user.client_code > 0 %>
+    <% @clientpayments.each do |payment| %>
+	  
+      <tr>
+		  <td><%= payment.iname %></td>
+		  <td><%= payment.reason %></td>
+		  
+        <td><%= payment.amount %></td>
+        <td><%= payment.date %></td>
+		 
+	
+      </tr>
+	   <% end %>
+		<% end %>
+	  <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user.admin == true%>
+<%= link_to 'New Payment', new_payment_path, class:"btn btn-light" %>
+<% end %>
+
+<%= link_to 'Home', root_path, class:"btn btn-light" %>

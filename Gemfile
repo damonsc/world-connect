@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.3.1'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
@@ -23,13 +23,17 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
+gem 'sendgrid-ruby'
 gem 'devise'
 gem 'devise_roles'
 gem 'carrierwave'
+gem 'bundler-audit'
+gem 'dotenv-rails'
 
 gem 'sassc-rails', '>= 2.1.0'
 gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'pretender'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -61,4 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
 gem 'pg'
 gem 'rails_12factor'
+ruby '3.0.1'
 end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<%= render 'home/header' %>
+<h1>Check the status of your requests</h1>
+<br>
+<ul class="list-inline">
+		
+	<li class="list-inline-item"><%= link_to 'All Pending Tasks', status_tasks_path, class:'btn btn-light' %></li>
+
+	<li class="list-inline-item"><%= link_to 'Completed Tasks', completed_tasks_path, class:'btn btn-light' %></li>
+	
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+		<th>Request Title</th>
+      <th>Progress</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+	  <% if task.complete == false %>
+      <% if task.client_code == current_user.content_code %>
+	  <tr>
+		   <td><%= task.brief%></td>	
+		
+		
+        <td><span class="glyphicon glyphicon-refresh alert alert-alert"></span></td>
+          
+		   <td><%= link_to 'View Request', task %></td>
+		  
+      </tr>
+	  <% end %>
+	  <% end %>
+    <% end %>
+  </tbody>
+</table>

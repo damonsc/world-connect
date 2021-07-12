@@ -1,4 +1,6 @@
 class StatusController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :destroy]
+  
   def damon
   end
   

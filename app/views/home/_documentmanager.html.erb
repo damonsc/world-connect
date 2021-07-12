@@ -1,0 +1,156 @@
+<html>
+
+
+	   <!-------------------Document Manager----------------------------------->
+
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>DOCUMENT MANAGEMENT</h3></div>
+    <div class="col"><hr></div>
+</div>
+
+	<div class="row">
+		<% if current_user.admin == true %>
+
+		 <div class="col-sm-2 pt-2 pb-2">
+				 <div class="div-square">
+					<%= link_to uploads_path do %>
+                       <%= image_tag ( "https://img.icons8.com/color/80/000000/downloads.png")%>
+
+					 <% end %>
+					  <h4><%= link_to 'Downloads', uploads_path %></h4>
+
+
+                      </div>
+				</div>
+
+		<div class="col-sm-2 pt-2 pb-2">
+				 <div class="div-square">
+					<%= link_to uploads_new_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/upload.png")%>
+
+					 <% end %>
+					 <h4><%= link_to 'Upload A file', uploads_new_path %></h4>
+
+                      </div>
+				</div>
+
+
+
+		<% end %>
+
+		
+		<% if current_user.pc_client == true %>
+		
+		
+		<div class="col-sm-2 pt-2 pb-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <h4><%= link_to 'Payment History', payments_path %></h4>
+					 <% end %>
+                      </div>
+				</div>
+		
+		
+		
+		<!--------Clients Content Manager Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 3 %>
+		   <% temp = link.content_code_matcher %>
+		   <% if current_user.content_code == temp %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   <!--------Clients Client Code Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 3 %>
+		   <% temp = link.client_code_matcher %>
+		   <% if current_user.client_code == temp && current_user.client_code != 0 %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   
+		   
+<!------------------------------------------------------------------------------------------------------------------------->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<% end %>
+
+		<% if current_user.ssla_client == true %>
+		<div class="col-sm-2 pt-2 pb-2">
+				 <div class="div-square">
+					<%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/ios-filled/80/000000/activity-history.png")%>
+					 <% end %>
+					 <h4><%= link_to 'Donation History', payments_path %></h4>
+			</div>
+			</div>
+					 <div class="col-sm-2 pt-2 pb-2">
+				 <div class="div-square">
+					<%= link_to logs_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
+					 <% end %>
+					<h4><%= link_to 'Session Logs', logs_path %></h4>
+
+
+                      </div>
+
+
+				</div>
+					 <% end %>
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+</html>

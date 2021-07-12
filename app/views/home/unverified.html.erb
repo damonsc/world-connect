@@ -1,0 +1,47 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">User Name</th>
+		<th scope="col">unverified</th>
+    </tr>
+  </thead>
+	<% User.all.each do |user| %>
+<% if user.pc_client == false %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.email %></td>
+		<td><% if user.pc_client == false %>
+			<%= 'no'  %>
+			<% end  %>
+		
+		
+		</td>
+		
+		
+		<td>
+		
+		
+		<div class="form-group">
+  <div class="field">
+<%= user.check_box :can_send_email %>
+  </div>
+	</div>
+		
+	
+
+ 
+
+
+		
+		
+		</td>
+    </tr>
+  </tbody>
+	
+	<% end %>
+<% end %>
+</table>
+
+

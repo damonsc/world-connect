@@ -1,0 +1,79 @@
+<%= render 'home/header' %>
+<p id="notice"><%= notice %></p>
+<% if current_user.admin == false %>
+<h1><%= current_user.first_name %> <%= current_user.last_name %> Session Logs</h1>
+<% end %>
+
+<% if current_user.admin == true %>
+<h1> Session Logs</h1>
+
+
+<%= link_to 'New Log', new_log_path, class:"btn btn-info" %>
+<% end %>
+<table class="table responsive">
+  <thead class="thead-light">
+    <tr>
+		 <th scope="col">Full Name</th>
+		
+      <th scope="col">Date of session</th>
+     
+      <th scope="col">Session Details</th>
+		 <% if current_user.admin  %>
+      <th scope="col">Reference code</th>
+		<th scope="col">Client code</th>
+		<% end %>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+<% if current_user.client_code == 0 || current_user.client_code == 200000 %>
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+		 
+		<td><%= log.iname %></td>
+        <td><%= log.date_of_session %></td>
+        <td><%= log.details %></td>
+		  <% if current_user.admin  %>
+        <td><%= log.reference_code %></td>
+		  <td><%= log.client_code %></td>
+        <td><%= link_to 'View', log %></td>
+        <td><%= link_to 'Edit', edit_log_path(log) %></td>
+        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  <%end %>
+      </tr>
+    <% end %>
+	  
+	
+  
+  </tbody>
+ <% end %>
+
+
+
+<% if current_user.client_code != 0 && current_user.admin == false %>
+  <tbody>
+    <% @clientlogs.each do |log| %>
+      <tr>
+		<td><%= log.iname %></td>
+        <td><%= log.date_of_session %></td>
+        <td><%= log.details %></td>
+		  <% if current_user.admin  %>
+        <td><%= log.reference_code %></td>
+        <td><%= link_to 'View', log %></td>
+        <td><%= link_to 'Edit', edit_log_path(log) %></td>
+        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  <%end %>
+      </tr>
+    <% end %>
+	  
+	
+  
+  
+  </tbody>
+  <% end %>
+
+</table>
+
+
+
+

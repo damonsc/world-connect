@@ -1,0 +1,96 @@
+<%= form_with(model: link, local: true) do |form| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+        <% link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form>
+	
+	<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+		</div>
+
+
+		<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :content_link %>
+    <%= form.text_field :content_link, class: "form-control" %>
+  </div>
+			</div>
+
+			<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :image_link %>
+    <%= form.text_field :image_link, class: "form-control" %>
+  </div>
+				</div>
+
+				<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :content_code_matcher %>
+	 <%= form.collection_select :content_code_matcher, User.order(:content_code), :content_code, :content_code, class: 'form-control' %>
+
+  </div>
+					</div>
+	
+	
+	
+	
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :client_code_matcher %>
+	 	 <%= form.collection_select :client_code_matcher, ClientCode.order(:code), :code, :code, class: 'form-control' %>
+
+  </div>
+					</div>
+	
+
+
+	
+	
+ <% if current_user.member && current_user.admin==false  %>
+					<div class="row">
+	<div class="field form-group col-md-6">
+    
+    
+		<%= form.hidden_field :location, value: 0 %>
+  </div>
+						</div>
+	<% end %>
+	
+	<% if current_user.admin %>
+					<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :location %><br>
+		<%= form.radio_button(:location, 0) %>
+		<%= label_tag(:Content_Area, "assign to content area") %>
+		<br>
+		<%= form.radio_button(:location, 1) %>
+		<%= label_tag(:location, "assign to Personal Reccomendations") %>
+		<br>
+				<%= form.radio_button(:location, 2) %>
+		<%= label_tag(:location, "assign to service offers") %>
+		<br>
+				<%= form.radio_button(:location, 3) %>
+		<%= label_tag(:location, "assign to document manager") %>
+		<br>
+				<%= form.radio_button(:location, 4) %>
+		<%= label_tag(:location, "assign to communications") %>
+  </div>
+						</div>
+	<% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+	</form>
+<% end %>

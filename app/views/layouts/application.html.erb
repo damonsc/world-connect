@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorldConnect</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -8,12 +9,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-	  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<body style="background-color:#F5F5F5;">
+	  
+		<% if notice %>
+	<div style="font-size:22px; text-align: center;"  class="alert alert-primary" role="alert">
+  <%= notice %>
+</div>
+	<% end %>
+	
+	<% if alert %>
+	<div style="font-size:22px; text-align: center;"  class="alert alert-danger" role="alert">
+  <%= alert %>
+</div>
+	<% end %>
+	
+	<br>
+       
 	  <div class="container">
     <%= yield %>
 		  </div>
+		  
   </body>
 </html>

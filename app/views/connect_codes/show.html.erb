@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @connect_code.code %>
+</p>
+
+<p>
+  <strong>Assigned:</strong>
+  <%= @connect_code.assigned %>
+</p>
+
+<%= link_to 'Edit', edit_connect_code_path(@connect_code) %> |
+<%= link_to 'Back', connect_codes_path %>

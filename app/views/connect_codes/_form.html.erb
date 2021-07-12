@@ -1,0 +1,27 @@
+<%= form_with(model: connect_code, local: true) do |form| %>
+  <% if connect_code.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(connect_code.errors.count, "error") %> prohibited this connect_code from being saved:</h2>
+
+      <ul>
+        <% connect_code.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.number_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assigned %>
+    <%= form.collection_select :assigned, Employee.order(:assigned_username), :assigned_username, :assigned_username, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

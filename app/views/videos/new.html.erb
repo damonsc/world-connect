@@ -1,9 +1,10 @@
 <h1>New Video</h1>
+<%= link_to 'View Videos', videos_path, class:"btn btn-light" %>
+
+<%= link_to 'Home', root_path, class:"btn btn-light" %>
+
 
 <%= render 'form', video: @video %>
 
-<div class="button">
-<%= link_to 'View Videos', videos_path %>
-	</div>
-<div class="button">
-<%= link_to 'Home', root_path %></div>
+
+

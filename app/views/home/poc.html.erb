@@ -1,0 +1,33 @@
+ <%= render 'home/header' %>
+
+<h2>Person of contact</h2>
+
+<div class="card">
+  <div class="card-header">
+   <h4>Hello <%= current_user.first_name %> if you have any questions the best contact information is listed below</h4>
+  </div>
+  <div class="card-body">
+   
+	  <% if current_user.connect_code == 0 %>
+       <p class="card-text">Contact Name: Damon Scott </p>
+	   <p class="card-text">Email: damon@purecodedigital.com </p>
+	  <%end%>
+	  <% if current_user.ssla_client == true %>
+	  <p class="card-text">Email: damon@sslagency.org </p>
+	  <%end%>
+      
+       <% if current_user.connect_code == 121787 %>
+       <p class="card-text">Contact Name: Cordero Allen </p>
+	  <p class="card-text">Email: cordero@purecodedigital.com </p>
+	  <%end%>
+      
+      <% if current_user.connect_code == 121767 %>
+       <p class="card-text">Contact Name: Darrel Burnett </p>
+	  <p class="card-text">Email: darrel@purecodedigital.com </p>
+	  <%end%>
+      
+      
+	  
+	  
+	  </div>
+	

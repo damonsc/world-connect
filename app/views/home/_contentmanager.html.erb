@@ -1,0 +1,571 @@
+<HTML>
+
+
+
+
+	   <!-------------------Content Manager----------------------------------->
+	   <div class="row">
+    <div class="col"><hr></div>
+    <div class="col-auto"><h3>CONTENT MANAGER</h3></div>
+    <div class="col"><hr></div>
+</div>
+
+
+
+
+
+	   <div class="row">
+		   <% if current_user.admin %>
+		    <div class="col-sm-2 pt-2 pb-2">
+
+				 <div class="div-square">
+                    <%= link_to videos_path do %>
+                       <%= image_tag ( "https://img.icons8.com/cotton/80/000000/youtube.png")%>
+					 <% end %>
+
+					 <h4><%= link_to 'Video manager', videos_path %></h4>
+                      </div>
+
+
+				</div>
+
+		    <div class="col-sm-2 pt-2 pb-2">
+
+				 <div class="div-square">
+                    <%= link_to payments_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/mobile-payment.png")%>
+					 <% end %>
+
+					 <h4><%= link_to 'Payment manager', payments_path %></h4>
+                      </div>
+
+
+				</div>
+
+		   <div class="col-sm-2 pt-2 pb-2">
+
+				 <div class="div-square">
+                    <%= link_to client_codes_path do %>
+                       <%= image_tag ( "https://img.icons8.com/officel/80/000000/password1.png")%>
+					 <% end %>
+
+					 <h4><%= link_to 'Client Codes manager', client_codes_path %></h4>
+                      </div>
+
+
+				</div>
+
+        <div class="col-sm-2 pt-2 pb-2">
+
+ 				 <div class="div-square">
+                     <%= link_to connect_codes_path do %>
+                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/add-key.png")%>
+ 					 <% end %>
+
+ 					 <h4><%= link_to 'Connect Codes manager', connect_codes_path %></h4>
+                       </div>
+
+
+ 				</div>
+
+				<% end %>
+
+	<!-----------content manager Area------------------------------------------------------------------------------------------------------------------------------------->
+	   <% if current_user.admin == false %>
+<!--------Clients Content Manager Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 0 %>
+		   <% temp = link.content_code_matcher %>
+		   <% if current_user.content_code == temp %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   <!--------Clients Client Code Function------------------------------------------------------------------------------>
+	  
+		   <% Link.all.each do |link| %>
+		   <% if link.location == 0 %>
+		   <% temp = link.client_code_matcher %>
+		   <% if current_user.client_code == temp && current_user.client_code != 0 %>
+		   
+		   <% a = link.content_link %>
+		   <% b = link.image_link %>
+		   <% c = link.title %>
+		   
+		 <div class="col-sm-2 pt-2 pb-2">
+					                       <div class="div-square">
+					                            <a href= "<%= a %>" >
+					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
+					                       </a>
+					                       </div>
+					 		     </div>
+		   
+		   <% end %>
+		   <% end %>
+		    <% end %>
+		   
+		   
+		   
+		   
+		   
+<!------------------------------------------------------------------------------------------------------------------------->
+	
+				
+				
+
+
+
+
+
+		   <% if current_user.content_code == 700009 %><!-------------------The City Of Refuge-->
+	   <div class="col-sm-2 pt-2 pb-2">
+                      <div class="div-square">
+                           <a href="https://purecodedigital.com/structures/thecityofrefuge.html" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>The City Of Refuge</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+
+		   <div class="col-sm-2 pt-2 pb-2">
+                      <div class="div-square">
+                           <a href="https://www.dropbox.com/request/bJHOmt3ktLrYgEqDXyyh" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Drop box: The City Of Refuge</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col pt-2 pb-2">
+                      <div class="div-square">
+                           <a href="https://zohosecurepay.com/invoice/purecodedigitalagency/secure?CInvoiceID=2-13954977d175d696b97aeac1534bbe4a9d0f3310fa73b0b2ae2de437dcdc5bd3ae1503f78ab48f18c9d7af15b6c087fabfe5309948a833b24a77a1339f312d143fc62bd47c0f74c5#/securepayment" >
+<img src="https://img.icons8.com/pastel-glyph/80/000000/invoice-1.png">                      <h4>The City: Invoice 1</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col">
+                      <div class="div-square">
+                           <a href="https://zohosecurepay.com/invoice/purecodedigitalagency/secure?CInvoiceID=2-13954977d175d696b97aeac1534bbe4a4b721a448f429181f287e66ad2f46a1a3f52453a6fb9d8c5c9d7af15b6c087fabfe5309948a833b2ee532ac2ec895900631f15c7b27dae4e" >
+<img src="https://img.icons8.com/pastel-glyph/80/000000/invoice-1.png">                      <h4>The City: Invoice 2</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+
+
+
+
+				<% end %>
+
+		    <% if current_user.content_code == 700010 %><!--------Atlfavmua-->
+	   <div class="col">
+                      <div class="div-square">
+                           <a href="https://atlfavmua.com/atlfav" >
+<img src="https://img.icons8.com/ios-filled/80/000000/conference.png"/>                     <h4>Shop Management</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+	   <div class="col">
+                      <div class="div-square">
+                           <a href="https://www.dropbox.com/sh/68p32dxpg39rsyy/AAC6KJ09H70cHiwJhDgsMs0Ia?dl=0" >
+<img src="https://img.icons8.com/office/80/000000/design.png"/>                    <h4>Graphics</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://www.dropbox.com/request/zne7iMcxvhQgiB1sbKQe" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Drop box:ATLFAVMUA</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://atlfavmua.com/atlfav" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>Atlfavmua: login</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+				<% end %>
+
+		   <% if current_user.content_code == 700011 %><!--------Signature Events And Venues-->
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://purecodedigital.com/structures/seav.html" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>SEAV Structures</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+
+
+				<% end %>
+
+
+
+
+		   <% if current_user.content_code == 700014 %><!------------------5Star Boxing-->
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="#" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>5Star Development</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=8Me7ZozGRYcHf1n55who6qoXmezmhq5bX" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>5Star: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+				<% end %>
+
+		   <% if current_user.content_code == 700015 %><!------------------Tellise Maurice-->
+	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://purecodedigital.com/structures/tm.html" >
+<img src="https://img.icons8.com/dusk/80/000000/internet.png">                      <h4>Tellise Development</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=Khn7ZING7OjzCvLQ7KSnejcJGBJ1EMdSX" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Tellise: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+				<% end %>
+
+		    <% if current_user.content_code == 700016 %><!------------------Rawl Kazee-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=Ynn7ZmbrHIC1tsHJ9VDGxXLIMnR8ejqxk" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Kazee: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.link/publink/show?code=kZwbjUkZXsES36609pHXIdXWSlrhlmGcBpyX" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>Kazee: Quote</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+
+				<% end %>
+
+
+		   <% if current_user.content_code == 700017 %><!------------------Gerry Cameron-->
+
+		<div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="#" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4> Gerry:Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+				<% end %>
+
+		   <% if current_user.content_code == 700018 %><!------------------Your Serenity-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=t5T7ZEfwQ09VlCwSp8RcpTf34K5u6eNcX" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Your Serenity: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://forfamu.com/purecodedigital.com/structures/ys.html" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>Your serenity: Structures</h4>
+                      </a>
+                      </div>
+		     </div>
+
+				<% end %>
+
+
+		   <% if current_user.content_code == 700019 %><!------------------Davids catering-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=wrg7ZizX4SUov6MHg0HhVvMnoD4tFawfy" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Events & Catering by David: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="/purecodedigital.com/structures/davidscater.html" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>Events & Catering by David: Structures</h4>
+                      </a>
+                      </div>
+		     </div>
+
+		   <% end %>
+
+		    <% if current_user.content_code == 700020 %><!------------------CocoVaa-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=Eix7Z7KQIyhekQJjxQCUecAOTwztmpxkX" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>CocoVaa: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="#" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>CocoVaa : Structures</h4>
+                      </a>
+                      </div>
+		     </div>
+
+				<% end %>
+
+		   <% if current_user.content_code == 700021 %><!------------------Even Kill-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.link/publink/show?code=kZB0oikZaMdz8PRDzLVNjhkWtdBGsRAwOAN7" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Even Kill: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+		   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://purecodedigital.com/structures/ek.html" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>Even Kill: Structures</h4>
+                      </a>
+                      </div>
+		     </div>
+
+				<% end %>
+		   
+		   
+		      <% if current_user.content_code == 700026 %><!------------------Home 4 Vets Foundation-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=ifa7ZuvIEBmjMe9bsAxi1PzR0ey0IfHJ7" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Home 4 vets uploads: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   
+
+				<% end %>
+		   
+		   <% if current_user.content_code == 700027 %><!------------------Evans Reserves-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=Nea7Zc1NSkV3X1w4cju5l8P8vg0e78oPy" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Evans Reserves: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   
+
+				<% end %>
+		   
+		    <% if current_user.content_code == 700028 %><!------------------Generis-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=sTG7ZUPfUTa6gRcY5vD0qtW1Wx7HhS7F7" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Generis: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   
+
+			
+		   
+		   	   <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://generishands.com/gh" >
+<img src="https://img.icons8.com/dusk/80/000000/rescan-document.png">                      <h4>Generis Hands: Login</h4>
+                      </a>
+                      </div>
+		     </div>
+
+				<% end %>
+		   
+		   <% if current_user.content_code == 700029 %><!------------------Swayzee-->
+
+		    <div class="col-lg-2 ">
+                      <div class="div-square">
+                           <a href="https://u.pcloud.com/#page=puplink&code=04v7ZlDEvYHehxwXhkPidRBB9KHyAFEnV" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Swayzee: Upload Files</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+		   
+
+				<% end %>
+
+		  <!--------SSLA ONLY!--------------------------------------------------------------------------------------------------------------------------->
+	   <% if current_user.ssla_client %>
+	   <div class="col-sm-2 pt-2 pb-2">
+
+				 <div class="div-square">
+                    <%= link_to videos_path do %>
+                       <%= image_tag ( "https://img.icons8.com/cotton/80/000000/youtube.png")%>
+					 <% end %>
+
+					 <h4><%= link_to 'Videos', videos_path %></h4>
+                      </div>
+
+
+				</div>
+
+	   <div class="col-sm-2 pt-2 pb-2">
+                      <div class="div-square">
+                           <a href="https://sslagency.org/#help" >
+<img src="https://img.icons8.com/dusk/80/000000/donate.png">                      <h4>Donate</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+	    <div class="col-sm-2 pt-2 pb-2">
+                      <div class="div-square">
+                            <a href="https://form.jotform.com/72344436584158" >
+<img src="https://img.icons8.com/plasticine/80/000000/overtime.png">                      <h4>Schedule A Session</h4>
+                      </a>
+                      </div>
+
+
+                  </div>
+
+	   <% end %>
+
+
+		<!----------------------------Executives Only!------------------------------------------------------------------------------------------------------------------>
+
+	    <% if current_user.exec %>
+      <% if current_user.content_code = 100002 %>
+
+      <div class="col-sm-2 pt-2 pb-2">
+                    <div class="div-square">
+                         <a href="https://u.pcloud.link/publink/show?code=kZXc1FXZF8RqHXYiYpugLGfgpQgVl4HJtB5k" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Download Files</h4>
+                    </a>
+                    </div>
+
+
+                </div>
+
+
+           <div class="col-sm-2 pt-2 pb-2">
+                    <div class="div-square">
+                         <a href="https://u.pcloud.link/publink/show?code=kZ8o1FXZWjqu89Mv5Sj7eQ1Lf7traX8fUtX0" >
+<img src="https://img.icons8.com/cute-clipart/80/000000/dropbox.png">                      <h4>Upload Files</h4>
+                    </a>
+                    </div>
+
+
+                </div>
+
+		<% end %>
+    <% end %>
+
+	<!----------------------------Executives Only!------------------------------------------------------------------------------------------------------------------>
+
+
+	   <% end %>
+		   </div>
+
+
+</HTML>

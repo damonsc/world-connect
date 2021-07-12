@@ -1,0 +1,173 @@
+
+
+
+<%= form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% if current_user.member  %>
+<form>
+	
+	<div class="row">
+	<div class="field form-group col-md-6">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+		</div>
+	
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"Give a detailed description" %>
+    <%= form.text_area :description, class: "textarea form-control" %>
+  </div>
+		</div>
+	
+<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"What's the status (client will see this)" %>
+    <%= form.text_field :status, value: "We are working on it",  class: "form-control" %>
+  </div>
+	</div>
+
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"important notes" %>
+    <%= form.text_field :note, class: "form-control" %>
+  </div>
+		</div>
+<% if current_user.admin %>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"assigned connect code" %>
+            <%= form.text_field :code, value: current_user.connect_code,  class: 'form-control' %>
+  </div>
+		</div>
+	<% end %>
+	
+	<% if !current_user.admin %>
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"assigned connect code" %>
+            <%= form.hidden_field :code, value: current_user.connect_code,  class: 'form-control' %>
+  </div>
+		</div>
+	<% end %>
+	
+	
+	<div class="row">
+  <div class="field form-group col-md-6">
+    <%= form.label :"Check this only when task is complete" %>
+    <%= form.check_box :complete, class: "form-control" %>
+  </div>
+		</div>
+	
+	<div class="actions">
+    <%= form.submit %>
+  </div>
+</form>
+<% end %>
+
+
+
+<% if current_user.member == false && current_user.client_code == 0 %>
+<form>
+	
+
+	<div class="field form-group">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+		
+	
+	
+  <div class="field form-group">
+    <%= form.label :'what are you needing complete' %>
+    <%= form.text_area :description, class: "textarea form-control" %>
+  </div>
+	
+<div class="field form-group ">
+	<%= form.hidden_field :client_code, value: current_user.content_code %>
+</div>
+
+<div class="field form-group ">
+
+<%= form.hidden_field :code, value: current_user.connect_code %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :client_submit, value: true %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :complete, value: false %>
+</div>
+
+    <div class="field form-group ">
+    <%= form.hidden_field :status, value: "We are working on it" %>
+
+    </div>
+
+  <div class="actions form-group">
+    <%= form.submit %>
+  </div>
+</form>
+<% end %>
+
+
+
+<% if current_user.member == false && current_user.client_code > 0 %>
+<form>
+	
+	<div class="field form-group">
+    <%= form.label :'Give this request a title' %>
+    <%= form.text_field :brief, class: "form-control" %>
+  </div>
+
+	
+  <div class="field form-group">
+    <%= form.label :'what are you needing complete' %>
+    <%= form.text_area :description, class: "textarea form-control" %>
+  </div>
+<div class="field form-group ">
+	<%= form.hidden_field :client_code, value: current_user.content_code %>
+</div>
+
+<div class="field form-group ">
+
+<%= form.hidden_field :code, value: current_user.connect_code %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :client_submit, value: true %>
+</div>
+	
+	<div class="field form-group ">
+
+<%= form.hidden_field :complete, value: false %>
+</div>
+
+    <div class="field form-group ">
+    <%= form.hidden_field :status, value: "We are working on it" %>
+
+    </div>
+
+  <div class="actions form-group">
+    <%= form.submit %>
+  </div>
+</form>
+<% end %>
+
+
+
+<% end %>

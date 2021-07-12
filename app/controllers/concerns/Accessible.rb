@@ -6,7 +6,7 @@ end
 
 protected
 def check_user
-if current_admin
+if current_user
 flash.clear
 # if you have rails_admin. You can redirect anywhere really
 redirect_to(root_path) && return
