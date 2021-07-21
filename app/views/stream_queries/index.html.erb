@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stream Queries</h1>
+
+<body id = "qbody">
+	   <% @code = StreamCode.all %>
+	  <% found = false %>
+	 
+    <% @stream_queries.each do |stream_query| %>
+	  
+      
+	   <% @code.each do |stream_code| %>
+	  
+	  <% if stream_code.code == stream_query.code %>
+	  <% found = true %>
+	  <% end %>
+	  
+	  
+	  <% if found == true %>
+	  <P>found code</P>
+<% stream_query.destroy %>
+<% stream_query.save %>
+	  <% else %>
+	  <p>not found</p>
+<% stream_query.destroy %>
+<% stream_query.save %>
+	  <% end %>
+	  
+    <% end %>
+<% end %>
+  </body>
+
+
+<%= link_to 'New Stream Query', new_stream_query_path %>

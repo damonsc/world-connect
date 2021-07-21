@@ -1,0 +1,2 @@
+class StreamCode < ApplicationRecord
+end

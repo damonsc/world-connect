@@ -1,0 +1,2 @@
+module StreamCodesHelper
+end

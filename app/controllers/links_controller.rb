@@ -28,7 +28,11 @@ class LinksController < ApplicationController
   def edit
       is_admin?
   end
-
+  
+  def clientCodeLinks
+      @links = Link.all
+  end
+  
   # POST /links
   # POST /links.json
   def create

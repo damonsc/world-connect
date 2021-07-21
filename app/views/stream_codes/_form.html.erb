@@ -1,0 +1,27 @@
+<%= form_with(model: stream_code) do |form| %>
+  <% if stream_code.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stream_code.errors.count, "error") %> prohibited this stream_code from being saved:</h2>
+
+      <ul>
+        <% stream_code.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.number_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :redirect %>
+    <%= form.text_field :redirect %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

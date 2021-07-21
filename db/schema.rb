@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_152514) do
+ActiveRecord::Schema.define(version: 2021_07_19_145632) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -98,6 +98,19 @@ ActiveRecord::Schema.define(version: 2021_07_05_152514) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "client_code"
     t.string "iname"
+  end
+
+  create_table "stream_codes", force: :cascade do |t|
+    t.integer "code"
+    t.string "redirect"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stream_queries", force: :cascade do |t|
+    t.integer "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|

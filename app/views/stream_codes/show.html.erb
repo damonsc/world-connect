@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @stream_code.code %>
+</p>
+
+<p>
+  <strong>Redirect:</strong>
+  <%= @stream_code.redirect %>
+</p>
+
+<%= link_to 'Edit', edit_stream_code_path(@stream_code) %> |
+<%= link_to 'Back', stream_codes_path %>

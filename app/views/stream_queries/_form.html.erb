@@ -1,0 +1,34 @@
+
+
+<%= form_with(model: stream_query) do |form| %>
+  <% if stream_query.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stream_query.errors.count, "error") %> prohibited this stream_query from being saved:</h2>
+
+      <ul>
+        <% stream_query.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<body style = "background-color: white;">
+<div class="card" align = "center">
+  <div class="card-body" >
+
+	  
+	  <div class="mb-3">
+    <%= form.label :Enter_Ticket_Number, class:'form-label', style: "font-size:30px" %>
+    <%= form.number_field :code, class: 'form-control', style: 'width: 50%;' %>
+		  </div>
+
+	    
+	</div>
+</div>
+	  
+  <div class="actions" align = "center" style = "padding-top:50px;">
+    <%= form.submit "Search for room" , class: 'btn', style: 'padding: 10px; font-size: 18px;' %>
+  </div>
+	</body>
+<% end %>

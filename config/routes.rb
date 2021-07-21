@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  resources :stream_queries
+  resources :stream_codes
   get 'unverified/unverified-list'
-  resources :links
+  
+  resources :links do
+      collection do
+          get :clientCodeLinks
+      end
+end
+      
   resources :tasks do
 	  collection do
 	    get :completed

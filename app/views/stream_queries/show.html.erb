@@ -1,0 +1,37 @@
+
+<div class = "container" >
+	<div class = "row">
+
+
+ <% @code = StreamCode.all %>
+	  <% found = false %>
+	 
+    <% @stream_queries.each do |stream_query| %>
+	  
+      
+	   <% @code.each do |stream_code| %>
+	  
+	  <% if stream_code.code == stream_query.code %>
+	  <% found = true %>
+	  <% end %>
+	  
+	  
+	  <% if found == true %>
+<h2 class = "hup">We found your room</h2>
+
+<% stream_query.destroy %>
+<% stream_query.save %>
+		<div class = "row" align = "center">
+<%= link_to 'Go to event', 'https://purecodedigital.com', class: "btn btn-primary", id: "roombtn" %>
+</div>
+		
+<% else %>
+	  <p>not found</p>
+
+	  <% end %>
+	  
+    <% end %>
+<% end %>
+		</body>
+	</div>
+	
