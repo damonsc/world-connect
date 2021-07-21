@@ -21,9 +21,14 @@
 
 <% stream_query.destroy %>
 <% stream_query.save %>
+		<% a = stream_code.redirect  %>
 		<div class = "row" align = "center">
-<%= link_to 'Go to event', 'https://purecodedigital.com', class: "btn btn-primary", id: "roombtn" %>
+			<%= link_to 'Go to event',  stream_code.redirect, class: "btn btn-primary", id: "roombtn" %>
 </div>
+		
+		
+		
+		
 		
 <% else %>
 	  <p>not found</p>
