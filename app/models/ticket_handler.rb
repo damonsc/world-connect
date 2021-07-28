@@ -1,0 +1,2 @@
+class TicketHandler < ApplicationRecord
+end

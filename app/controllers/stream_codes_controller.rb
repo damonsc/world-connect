@@ -67,6 +67,6 @@ class StreamCodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_code_params
-      params.require(:stream_code).permit(:code, :redirect)
+      params.require(:stream_code).permit(:code, :redirect, :date, :ticket, :is_ticket)
     end
 end

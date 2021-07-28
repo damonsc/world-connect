@@ -1,0 +1,83 @@
+<%= form_with(model: ticket_handler) do |form| %>
+  <% if ticket_handler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket_handler.errors.count, "error") %> prohibited this ticket_handler from being saved:</h2>
+
+      <ul>
+        <% ticket_handler.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :event %>
+    <%= form.text_field :event %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.number_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :is_ticket %>
+  </div>
+
+<div class="field">
+    <%= form.label :ticket %>
+    <%= form.text_area :ticket %>
+  </div>
+
+
+
+<% count = 0 %>
+<% array = new(ticket_handler.amount) %>
+
+<div class="container">
+<table class="table table-hover table-responsive-md">
+<thead>
+    <tr>
+     <th scope="col">#</th>
+    <th scope="col">Ticket</th>
+  
+    </tr>
+  </thead>
+	
+<% @tickets = TicketHandler.all.order(:ticket) %>
+	<% c =  ticket_handler.ticket %>
+<% @tickets.each do |ticket_handler| %>
+
+	 <tbody>
+    <tr>
+		
+     <th scope="row"><%= count%></th> 
+		<th scope="row"><%= @tickets.pop(count) %></th> 
+
+ 
+    </tr>
+
+  </tbody>
+	
+	<% count = count + 1 %>
+<% end %>
+
+	</table>
+</div>
+	
+	
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @ticket_handler.event %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @ticket_handler.code %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @ticket_handler.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @ticket_handler.amount %>
+</p>
+
+<p>
+  <strong>Is ticket:</strong>
+  <%= @ticket_handler.is_ticket %>
+</p>
+
+<p>
+  <strong>tickets:</strong>
+  <%= @ticket_handler.ticket %>
+</p>
+
+
+
+
+
+
+<% if @ticket_handler.run_check == true %>
+<% amount = @ticket_handler.amount %>
+<% counter = 0 %>
+<% number = 0 %>
+<% ticket = @ticket_handler.ticket %>
+
+<% ticket = Array.new() %>
+
+
+<% while counter < amount %>
+<% event = @ticket_handler.event %>
+<% number = @ticket_handler.code * rand(10000) %>
+<% ticket.push(number) %>
+<% @ticket_handler.ticket = ticket %>
+<% counter = counter + 1 %>
+<% end %>
+
+<% @ticket_handler.run_check = false %>
+<% @ticket_handler.ticket %>
+<%  @ticket_handler.save %>
+<% end %>
+<%= link_to 'Edit', edit_ticket_handler_path(@ticket_handler) %> |
+<%= link_to 'Back', ticket_handlers_path %>

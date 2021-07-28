@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket Handlers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Code</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Is ticket</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_handlers.each do |ticket_handler| %>
+      <tr>
+        <td><%= ticket_handler.event %></td>
+        <td><%= ticket_handler.code %></td>
+        <td><%= ticket_handler.date %></td>
+        <td><%= ticket_handler.amount %></td>
+        <td><%= ticket_handler.is_ticket %></td>
+        <td><%= link_to 'Show', ticket_handler %></td>
+        <td><%= link_to 'Edit', edit_ticket_handler_path(ticket_handler) %></td>
+        <td><%= link_to 'Destroy', ticket_handler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Handler', new_ticket_handler_path %>

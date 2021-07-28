@@ -81,7 +81,7 @@ rescue_from ActiveRecord::RecordNotFound, with:
 
     # Only allow a list of trusted parameters through.
     def stream_query_params
-      params.require(:stream_query).permit(:code)
+      params.require(:stream_query).permit(:code, :ticket, :date, :is_ticket)
     end
     
     

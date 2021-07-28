@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ticket_handlers
+  resources :tickets
   resources :stream_queries
   resources :stream_codes
   get 'unverified/unverified-list'

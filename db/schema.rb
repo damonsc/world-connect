@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_145632) do
+ActiveRecord::Schema.define(version: 2021_07_23_183027) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -105,12 +105,18 @@ ActiveRecord::Schema.define(version: 2021_07_19_145632) do
     t.string "redirect"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "ticket"
+    t.date "ticket_date"
+    t.boolean "is_ticket", default: false
   end
 
   create_table "stream_queries", force: :cascade do |t|
     t.integer "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "ticket"
+    t.date "ticket_date"
+    t.boolean "is_ticket", default: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -129,6 +135,18 @@ ActiveRecord::Schema.define(version: 2021_07_19_145632) do
     t.string "brief"
     t.index ["task_id"], name: "index_tasks_on_task_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "ticket_handlers", force: :cascade do |t|
+    t.string "event"
+    t.integer "code"
+    t.date "date"
+    t.integer "amount"
+    t.boolean "is_ticket", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ticket"
+    t.boolean "run_check", default: true
   end
 
   create_table "updates", force: :cascade do |t|
