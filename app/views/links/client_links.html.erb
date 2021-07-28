@@ -21,7 +21,7 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-		  <% if link.content_code_matcher != 0  %>
+		  <% if link.client_code_matcher != 0  %>
 		  <td><%= link.title %></td>
         <td><%= link.content_link %></td>
         <td><%= link.image_link %></td>
