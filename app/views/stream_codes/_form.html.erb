@@ -23,12 +23,12 @@
 
 
 <div class="field">
-    <%= form.label :is_this_a_ticket %>
-    <%= form.check_box :is_ticket %>
+    
+    <%= form.hidden_field :is_ticket, value: false %>
   </div>
 
 <div class="field">
-    <%= form.label :creation_date %>
+    <%= form.label :event_date %>
     <%= form.date_field :date %>
   </div>
 

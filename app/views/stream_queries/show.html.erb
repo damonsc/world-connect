@@ -1,42 +1,202 @@
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+
+
+<% @check_counter = @stream_query.code %>
+<% @found = false %>
+<% @date = Time.now.strftime("%m/%d/%Y") %>
+<% @code_convert = 0 %>
+<% @convert %>
+<% @run_check = 2 %>
+<% @one_run = true %>
+<% @check_counter = 0 %>
+
+
 
 <div class = "container" >
 	<div class = "row">
+		
+		
+<%  @convert = @stream_query.code_input %> <!-----prepare to change to string---->
+		<% if @convert.length <= 5 %>
+		<% @run_check = 0 %>
+		<% else %>
+<% @run_check = 1 %>
+		<% end %>
+		
+		
+		
+		
+		
+			<% @stream_queries.each do |stream_query| %>
+		<% convert_check2 = @stream_query.code_input %>
+	<% convert_check = stream_query.code_input %>
+		
+		<% if convert_check2.to_s == convert_check.to_s %>
+		
+		<% @check_counter = stream_query.code %>
+		<% break %>
+		<% end %>
+		<% end %>
+		
+	
+		
+		
+		
+		
+		<% if @check_counter >= 3 %>
+		<% @run_check = 2 %>
+		<% end %>
+	
+			
+		
+		<!--------------------------------------Code Search------------------------------------->
+		
+		
+		<% if @run_check == 0 %>
+		 <% @code = StreamCode.all %>	
+		<% @code.each do |stream_code| %>
+		
+		<% @code_convert = stream_code.code %>
+<% if @convert.to_s == @code_convert.to_s %>
+	  <% @found = true %>
+		<% end %>		
+		
+		
+	  <% if @found == true %>
+<div class="alert alert-success" role="alert">
+We found your room!
+		</div>
 
-
- <% @code = StreamCode.all %>
-	  <% found = false %>
-	 
-    <% @stream_queries.each do |stream_query| %>
-	  
-      
-	   <% @code.each do |stream_code| %>
-	  
-	  <% if stream_code.code == stream_query.code %>
-	  <% found = true %>
-	  <% end %>
-	  
-	  
-	  <% if found == true %>
-<h2 class = "hup">We found your room</h2>
-
-<% stream_query.destroy %>
-<% stream_query.save %>
 		<% a = stream_code.redirect  %>
 		<div class = "row" align = "center">
-			<%= link_to 'Go to event',  stream_code.redirect, class: "btn btn-primary", id: "roombtn" %>
-</div>
-		
-		
-		
-		
-		
-<% else %>
-	  <p>not found</p>
-
+<%= link_to 'Go to event',  stream_code.redirect, class: "btn btn-primary", id: "roombtn" %>
+</div>	
+		 
+		<% break %>
 	  <% end %>
 	  
     <% end %>
+		<% end %>
+		
+		
+		<!--------------------------------------Ticket Search------------------------------------->
+		
+	
+		
+		
+		
+		
+		
+		
+<% if @run_check == 1 %>	
+		
+		
+		
+		
+		<% @code = StreamCode.all %> 	
+	 <% @code2 = TicketHandler.all %> 
+	  <% @code2.each do |ticket_handler| %>
+			   <% @code.each do |stream_code| %>
+
+		<% d = ticket_handler.event %>
+		<% @stream_query.code %>
+	  <% translate = @stream_query.code %>
+		<% array = Array.new %>
+		<% bucket = ticket_handler.ticket %>
+		<% ticket_counter = 1 %>
+		<% counter2 = 0 %>
+		<% numstart = 0 %>
+<% arraycount = 0 %>
+<% numend = 4 %>
+		
+		
+		
+		<% while counter2 < bucket.length/8 %>
+		
+		<% a = bucket.slice(numstart..numend) %>
+		<% array.push(a.to_s) %>
+		<% array.uniq! %>
+		<% e = a.to_s %>
+		<% holder =  d + e %>
+		
+		<% if holder == @stream_query.code_input %>
+	  <% @found = true %>
+	<% end %>
+		
+<% if @found == true %>
+		<% @stream_queries.each do |stream_query| %>
+	<% convert_check = stream_query.code_input %>
+		<% if holder == convert_check.to_s %>
+		<% stream_query.code = stream_query.code + 1  %>
+		<% stream_query.save %>
+		<% end %>
+		<% end %>
+		
+		
+	<h2 class = "hup">We found your room</h2>
+		<% p = stream_code.redirect  %>
+		<div class = "row" align = "center">
+			<%= link_to 'Go to event',  stream_code.redirect, class: "btn btn-primary", id: "roombtn" %>
+			
+</div>
+		<% @one_run = false  %>
+	<% break %>
+	  <% end %>
+		
+		
+		<% numstart = numstart + 5 %>
+<% numend = numend + 5 %>
+<% counter2 = counter2 + 1 %>
 <% end %>
-		</body>
+		
+	
+		
+	
+		
+		
+		
+		
+		<% end %>
+		<% end %>
+		<% end %>
+
+	  	
 	</div>
+	</div>
+
+
+<% if @run_check == 1 %>
+<% if @found == false %>
+<div class="alert alert-danger" role="alert">
+  We could not find your room. Please check code and try again.
+	<% @stream_query.destroy %>
+</div>
+
+<% end %>
+<% end %>
+
+
+<% if @run_check == 0 %>
+<% if @found == false %>
+<div class="alert alert-danger" role="alert">
+  We could not find your room. Please check code and try again.
+</div>
+
+<% end %>
+<% end %>
+	
+
+<% if @run_check == 2 %>
+
+<div class="alert alert-danger" role="alert">
+  Ticket has been used too many times. Please contact support for assistance.
+
+</div>
+<% end %>
+		
+		
+		
+		
+		
+	
 	

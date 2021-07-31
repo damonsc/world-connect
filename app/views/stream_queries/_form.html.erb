@@ -17,12 +17,18 @@
 <div class="card" align = "center">
   <div class="card-body" >
 
-	  
+	
 	  <div class="mb-3">
-    <%= form.label :Enter_Ticket_Number, class:'form-label', style: "font-size:30px" %>
-    <%= form.number_field :code, class: 'form-control', style: 'width: 50%;' %>
+    <%= form.label :Enter_Ticket, class:'form-label', style: "font-size:30px" %>
+    <%= form.text_field :code_input, class: 'form-control', style: 'width: 50%;' %>
 		  </div>
+	  
+	
+    <%= form.hidden_field :code, value:0 ,  class: 'form-control', style: 'width: 50%;' %>
+		  
+    <%= form.hidden_field :ticket_date, value: DateTime.current.to_date ,class: 'form-control', style: 'width: 50%;' %>
 
+    <%= form.hidden_field :is_ticket, value: false , class: 'form-control', style: 'width: 50%;' %>
 	    
 	</div>
 </div>

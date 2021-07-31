@@ -3,22 +3,27 @@ class TicketHandlersController < ApplicationController
 
   # GET /ticket_handlers or /ticket_handlers.json
   def index
+      is_admin?
     @ticket_handlers = TicketHandler.all
   end
 
   # GET /ticket_handlers/1 or /ticket_handlers/1.json
   def show
+      $duplicate_amount = 0
+      $ticket_counter = 0
       is_admin?
       @ticket_handlers = TicketHandler.all
   end
 
   # GET /ticket_handlers/new
   def new
+      is_admin?
     @ticket_handler = TicketHandler.new
   end
 
   # GET /ticket_handlers/1/edit
   def edit
+      is_admin?
   end
 
   # POST /ticket_handlers or /ticket_handlers.json
@@ -66,7 +71,7 @@ class TicketHandlersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_handler_params
-      params.require(:ticket_handler).permit(:event, :code, :date, :amount, :is_ticket, :ticket, :run_check)
+      params.require(:ticket_handler).permit(:event, :code, :date, :amount, :is_ticket, :ticket, :run_check, :batch_amount, :backup_char)
     end
     
     def is_admin?

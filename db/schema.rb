@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_183027) do
+ActiveRecord::Schema.define(version: 2021_07_31_184508) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 2021_07_23_183027) do
     t.integer "ticket"
     t.date "ticket_date"
     t.boolean "is_ticket", default: false
+    t.string "code_input"
+    t.string "string"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -147,6 +149,8 @@ ActiveRecord::Schema.define(version: 2021_07_23_183027) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "ticket"
     t.boolean "run_check", default: true
+    t.integer "batch_amount"
+    t.string "backup_char"
   end
 
   create_table "updates", force: :cascade do |t|

@@ -1,60 +1,158 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<%= link_to 'Edit', edit_ticket_handler_path(@ticket_handler) %> |
+<%= link_to 'Back', ticket_handlers_path %>
+
+<% if @ticket_handler.backup_char == nil %>
+<% @ticket_handler.backup_char = ('a'..'z').to_a.sample(4).join %>
+<% @ticket_handler.save %>
+<% end %>
+<% @back_up = @ticket_handler.backup_char %>
+<% @real_counter = 0 %>
+<% @batch_amount = 0 %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event:</strong>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p style = "font-size: 18px;">
+  <strong>Event ID:</strong>
   <%= @ticket_handler.event %>
 </p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @ticket_handler.code %>
-</p>
-
-<p>
-  <strong>Date:</strong>
+    </div>
+    <div class="col">
+      <p style = "font-size: 18px;">
+  <strong>Event Date:</strong>
   <%= @ticket_handler.date %>
 </p>
-
-<p>
+    </div>
+    <div class="col">
+         <p style = "font-size: 18px;">
+  <strong>Event Time:</strong>
+  <%= @ticket_handler.date %>
+</p>
+    </div>
+	  <div class="col">
+         <p style = "font-size: 18px;">
   <strong>Amount:</strong>
   <%= @ticket_handler.amount %>
 </p>
-
-<p>
-  <strong>Is ticket:</strong>
-  <%= @ticket_handler.is_ticket %>
+    </div>
+	  <div class="col">
+         <p style = "font-size: 18px;">
+  <strong>Batch Amount:</strong>
+  <%= @ticket_handler.batch_amount %>
 </p>
-
-<p>
-  <strong>tickets:</strong>
-  <%= @ticket_handler.ticket %>
-</p>
-
+    </div>
+  </div>
+</div>
+<br>
 
 
 
 
+
+
+
+<% b = @ticket_handler.ticket %>
 
 <% if @ticket_handler.run_check == true %>
 <% amount = @ticket_handler.amount %>
 <% counter = 0 %>
 <% number = 0 %>
+<% number2 = 0 %>
 <% ticket = @ticket_handler.ticket %>
+<% @ticket_counter = 0 %>
 
-<% ticket = Array.new() %>
 
 
 <% while counter < amount %>
-<% event = @ticket_handler.event %>
-<% number = @ticket_handler.code * rand(10000) %>
-<% ticket.push(number) %>
-<% @ticket_handler.ticket = ticket %>
+<% number = @ticket_handler.code * rand(1000000..9000000) %>
+
+<% change = number.to_s[0..99999] %>
+
+<% @ticket_handler.ticket = @ticket_handler.ticket + change %>
 <% counter = counter + 1 %>
 <% end %>
 
 <% @ticket_handler.run_check = false %>
 <% @ticket_handler.ticket %>
-<%  @ticket_handler.save %>
+
 <% end %>
-<%= link_to 'Edit', edit_ticket_handler_path(@ticket_handler) %> |
-<%= link_to 'Back', ticket_handlers_path %>
+
+
+<div class="container">
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+<% d = @ticket_handler.event %>
+
+<% duplicate = 0 %>
+<% counter2 = 0 %>
+<% numstart = 0 %>
+<% arraycount = 0 %>
+<% numend = 4 %>
+<% array = Array.new %>
+
+<% c = @ticket_handler.ticket %>
+<% ticket_counter = 1 %>
+		
+<% while counter2 < c.length/8 %>
+<% a = c.slice(numstart..numend) %>
+		
+<% array.push(a) %>
+		
+		
+
+	
+ 
+
+<% numstart = numstart + 5 %>
+<% numend = numend + 5 %>
+<% counter2 = counter2 + 1 %>
+
+<% end %>
+		<% array.uniq! %>
+		<% @ticket_handler.batch_amount = array.size %>
+		<% @ticket_handler.save %>
+		
+		
+		<% real_counter = 1 %>
+<% temp = @ticket_handler.amount * 5%>
+<% @duplicate_amount = duplicate %>
+
+<% while arraycount < array.length %>
+<% code_keeper = array[arraycount] %>
+<% code_keeper.to_s  %>
+
+<div class="col">
+      <div class="p-3 border bg-light"><p style = "font-size: 14px;">ticket#<%= real_counter %></p>
+		  <p style = "font-size: 18px;"><%= w = d + code_keeper.to_s  %></p>
+	<p style = "font-size: 8px;">bp-code: <%= @back_up %></p>
+	
+	</div>
+		<% ticket_counter = ticket_counter + 1 %>
+	  </div>
+
+
+
+<% arraycount = arraycount + 1 %>
+<% real_counter = real_counter + 1 %>
+
+<% end %>
+		
+		 </div>
+</div>
+
+
+
+
+
+
+
+

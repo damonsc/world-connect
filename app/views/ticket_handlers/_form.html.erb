@@ -16,9 +16,15 @@
     <%= form.text_field :event %>
   </div>
 
+<% if ticket_handler.backup_char != nil %>
+<div class="field">
+    <%= form.label :backup_code %>
+    <%= form.text_field :backup_char,readonly:true  %>
+  </div>
+<% end %>
+
   <div class="field">
-    <%= form.label :code %>
-    <%= form.number_field :code %>
+    <%= form.hidden_field :code, value:10 %>
   </div>
 
   <div class="field">
@@ -31,50 +37,24 @@
     <%= form.number_field :amount %>
   </div>
 
-  <div class="field">
-    <%= form.hidden_field :is_ticket %>
-  </div>
+
 
 <div class="field">
-    <%= form.label :ticket %>
-    <%= form.text_area :ticket %>
-  </div>
-
-
-
-<% count = 0 %>
-<% array = new(ticket_handler.amount) %>
-
-<div class="container">
-<table class="table table-hover table-responsive-md">
-<thead>
-    <tr>
-     <th scope="col">#</th>
-    <th scope="col">Ticket</th>
-  
-    </tr>
-  </thead>
-	
-<% @tickets = TicketHandler.all.order(:ticket) %>
-	<% c =  ticket_handler.ticket %>
-<% @tickets.each do |ticket_handler| %>
-
-	 <tbody>
-    <tr>
-		
-     <th scope="row"><%= count%></th> 
-		<th scope="row"><%= @tickets.pop(count) %></th> 
-
- 
-    </tr>
-
-  </tbody>
-	
-	<% count = count + 1 %>
-<% end %>
-
-	</table>
+	 <%= form.label :Batch_Amount %>
+<%= form.number_field :batch_amount, readonly:true %>
 </div>
+ 
+    <%= form.hidden_field :is_ticket,  value: true %>
+  
+
+
+    <%= form.hidden_field :ticket %>
+
+
+
+
+
+
 	
 	
   <div class="actions">

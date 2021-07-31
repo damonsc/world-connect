@@ -8,27 +8,53 @@
 	 
     <% @stream_queries.each do |stream_query| %>
 	  
-      
-	   <% @code.each do |stream_code| %>
+     <% input = stream_query.code_input %>
 	  
-	  <% if stream_code.code == stream_query.code %>
-	  <% found = true %>
+	 
+	
+	<% if input.length <= 5 %>
+<% stream_query.destroy %>
+	<p>Destroyed</p>
 	  <% end %>
 	  
-	  
-	  <% if found == true %>
-	  <P>found code</P>
-<% stream_query.destroy %>
-<% stream_query.save %>
-	  <% else %>
-	  <p>not found</p>
-<% stream_query.destroy %>
-<% stream_query.save %>
-	  <% end %>
-	  
+
+<% end %>
+
+
+
+</body>
+
+<br>
+<%= link_to 'New Stream Query', new_stream_query_path %>
+
+
+<% if current_user.admin %>
+
+
+<table class="table">
+  <thead>
+    <tr>
+		
+		 <th>Used Codes</th>
+		<th># of attempts</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stream_queries.each do |stream_query| %>
+      <tr>
+		  <% if stream_query.code > 2 %>
+
+		  <td><%= stream_query.code_input %></td>
+		  <td><%= stream_query.code %></td>
+        <td><%= link_to 'Edit', edit_stream_query_path(stream_query) %></td>
+        <td><%= link_to 'Reset', stream_query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
 <% end %>
-  </body>
+  </tbody>
+</table>
 
 
-<%= link_to 'New Stream Query', new_stream_query_path %>
+<% end %>

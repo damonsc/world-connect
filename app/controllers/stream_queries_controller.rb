@@ -14,6 +14,7 @@ rescue_from ActiveRecord::RecordNotFound, with:
   # GET /stream_queries/1 or /stream_queries/1.json
   def show
       
+      @ticket_handlers = TicketHandler.all
       @stream_codes = StreamCode.all
     @stream_queries = StreamQuery.all
       
@@ -81,7 +82,7 @@ rescue_from ActiveRecord::RecordNotFound, with:
 
     # Only allow a list of trusted parameters through.
     def stream_query_params
-      params.require(:stream_query).permit(:code, :ticket, :date, :is_ticket)
+      params.require(:stream_query).permit(:code, :ticket, :ticket_date, :is_ticket, :code_input)
     end
     
     
