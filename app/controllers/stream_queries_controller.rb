@@ -30,7 +30,7 @@ rescue_from ActiveRecord::RecordNotFound, with:
   end
   
   rescue_from ActiveRecord::RecordNotFound do |exception|
-      redirect_to stream_queries_path
+      redirect_to new_stream_queries_path
     end
   
 
