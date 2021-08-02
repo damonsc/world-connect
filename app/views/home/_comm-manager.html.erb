@@ -25,7 +25,7 @@
 
 
 		   <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to home_poc_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/phone-contact.png")%>
 					 <h4><%= link_to 'Person Of Contact', home_poc_path %></h4>
@@ -36,7 +36,7 @@
 				</div>
 		 <% if current_user.member == false %>
 		 <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to new_task_path do %>
                        <%= image_tag ( "https://img.icons8.com/plasticine/80/000000/tasks.png")%>
 					 <h4><%= link_to 'Create a new website/software update', new_task_path %></h4>
@@ -47,7 +47,7 @@
 				</div>
 		 
 		 <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to status_tasks_path do %>
                        <%= image_tag ( "https://img.icons8.com/carbon-copy/80/000000/serial-tasks.png")%>
 					 <h4><%= link_to 'Check Requests', status_tasks_path %></h4>
@@ -65,7 +65,7 @@
 		 
 		  <% if current_user.pc_client == true %>
 		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
+                      <div align = "center" class="div-square">
                            <a href="https://purecode-035.my.webex.com/meet/streaming" >
 <img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">
 							   <h4>Meeting Room</h4>
@@ -90,7 +90,7 @@
 		   <% c = link.title %>
 		   
 		 <div class="col-sm-2 pt-2 pb-2">
-					                       <div class="div-square">
+					                       <div align = "center" class="div-square">
 					                            <a href= "<%= a %>" >
 					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
 					                       </a>
@@ -115,7 +115,7 @@
 		   <% c = link.title %>
 		   
 		 <div class="col-sm-2 pt-2 pb-2">
-					                       <div class="div-square">
+					                       <div align = "center" class="div-square">
 					                            <a href= "<%= a %>" >
 					 <img src= "<%= b %>" >                      <h4><%= c %></h4>
 					                       </a>
@@ -146,7 +146,7 @@
 
 		   <% if current_user.admin == true %>
 		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
+                      <div align = "center" class="div-square">
                            <a href="https://purecode-035.my.webex.com/meet/streaming" >
 <img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-purecode</h4>
                       </a>
@@ -156,7 +156,7 @@
                   </div>
 
 		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
+                      <div align = "center" class="div-square">
                            <a href="https://www.gotomeet.me/DamonScott1/scotts-scholastic-learning-agency" >
 <img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-ssla</h4>
                       </a>
@@ -167,7 +167,7 @@
 
 
 		   <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to home_adminnotes_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
 					 <% end %>
@@ -185,7 +185,7 @@
            
            <% if current_user.exec == true %>
 		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
+                      <div align = "center" class="div-square">
                            <a href="https://purecode-035.my.webex.com/meet/streaming" >
 <img src="https://img.icons8.com/plasticine/80/000000/meeting-room.png">                 <h4>Meeting Room-purecode</h4>
                       </a>
@@ -196,7 +196,7 @@
 
 
 		   <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to home_adminnotes_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
 					 <% end %>
@@ -214,7 +214,7 @@
 		 
 		  <% if current_user.member == true %>
 		   <div class="col-sm-2 pt-2 pb-2">
-                      <div class="div-square">
+                      <div align = "center" class="div-square">
                            <a href="https://www.constantcontact.com" >
 <img src="https://img.icons8.com/bubbles/80/000000/mailchimp.png"/>                 <h4>Email Campaign</h4>
                       </a>
@@ -235,7 +235,7 @@
                   </div>
 		 
 		 <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to new_payment_path do %>
                        <%= image_tag ( "https://img.icons8.com/officel/80/000000/overview-pages-3.png")%>
 					 <% end %>
@@ -249,7 +249,7 @@
 		 
 		 
 		 <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to new_link_path do %>
                        <%= image_tag ( "https://img.icons8.com/pastel-glyph/80/000000/hyperlink--v2.png")%>
 					 <% end %>
@@ -263,7 +263,7 @@
 		 
 		 
 		  <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to links_path do %>
                        <%= image_tag ( "https://img.icons8.com/pastel-glyph/80/000000/hyperlink--v2.png")%>
 					 <% end %>
@@ -277,7 +277,7 @@
 		 
 		 
 		 <div class="col-sm-2 pt-2 pb-2">
-				 <div class="div-square">
+				 <div align = "center" class="div-square">
 					<%= link_to clientCodeLinks_links_path do %>
                        <%= image_tag ( "https://img.icons8.com/pastel-glyph/80/000000/hyperlink--v2.png")%>
 					 <% end %>
