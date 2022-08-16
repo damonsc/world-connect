@@ -10,23 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_184508) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_07_31_184508) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "locked_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "first_name"
     t.text "last_name"
     t.text "phone_number"
@@ -37,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
   create_table "client_codes", force: :cascade do |t|
     t.string "client"
     t.integer "code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "clients", force: :cascade do |t|
@@ -46,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.text "name"
     t.text "email"
     t.text "phone"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "password"
     t.text "uname"
   end
@@ -55,24 +54,24 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
   create_table "connect_codes", force: :cascade do |t|
     t.integer "code"
     t.string "assigned"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "assigned_username"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "links", force: :cascade do |t|
     t.string "content_link"
     t.string "image_link"
     t.integer "content_code_matcher"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "location"
     t.string "title"
     t.integer "client_code_matcher"
@@ -83,8 +82,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.time "time_of_sesion"
     t.string "details"
     t.integer "reference_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "client_code"
     t.string "iname"
   end
@@ -94,8 +93,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.text "amount"
     t.date "date"
     t.integer "reference_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "client_code"
     t.string "iname"
   end
@@ -103,8 +102,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
   create_table "stream_codes", force: :cascade do |t|
     t.integer "code"
     t.string "redirect"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "ticket"
     t.date "ticket_date"
     t.boolean "is_ticket", default: false
@@ -112,8 +111,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
 
   create_table "stream_queries", force: :cascade do |t|
     t.integer "code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "ticket"
     t.date "ticket_date"
     t.boolean "is_ticket", default: false
@@ -125,15 +124,14 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.string "description"
     t.string "status"
     t.boolean "complete"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "task_id"
     t.integer "user_id"
     t.string "note"
     t.integer "code"
     t.integer "client_code"
     t.boolean "client_submit", default: false
-    t.string "title"
     t.string "brief"
     t.index ["task_id"], name: "index_tasks_on_task_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
@@ -145,8 +143,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.date "date"
     t.integer "amount"
     t.boolean "is_ticket", default: true
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "ticket"
     t.boolean "run_check", default: true
     t.integer "batch_amount"
@@ -157,9 +155,9 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.string "title"
     t.text "status"
     t.text "creater"
-    t.datetime "time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "time", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "admin_id"
     t.integer "reference_code"
@@ -170,8 +168,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
   create_table "uploads", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "intended_user"
     t.integer "admin_id"
@@ -185,10 +183,10 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.text "roles"
     t.boolean "ssla_client", default: false
@@ -200,8 +198,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.text "contact_email"
     t.integer "content_code"
     t.integer "client_code"
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.integer "sign_in_count"
@@ -216,8 +214,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_184508) do
     t.string "name"
     t.string "url"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "reference_code"
     t.integer "admin_id"
