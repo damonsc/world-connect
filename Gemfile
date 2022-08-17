@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'psych', '< 4'
 
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 
 gem 'bootstrap_form'
 gem 'sendgrid-ruby'
