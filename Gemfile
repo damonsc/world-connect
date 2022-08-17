@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'psych', '~> 3.1'
+
 
 gem 'bootstrap_form'
 gem 'sendgrid-ruby'
@@ -45,6 +45,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
+em 'psych', '~> 3.1'
 end
 
 group :development do
@@ -67,4 +68,5 @@ group :production do
 gem 'pg'
 gem 'rails_12factor'
 ruby '3.1.2'
+gem 'psych', '~> 4.0'
 end
