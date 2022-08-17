@@ -110,6 +110,7 @@ GEM
       responders
       warden (~> 1.2.3)
     devise_roles (0.1.8)
+    digest (3.1.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -139,6 +140,20 @@ GEM
     mini_mime (1.0.3)
     minitest (5.16.3)
     msgpack (1.5.4)
+    net-imap (0.2.3)
+      digest
+      net-protocol
+      strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
+    net-protocol (0.1.3)
+      timeout
+    net-smtp (0.3.1)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
@@ -237,8 +252,10 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.4)
     ssrf_filter (1.0.8)
+    strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
+    timeout (0.3.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -284,6 +301,9 @@ DEPENDENCIES
   devise_roles
   dotenv-rails
   jbuilder (~> 2.7)
+  net-imap
+  net-pop
+  net-smtp
   pg
   pretender
   psych (< 4)
